@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.9" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <NonVisualComponents>
+    <Container class="javax.swing.JPopupMenu" name="jPopupMenu1">
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
+        <Property name="useNullLayout" type="boolean" value="true"/>
+      </Layout>
+    </Container>
+    <Container class="javax.swing.JMenu" name="jMenu3">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jMenu3"/>
+      </Properties>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
+        <Property name="useNullLayout" type="boolean" value="true"/>
+      </Layout>
+    </Container>
+    <Menu class="javax.swing.JMenuBar" name="startmenue">
+      <SubComponents>
+        <Menu class="javax.swing.JMenu" name="partymenue">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Party"/>
+          </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="partyerstellen">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Party erstellen"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="partyanzeigen">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Party anzeigen"/>
+              </Properties>
+            </MenuItem>
+          </SubComponents>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="gaestebuchmenue">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="G&#xe4;stebuch"/>
+            <Property name="actionCommand" type="java.lang.String" value="Gaestebuch"/>
+          </Properties>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="warenlistemenue">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Warenliste"/>
+          </Properties>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="tipps">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Tipps"/>
+          </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="kinderparty">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Kinderparty"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="couchparty">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Couchparty"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="tanzparty">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Tanzparty"/>
+              </Properties>
+            </MenuItem>
+          </SubComponents>
+        </Menu>
+      </SubComponents>
+    </Menu>
+  </NonVisualComponents>
+  <Properties>
+    <Property name="defaultCloseOperation" type="int" value="3"/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="menuBar" type="java.lang.String" value="startmenue"/>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+  </SyntheticProperties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jLayeredPane1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="287" max="32767" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jLayeredPane1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="71" max="32767" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Container class="javax.swing.JLayeredPane" name="jLayeredPane1">
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="anmerkung" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="anermkungeintragen" min="-2" pref="190" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="partyname" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="32767" attributes="0"/>
+                                          <Component id="partynameeintragen" linkSize="1" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="partydatum" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="32767" attributes="0"/>
+                                          <Component id="partydatumeintragen" linkSize="1" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="gaesteanzahl" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="gaesteanzahleintragen" linkSize="1" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="budget" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="32767" attributes="0"/>
+                                          <Component id="partybudget" linkSize="1" min="-2" pref="87" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="raumbedarfberechnung" linkSize="2" min="-2" max="-2" attributes="0"/>
+                                              <Component id="einkaufslisteerstellen" linkSize="2" min="-2" max="-2" attributes="0"/>
+                                              <Component id="gaestelisteerstellen" linkSize="2" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="raumbedarf" min="-2" pref="44" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="97" max="-2" attributes="0"/>
+                          <Component id="partyabbrechen" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="partyspeichern" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="errorLabel" min="-2" pref="377" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace pref="88" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="partyname" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="partynameeintragen" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="gaestelisteerstellen" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="partydatum" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="partydatumeintragen" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="einkaufslisteerstellen" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="gaesteanzahl" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="gaesteanzahleintragen" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="raumbedarfberechnung" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="budget" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="partybudget" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="raumbedarf" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="anmerkung" min="-2" max="-2" attributes="0"/>
+                      <Component id="anermkungeintragen" min="-2" pref="104" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="partyabbrechen" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="partyspeichern" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="errorLabel" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="100" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JLabel" name="partyname">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Name"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="partydatum">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Datum"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="gaesteanzahl">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="G&#xe4;steanzahl"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="budget">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Budget"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="anmerkung">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Anmerkung"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="partynameeintragen">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="partynameeintragenActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="partydatumeintragen">
+        </Component>
+        <Component class="javax.swing.JTextField" name="gaesteanzahleintragen">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="gaesteanzahleintragenActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="partybudget">
+        </Component>
+        <Component class="javax.swing.JTextField" name="anermkungeintragen">
+        </Component>
+        <Component class="javax.swing.JToggleButton" name="gaestelisteerstellen">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="G&#xe4;steliste erstellen"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="gaestelisteerstellenActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JToggleButton" name="einkaufslisteerstellen">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Einkaufsliste erstellen"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="einkaufslisteerstellenActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JToggleButton" name="raumbedarfberechnung">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Raumbedarf berechnen"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="raumbedarfberechnungActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="raumbedarf">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="qm"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="raumbedarfActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JToggleButton" name="partyabbrechen">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="abbrechen"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="partyabbrechenActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JToggleButton" name="partyspeichern">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="speichern"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="errorLabel">
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
+        </Component>
+      </SubComponents>
+    </Container>
+  </SubComponents>
+</Form>
