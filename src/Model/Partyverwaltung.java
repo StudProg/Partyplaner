@@ -45,7 +45,7 @@ public class Partyverwaltung {
             throw new PartyExestiertBereitsException(name);
         Party party = new Party(name, budget, datum, partyTyp);
         partyListe.add(party);
-        //dbschnittstelle.partySpeichern(party);
+        datenbank.partyEinfügen(party);
     }
     
     /**

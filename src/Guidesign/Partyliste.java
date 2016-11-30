@@ -49,6 +49,11 @@ public class Partyliste extends javax.swing.JDialog {
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
+        partylist.addContainerListener(new java.awt.event.ContainerAdapter() {
+            public void componentAdded(java.awt.event.ContainerEvent evt) {
+                partylistComponentAdded(evt);
+            }
+        });
         jScrollPane1.setViewportView(partylist);
 
         partyanzeigen.setText("Party anzeigen");
@@ -95,6 +100,11 @@ public class Partyliste extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void partylistComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_partylistComponentAdded
+       Partyliste pl = new Partyliste();
+       pl.setVisible(true);
+    }//GEN-LAST:event_partylistComponentAdded
 
     /**
      * @param args the command line arguments

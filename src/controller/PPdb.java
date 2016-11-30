@@ -1,3 +1,5 @@
+
+
 package controller;
 
 
@@ -35,6 +37,7 @@ public class PPdb {
             // Library erforderlich.
             Class.forName("org.hsqldb.jdbc.JDBCDriver");
         } catch (ClassNotFoundException e) {
+            System.out.println("Fehler!!!");
             return;
         }
 
@@ -47,7 +50,7 @@ public class PPdb {
         }
     }
 
-    public void wareEinfügen(String warenName, double preis, String menge, double alkoholgehalt) throws SQLException {
+    public void wareHinzufügen(String warenName, double preis, String menge, double alkoholgehalt) throws SQLException {
         int index = 0;
         try {
             Statement stmt = con.createStatement();
@@ -126,9 +129,8 @@ public class PPdb {
             ResultSet r = stmt.executeQuery("SELECT * FROM Party");
 
             while (r.next()) {
-                if (r.getInt(1) > index) {
-                }
-                index = r.getInt(1);
+              
+              index = r.getInt(1);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -137,7 +139,7 @@ public class PPdb {
         try {
             String sql = "INSERT INTO Party VALUES (?, ?, ?, ?, ?, ?)";
             PreparedStatement prep = con.prepareStatement(sql);
-            prep.setInt(1, index);
+            prep.setInt(1, index+1);
             prep.setString(2, party.getName());
             prep.setDouble(3, party.getBudget());
             prep.setInt(4, party.getRaumbedarf());

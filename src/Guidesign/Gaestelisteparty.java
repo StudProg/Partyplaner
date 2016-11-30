@@ -9,12 +9,12 @@ package Guidesign;
  *
  * @author Miri
  */
-public class Warenliste extends javax.swing.JDialog {
+public class Gaestelisteparty extends javax.swing.JDialog {
 
     /**
      * Creates new form Gästeliste
      */
-    public Warenliste() {
+    public Gaestelisteparty() {
         initComponents();
     }
 
@@ -28,40 +28,37 @@ public class Warenliste extends javax.swing.JDialog {
     private void initComponents() {
 
         jToggleButton3 = new javax.swing.JToggleButton();
-        warehinzufuegen = new javax.swing.JToggleButton();
-        wareentfernen = new javax.swing.JToggleButton();
+        gasthinzufügengb = new javax.swing.JToggleButton();
+        gastentfernen = new javax.swing.JToggleButton();
         jScrollBar1 = new javax.swing.JScrollBar();
         jScrollPane1 = new javax.swing.JScrollPane();
-        warenlist = new javax.swing.JList<>();
-        warenliste = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        gaestelist = new javax.swing.JList<>();
+        gaesteliste = new javax.swing.JLabel();
 
         jToggleButton3.setText("jToggleButton3");
 
-        warehinzufuegen.setText("Ware hinzufügen");
-        warehinzufuegen.addActionListener(new java.awt.event.ActionListener() {
+        gasthinzufügengb.setText("Gast hinzufügen");
+        gasthinzufügengb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                warehinzufuegenActionPerformed(evt);
+                gasthinzufügengbActionPerformed(evt);
             }
         });
 
-        wareentfernen.setText("Ware entfernen");
-        wareentfernen.addActionListener(new java.awt.event.ActionListener() {
+        gastentfernen.setText("Gast entfernen");
+        gastentfernen.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                wareentfernenActionPerformed(evt);
+                gastentfernenActionPerformed(evt);
             }
         });
 
-        warenlist.setModel(new javax.swing.AbstractListModel<String>() {
+        gaestelist.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane1.setViewportView(warenlist);
+        jScrollPane1.setViewportView(gaestelist);
 
-        warenliste.setText("Warenliste");
-
-        jLabel2.setText("Wie wird hier die warenliste angezeigt und wie kann man die einzelnen Items anwählen?");
+        gaesteliste.setText("Gästeliste");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -74,53 +71,45 @@ public class Warenliste extends javax.swing.JDialog {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(24, 24, 24)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jScrollBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(warehinzufuegen)
-                                .addGap(129, 129, 129)
-                                .addComponent(wareentfernen))))
+                                .addComponent(gasthinzufügengb)
+                                .addGap(34, 34, 34)
+                                .addComponent(gastentfernen))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(141, 141, 141)
-                        .addComponent(warenliste)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(gaesteliste)))
+                .addGap(290, 290, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(6, 6, 6)
-                .addComponent(warenliste)
+                .addComponent(gaesteliste)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 209, Short.MAX_VALUE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(warehinzufuegen)
-                            .addComponent(wareentfernen))
-                        .addGap(19, 19, 19))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(82, 82, 82)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addComponent(jScrollBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 209, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(gasthinzufügengb)
+                    .addComponent(gastentfernen))
+                .addGap(19, 19, 19))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void warehinzufuegenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_warehinzufuegenActionPerformed
-        Warehinzufügen wh = new Warehinzufügen ();
-        wh.setVisible(true);
-    }//GEN-LAST:event_warehinzufuegenActionPerformed
-
-    private void wareentfernenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wareentfernenActionPerformed
+    private void gasthinzufügengbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gasthinzufügengbActionPerformed
         // TODO add your handling code here:
-        //Ware entfernen
-    }//GEN-LAST:event_wareentfernenActionPerformed
+        //Gast hinzufügen!
+    }//GEN-LAST:event_gasthinzufügengbActionPerformed
+
+    private void gastentfernenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gastentfernenActionPerformed
+        // TODO add your handling code here:
+        //Gast entfernen
+    }//GEN-LAST:event_gastentfernenActionPerformed
 
     /**
      * @param args the command line arguments
@@ -139,14 +128,18 @@ public class Warenliste extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Warenliste.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Gaestelisteparty.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Warenliste.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Gaestelisteparty.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Warenliste.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Gaestelisteparty.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Warenliste.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Gaestelisteparty.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -155,19 +148,18 @@ public class Warenliste extends javax.swing.JDialog {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Warenliste().setVisible(true);
+                new Gaestelisteparty().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JList<String> gaestelist;
+    private javax.swing.JLabel gaesteliste;
+    private javax.swing.JToggleButton gastentfernen;
+    private javax.swing.JToggleButton gasthinzufügengb;
     private javax.swing.JScrollBar jScrollBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JToggleButton jToggleButton3;
-    private javax.swing.JToggleButton wareentfernen;
-    private javax.swing.JToggleButton warehinzufuegen;
-    private javax.swing.JList<String> warenlist;
-    private javax.swing.JLabel warenliste;
     // End of variables declaration//GEN-END:variables
 }

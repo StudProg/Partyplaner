@@ -55,7 +55,7 @@ public class Controller implements ActionListener {
             gaestebuch.setVisible(true);
             gaestebuch.setAlwaysOnTop(true);
             gaestebuch.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        } else if (e.getActionCommand().equals("speicher")) {
+        } else if (e.getActionCommand().equals("speichern")) {
             System.out.println("Speichern triggered");
             String name = gui.getPartynameeintragen().getText();
             String datum = gui.getPartydatumeintragen().getText();
@@ -107,7 +107,7 @@ public class Controller implements ActionListener {
                 model.partyverwaltung.party_erstellen(name, partyBudget, 
                     gregorianDatum, Partytyp.TANZPARTY); //TODO: Partytype auswählbar machen
             } catch (PartyExestiertBereitsException exception) {
-                gui.errorLabel.setText("Dieser Partyname exestiert bereits.");
+                gui.errorLabel.setText("Dieser Partyname existiert bereits.");
                 gui.errorLabel.setForeground(Color.red);
                 return;
             }

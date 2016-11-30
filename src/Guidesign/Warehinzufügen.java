@@ -33,7 +33,7 @@ public class Warehinzufügen extends javax.swing.JDialog {
         warenname = new javax.swing.JLabel();
         preis = new javax.swing.JLabel();
         volumenmenge = new javax.swing.JLabel();
-        warehinzufuegen = new javax.swing.JToggleButton();
+        wareHinzufügen = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -55,7 +55,7 @@ public class Warehinzufügen extends javax.swing.JDialog {
 
         volumenmenge.setText("Volumen/Menge");
 
-        warehinzufuegen.setText("Ware hinzufügen");
+        wareHinzufügen.setText("Ware hinzufügen");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -76,7 +76,7 @@ public class Warehinzufügen extends javax.swing.JDialog {
                 .addContainerGap(205, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(261, Short.MAX_VALUE)
-                .addComponent(warehinzufuegen)
+                .addComponent(wareHinzufügen)
                 .addGap(24, 24, 24))
         );
         layout.setVerticalGroup(
@@ -95,7 +95,7 @@ public class Warehinzufügen extends javax.swing.JDialog {
                     .addComponent(preis)
                     .addComponent(preiseintragen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 106, Short.MAX_VALUE)
-                .addComponent(warehinzufuegen)
+                .addComponent(wareHinzufügen)
                 .addGap(22, 22, 22))
         );
 
@@ -150,7 +150,7 @@ public class Warehinzufügen extends javax.swing.JDialog {
     private javax.swing.JTextField preiseintragen;
     private javax.swing.JLabel volumenmenge;
     private javax.swing.JTextField volumenmengeeintragen;
-    private javax.swing.JToggleButton warehinzufuegen;
+    private javax.swing.JToggleButton wareHinzufügen;
     private javax.swing.JLabel warenname;
     private javax.swing.JTextField warennameeintragen;
     // End of variables declaration//GEN-END:variables

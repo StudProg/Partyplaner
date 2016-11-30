@@ -24,14 +24,14 @@
             <Property name="text" type="java.lang.String" value="Party"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="partyerstellen">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Party erstellen"/>
-              </Properties>
-            </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="partyanzeigen">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Party anzeigen"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="partyerstellen">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Party erstellen"/>
               </Properties>
             </MenuItem>
           </SubComponents>
@@ -41,11 +41,17 @@
             <Property name="text" type="java.lang.String" value="G&#xe4;stebuch"/>
             <Property name="actionCommand" type="java.lang.String" value="Gaestebuch"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="gaestebuchmenueActionPerformed"/>
+          </Events>
         </Menu>
         <Menu class="javax.swing.JMenu" name="warenlistemenue">
           <Properties>
             <Property name="text" type="java.lang.String" value="Warenliste"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="warenlistemenueActionPerformed"/>
+          </Events>
         </Menu>
         <Menu class="javax.swing.JMenu" name="tipps">
           <Properties>
@@ -56,16 +62,25 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Kinderparty"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="kinderpartyActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="couchparty">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Couchparty"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="couchpartyActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="tanzparty">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Tanzparty"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tanzpartyActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
@@ -173,7 +188,7 @@
                           <EmptySpace min="-2" pref="97" max="-2" attributes="0"/>
                           <Component id="partyabbrechen" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="partyspeichern" min="-2" max="-2" attributes="0"/>
+                          <Component id="partyEinfügen" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
@@ -219,7 +234,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="partyabbrechen" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="partyspeichern" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="partyEinfügen" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="errorLabel" min="-2" max="-2" attributes="0"/>
@@ -255,15 +270,12 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="partynameeintragen">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="partynameeintragenActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="partydatumeintragen">
         </Component>
         <Component class="javax.swing.JTextField" name="gaesteanzahleintragen">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="gaesteanzahleintragenActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="gaesteanzahlintragenActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="partybudget">
@@ -310,10 +322,13 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="partyabbrechenActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JToggleButton" name="partyspeichern">
+        <Component class="javax.swing.JToggleButton" name="partyEinf&#xfc;gen">
           <Properties>
             <Property name="text" type="java.lang.String" value="speichern"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="partyEinf&#xfc;genActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="errorLabel">
           <AuxValues>

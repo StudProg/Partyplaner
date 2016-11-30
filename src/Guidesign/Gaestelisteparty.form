@@ -34,24 +34,22 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jScrollPane1" min="-2" pref="294" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="jScrollBar1" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-                              <Component id="jLabel2" min="-2" pref="260" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="warehinzufuegen" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="129" max="-2" attributes="0"/>
-                              <Component id="wareentfernen" min="-2" max="-2" attributes="0"/>
+                              <Component id="gasthinzufügengb" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                              <Component id="gastentfernen" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="141" max="-2" attributes="0"/>
-                      <Component id="warenliste" min="-2" max="-2" attributes="0"/>
+                      <Component id="gaesteliste" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace min="258" max="32767" attributes="0"/>
+              <EmptySpace min="538" pref="290" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -59,46 +57,37 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
-              <Component id="warenliste" min="-2" max="-2" attributes="0"/>
+              <Component id="gaesteliste" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jScrollBar1" max="32767" attributes="0"/>
-                          <Component id="jScrollPane1" pref="209" max="32767" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="warehinzufuegen" min="-2" max="-2" attributes="0"/>
-                          <Component id="wareentfernen" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
-                      <Component id="jLabel2" min="-2" pref="72" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                  </Group>
+                  <Component id="jScrollBar1" max="32767" attributes="0"/>
+                  <Component id="jScrollPane1" pref="209" max="32767" attributes="0"/>
               </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="gasthinzufügengb" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="gastentfernen" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JToggleButton" name="warehinzufuegen">
+    <Component class="javax.swing.JToggleButton" name="gasthinzuf&#xfc;gengb">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Ware hinzuf&#xfc;gen"/>
+        <Property name="text" type="java.lang.String" value="Gast hinzuf&#xfc;gen"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="warehinzufuegenActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="gasthinzuf&#xfc;gengbActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JToggleButton" name="wareentfernen">
+    <Component class="javax.swing.JToggleButton" name="gastentfernen">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Ware entfernen"/>
+        <Property name="text" type="java.lang.String" value="Gast entfernen"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="wareentfernenActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="gastentfernenActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JScrollBar" name="jScrollBar1">
@@ -110,7 +99,7 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JList" name="warenlist">
+        <Component class="javax.swing.JList" name="gaestelist">
           <Properties>
             <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
               <StringArray count="5">
@@ -128,14 +117,9 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JLabel" name="warenliste">
+    <Component class="javax.swing.JLabel" name="gaesteliste">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Warenliste"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabel2">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Wie wird hier die warenliste angezeigt und wie kann man die einzelnen Items anw&#xe4;hlen?"/>
+        <Property name="text" type="java.lang.String" value="G&#xe4;steliste"/>
       </Properties>
     </Component>
   </SubComponents>
