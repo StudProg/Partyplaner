@@ -125,13 +125,13 @@ public class Gästebuch extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void gasthinzufügengbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gasthinzufügengbActionPerformed
-        // TODO add your handling code here:
-        //Gast hinzufügen!
+        Gasthinzufügen ng= new Gasthinzufügen();
+        ng.setVisible(true);
     }//GEN-LAST:event_gasthinzufügengbActionPerformed
 
     private void gastbearbeitenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gastbearbeitenActionPerformed
-        // TODO add your handling code here:
-        //Gast bearbeiten
+        Gast gg = new Gast();
+        gg.setVisible(true);
     }//GEN-LAST:event_gastbearbeitenActionPerformed
 
     private void gastentfernenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gastentfernenActionPerformed
@@ -164,6 +164,34 @@ public class Gästebuch extends javax.swing.JDialog {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Gästebuch.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>

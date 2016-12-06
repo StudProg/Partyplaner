@@ -134,7 +134,7 @@ public class Controller implements ActionListener {
                 model.partyverwaltung.party_erstellen(name, partyBudget, 
                     gregorianDatum, Partytyp.TANZPARTY); //TODO: Partytype auswählbar machen
             } catch (PartyExestiertBereitsException exception) {
-                gui.errorLabel.setText("Dieser Partyname exestiert bereits.");
+                gui.errorLabel.setText("Dieser Partyname existiert bereits.");
                 gui.errorLabel.setForeground(Color.red);
                 return;
             }

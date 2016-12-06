@@ -52,7 +52,7 @@
           </Group>
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-              <Component id="gastEinfügen" min="-2" max="-2" attributes="0"/>
+              <Component id="gastspeichern" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -88,7 +88,7 @@
                   <Component id="maileintragen" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="31" max="32767" attributes="0"/>
-              <Component id="gastEinfügen" min="-2" max="-2" attributes="0"/>
+              <Component id="gastspeichern" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -141,12 +141,12 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel6">
     </Component>
-    <Component class="javax.swing.JToggleButton" name="gastEinf&#xfc;gen">
+    <Component class="javax.swing.JToggleButton" name="gastspeichern">
       <Properties>
         <Property name="text" type="java.lang.String" value="Gast hinzuf&#xfc;gen"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="gastEinf&#xfc;genActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="gastspeichernActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

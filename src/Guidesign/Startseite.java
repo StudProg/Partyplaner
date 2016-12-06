@@ -70,12 +70,12 @@ public class Startseite extends javax.swing.JFrame {
         raumbedarfberechnung = new javax.swing.JToggleButton();
         raumbedarf = new javax.swing.JTextField();
         partyabbrechen = new javax.swing.JToggleButton();
-        partyspeichern = new javax.swing.JToggleButton();
+        partyEinfügen = new javax.swing.JToggleButton();
         errorLabel = new javax.swing.JLabel();
         startmenue = new javax.swing.JMenuBar();
         partymenue = new javax.swing.JMenu();
-        partyerstellen = new javax.swing.JMenuItem();
         partyanzeigen = new javax.swing.JMenuItem();
+        partyerstellen = new javax.swing.JMenuItem();
         gaestebuchmenue = new javax.swing.JMenu();
         warenlistemenue = new javax.swing.JMenu();
         tipps = new javax.swing.JMenu();
@@ -97,15 +97,9 @@ public class Startseite extends javax.swing.JFrame {
 
         anmerkung.setText("Anmerkung");
 
-        partynameeintragen.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                partynameeintragenActionPerformed(evt);
-            }
-        });
-
         gaesteanzahleintragen.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                gaesteanzahleintragenActionPerformed(evt);
+                gaesteanzahlintragenActionPerformed(evt);
             }
         });
 
@@ -144,7 +138,12 @@ public class Startseite extends javax.swing.JFrame {
             }
         });
 
-        partyspeichern.setText("speichern");
+        partyEinfügen.setText("speichern");
+        partyEinfügen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                partyEinfügenActionPerformed(evt);
+            }
+        });
 
         jLayeredPane1.setLayer(partyname, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(partydatum, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -161,7 +160,7 @@ public class Startseite extends javax.swing.JFrame {
         jLayeredPane1.setLayer(raumbedarfberechnung, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(raumbedarf, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(partyabbrechen, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(partyspeichern, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(partyEinfügen, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(errorLabel, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
@@ -210,7 +209,7 @@ public class Startseite extends javax.swing.JFrame {
                         .addGap(97, 97, 97)
                         .addComponent(partyabbrechen)
                         .addGap(18, 18, 18)
-                        .addComponent(partyspeichern))
+                        .addComponent(partyEinfügen))
                     .addGroup(jLayeredPane1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(errorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -251,7 +250,7 @@ public class Startseite extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(partyabbrechen)
-                    .addComponent(partyspeichern))
+                    .addComponent(partyEinfügen))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(errorLabel)
                 .addContainerGap(100, Short.MAX_VALUE))
@@ -259,30 +258,55 @@ public class Startseite extends javax.swing.JFrame {
 
         partymenue.setText("Party");
 
-        partyerstellen.setText("Party erstellen");
-        partymenue.add(partyerstellen);
-
         partyanzeigen.setText("Party anzeigen");
         partymenue.add(partyanzeigen);
+
+        partyerstellen.setText("Party erstellen");
+        partymenue.add(partyerstellen);
 
         startmenue.add(partymenue);
 
         gaestebuchmenue.setText("Gästebuch");
         gaestebuchmenue.setActionCommand("Gaestebuch");
+        gaestebuchmenue.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                gaestebuchmenueActionPerformed(evt);
+            }
+        });
         startmenue.add(gaestebuchmenue);
 
         warenlistemenue.setText("Warenliste");
+        warenlistemenue.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                warenlistemenueActionPerformed(evt);
+            }
+        });
         startmenue.add(warenlistemenue);
 
         tipps.setText("Tipps");
 
         kinderparty.setText("Kinderparty");
+        kinderparty.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                kinderpartyActionPerformed(evt);
+            }
+        });
         tipps.add(kinderparty);
 
         couchparty.setText("Couchparty");
+        couchparty.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                couchpartyActionPerformed(evt);
+            }
+        });
         tipps.add(couchparty);
 
         tanzparty.setText("Tanzparty");
+        tanzparty.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tanzpartyActionPerformed(evt);
+            }
+        });
         tipps.add(tanzparty);
 
         startmenue.add(tipps);
@@ -309,24 +333,22 @@ public class Startseite extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void gaesteanzahleintragenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gaesteanzahleintragenActionPerformed
+    private void gaesteanzahlintragenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gaesteanzahlintragenActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_gaesteanzahleintragenActionPerformed
-
-    private void partynameeintragenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_partynameeintragenActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_partynameeintragenActionPerformed
+    }//GEN-LAST:event_gaesteanzahlintragenActionPerformed
 
     private void raumbedarfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_raumbedarfActionPerformed
-        // TODO add your handling code here:
+        // Int anzahl von den angegeben Gästen einlesen, i * 1,5 = Wert W, Ausgabe w
     }//GEN-LAST:event_raumbedarfActionPerformed
 
     private void gaestelisteerstellenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gaestelisteerstellenActionPerformed
-        // TODO add your handling code here:
+        Gaestelisteparty g = new Gaestelisteparty();
+        g.setVisible(true);
     }//GEN-LAST:event_gaestelisteerstellenActionPerformed
 
     private void einkaufslisteerstellenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_einkaufslisteerstellenActionPerformed
-        // TODO add your handling code here:
+         Einkaufslistefürparty e = new Einkaufslistefürparty();
+            e.setVisible(true);            
     }//GEN-LAST:event_einkaufslisteerstellenActionPerformed
 
     private void raumbedarfberechnungActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_raumbedarfberechnungActionPerformed
@@ -336,6 +358,35 @@ public class Startseite extends javax.swing.JFrame {
     private void partyabbrechenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_partyabbrechenActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_partyabbrechenActionPerformed
+
+    private void gaestebuchmenueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gaestebuchmenueActionPerformed
+        Gästebuch gb = new Gästebuch();
+        gb.setVisible(true);// Menü in Item ändern 
+    }//GEN-LAST:event_gaestebuchmenueActionPerformed
+
+    private void warenlistemenueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_warenlistemenueActionPerformed
+      Warenliste wl = new Warenliste();
+      wl.setVisible(true);//Menü in Item ändern
+    }//GEN-LAST:event_warenlistemenueActionPerformed
+
+    private void kinderpartyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kinderpartyActionPerformed
+        Kinderparty kp = new Kinderparty();
+        kp.setVisible(true);
+    }//GEN-LAST:event_kinderpartyActionPerformed
+
+    private void tanzpartyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tanzpartyActionPerformed
+        Tanzparty tp = new Tanzparty ();
+        tp.setVisible(true);
+    }//GEN-LAST:event_tanzpartyActionPerformed
+
+    private void couchpartyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_couchpartyActionPerformed
+        Couchparty cp = new Couchparty ();
+        cp.setVisible(true);
+    }//GEN-LAST:event_couchpartyActionPerformed
+
+    private void partyEinfügenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_partyEinfügenActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_partyEinfügenActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -353,6 +404,7 @@ public class Startseite extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu3;
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JMenuItem kinderparty;
+    private javax.swing.JToggleButton partyEinfügen;
     private javax.swing.JToggleButton partyabbrechen;
     private javax.swing.JMenuItem partyanzeigen;
     private javax.swing.JTextField partybudget;
@@ -362,7 +414,6 @@ public class Startseite extends javax.swing.JFrame {
     private javax.swing.JMenu partymenue;
     private javax.swing.JLabel partyname;
     private javax.swing.JTextField partynameeintragen;
-    private javax.swing.JToggleButton partyspeichern;
     private javax.swing.JTextField raumbedarf;
     private javax.swing.JToggleButton raumbedarfberechnung;
     private javax.swing.JMenuBar startmenue;
@@ -374,7 +425,7 @@ public class Startseite extends javax.swing.JFrame {
     private void addActionListeners() {
         this.partyerstellen.addActionListener(controller);
         this.partyanzeigen.addActionListener(controller);
-        this.partyspeichern.addActionListener(controller);
+        this.partyEinfügen.addActionListener(controller);
         this.gaestebuchmenue.addActionListener(controller);
         
     }
