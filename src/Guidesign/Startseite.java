@@ -27,6 +27,10 @@ public class Startseite extends javax.swing.JFrame {
     public JTextField getPartybudget() {
         return partybudget;
     }
+    
+    public JTextField getGaesteAnzahlEintragen() {
+        return gaesteanzahleintragen;
+    }
 
     /**
      * Creates new form NewJFrame

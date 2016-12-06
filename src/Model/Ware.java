@@ -13,7 +13,7 @@ package Model;
 public class Ware {
     private String warenName;
     private double preis;
-    private double menge;
+    private String menge; //BSP: 1.5 L als Angabe
     private double alkoholgehalt;
 
     /**
@@ -36,7 +36,7 @@ public class Ware {
      * Gibt die Menge der Ware zurück.
      * @return
      */
-    public double getMenge() {
+    public String getMenge() {
         return menge;
     }
 
@@ -67,7 +67,7 @@ public class Ware {
     * @param menge
     * @param alkoholgehalt
     */
-    public Ware (String warenName, double preis, double menge, 
+    public Ware (String warenName, double preis, String menge, 
             double alkoholgehalt){
         this.warenName = warenName;
         this.preis = preis;

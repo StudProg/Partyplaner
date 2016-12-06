@@ -9,12 +9,14 @@ import Guidesign.Gästebuch;
 import Guidesign.Partyliste;
 import Guidesign.Startseite;
 import Model.Model;
+import Model.Party;
 import Model.Partytyp;
 import Model.Partyverwaltung.PartyExestiertBereitsException;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.GregorianCalendar;
+import java.util.List;
 import javax.swing.JFrame;
 
 /**
@@ -24,6 +26,7 @@ import javax.swing.JFrame;
 public class Controller implements ActionListener {
     private final Model model;
     private final Startseite gui;
+    private Partyliste partyListe;
     
     public Controller() {
         //initialisierung des Models
@@ -42,11 +45,7 @@ public class Controller implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getActionCommand().equals("Party anzeigen")) {
-            System.out.println("Party Anzeigen wurde gedrückt!");
-            Partyliste partyListe = new Partyliste();
-            partyListe.setVisible(true);
-            partyListe.setAlwaysOnTop(true);
-            
+            partyAnzeigen();
         } else if(e.getActionCommand().equals("Party erstellen")) {
             System.out.println("Party erstellen wurde geklickt!");
         } else if(e.getActionCommand().equals("Gaestebuch")) {
@@ -55,8 +54,36 @@ public class Controller implements ActionListener {
             gaestebuch.setVisible(true);
             gaestebuch.setAlwaysOnTop(true);
             gaestebuch.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        } else if (e.getActionCommand().equals("speicher")) {
-            System.out.println("Speichern triggered");
+        } else if (e.getActionCommand().equals("speichern")) {
+            partySpeichern();
+        } else if (e.getActionCommand().equals("Partyliste.PartyAnzeigen")) {
+            int index = partyListe.getpartylist().getSelectedIndex();
+            Party party = model.partyverwaltung.getPartyliste().get(index);
+            partyListe.dispose();
+            partyListe = null;
+            gui.getPartynameeintragen().setText(party.getName());
+            gui.getPartydatumeintragen().setText(party.getDatum().toString());
+            
+            gui.getPartybudget().setText(Double.toString(party.getBudget()));
+            
+        }
+    }
+
+    private void partyAnzeigen() {
+        System.out.println("Party Anzeigen wurde gedrückt!");
+        partyListe = new Partyliste(this);
+        partyListe.setVisible(true);
+        partyListe.setAlwaysOnTop(true);
+        List<Party> partys = model.partyverwaltung.getPartyliste();
+        String[] partyArray = new String[partys.size()];
+        for(int i = 0; i < partys.size(); i++) {
+            partyArray[i] = partys.get(i).getName();
+        }
+        partyListe.getpartylist().setListData(partyArray);
+    }
+    
+    private void partySpeichern() {
+        System.out.println("Speichern triggered");
             String name = gui.getPartynameeintragen().getText();
             String datum = gui.getPartydatumeintragen().getText();
             String budget = gui.getPartybudget().getText();
@@ -112,6 +139,5 @@ public class Controller implements ActionListener {
                 return;
             }
             gui.errorLabel.setText("");
-        }
     }
 }

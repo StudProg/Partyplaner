@@ -38,7 +38,7 @@ public class Einkaufslistenverwaltung {
     
     public void ware_hinzufuegen(String warenName, double preis, 
             double alkoholgehalt) {
-        Ware ware = new Ware(warenName, preis, 0.0, alkoholgehalt);
+        Ware ware = new Ware(warenName, preis, "0.0", alkoholgehalt);
         warenListe.add(ware);
     }
     

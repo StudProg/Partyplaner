@@ -5,6 +5,7 @@
  */
 package Guidesign;
 
+import controller.Controller;
 import javax.swing.JList;
 
 /**
@@ -12,6 +13,7 @@ import javax.swing.JList;
  * @author Miri
  */
 public class Partyliste extends javax.swing.JDialog {
+    private Controller controller;
 
     public JList<String> getpartylist() {
         return partylist;
@@ -20,8 +22,10 @@ public class Partyliste extends javax.swing.JDialog {
     /**
      * Creates new form Partyliste
      */
-    public Partyliste() {
+    public Partyliste(Controller controller) {
+        this.controller = controller;
         initComponents();
+        addActionListener();
     }
 
     /**
@@ -52,6 +56,7 @@ public class Partyliste extends javax.swing.JDialog {
         jScrollPane1.setViewportView(partylist);
 
         partyanzeigen.setText("Party anzeigen");
+        partyanzeigen.setActionCommand("Partyliste.PartyAnzeigen");
 
         partyloeschen.setText("Party löschen");
 
@@ -96,41 +101,13 @@ public class Partyliste extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Partyliste.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Partyliste.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Partyliste.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Partyliste.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Partyliste().setVisible(true);
-            }
-        });
+    
+    private void addActionListener() {
+        partyanzeigen.addActionListener(controller);
+        
     }
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JToggleButton partyanzeigen;
