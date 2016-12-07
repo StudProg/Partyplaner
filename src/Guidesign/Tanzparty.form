@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <Properties>
+    <Property name="defaultCloseOperation" type="int" value="2"/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+  </SyntheticProperties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="152" max="-2" attributes="0"/>
+                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                      <Component id="jScrollPane1" min="-2" pref="687" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace pref="26" max="32767" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jScrollPane1" min="-2" pref="506" max="-2" attributes="0"/>
+              <EmptySpace pref="24" max="32767" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+      <AuxValues>
+        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+      </AuxValues>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JTextArea" name="jTextArea1">
+          <Properties>
+            <Property name="columns" type="int" value="20"/>
+            <Property name="rows" type="int" value="5"/>
+            <Property name="text" type="java.lang.String" value="Partyg&#xe4;ste einladen&#xa;Das Wichtigste ist, zu Deiner Party eine Menge Leute einzuladen.&#xa;Ruf ein paar Freunde an und frag sie, ob sie kommen wollen.&#xa;Ich w&#xfc;rde ca. 10 bis 20 Leute zur einladen. Denke daran, gleich viele Freunde und Freundinnen zur Party einzuladen.&#xa;Sag Ihnen, dass sie ihre eigenen Getr&#xe4;nke mitbringen sollen und teile ihnen genau mit, wann die Party beginnt.&#xa;&#xa;Bude sauber?&#xa;Ganz egal, wie l&#xe4;stig es ist, oder deine Wohnung nach der Party ausschauen mag, putze sie vorher. Falls Du Klamotten&#xa;oder Sachen herumliegen hast, sammle sie kurz ein und verstaue sie dort, wo sie niemand findet.&#xa;Dasselbe gilt nat&#xfc;rlich f&#xfc;r Wertsachen, wie Notebooks, Tablets oder Fotoapparate.&#xa;Mach auch gleich ausreichend Platz im K&#xfc;hlschrank, so dass Deine Leute dort ihre mitgebrachten Getr&#xe4;nke&#xa;hineinstellen k&#xf6;nnen, wenn sie auf der Party erscheinen.&#xa;&#xa;Es ist sehr wichtig, vorher nochmal die Toilette oder das Bad zu putzen. Schmutzige Toilettenbecken oder&#xa;herumfliegende Haare sind einfach kein sch&#xf6;ner Anblick. &#xa;&#xa;Informiere Deine Nachbarn &#xfc;ber Deine Party&#xa;Auf Partys wird es schonmal etwas lauter, also warne unbedingt Deine Nachbarn vor.&#xa;Schreibe eine kleine Nachricht, worin steht, wann es etwas lauter werden k&#xf6;nnte. Niemand mag es, wenn pl&#xf6;tzlich die&#xa;Polizei&#xa;vor der T&#xfc;r steht und Deine sch&#xf6;ne &#xdc;arty kurzerhand beendet.&#xa;&#xa;Sorge f&#xfc;r gute Musik&#xa;Eine Party ohne Musik ist wie Schwimmen ohne Wasser.&#xa;Falls Du keine guten Boxen besitzt, kaufe oder miete Dir Boxen.&#xa;Miete am besten eine oder zwei Aktivboxen: Diese bereiten viel weniger Kabelsalat,&#xa;als wenn Du mit einem Verst&#xe4;rker hantieren musst. Verbinde die Aktivbox einfach mit Deinem MP3-Player &#xa;oder Notebook, auf dem gute Musik oder Spotify l&#xe4;uft.&#xa;&#xa;Mach sch&#xf6;nes Licht&#xa;Warst Du jemals auf einer Partylocation, wo es kein stimmungsvolles Licht gab? Ja?&#xa;Gerade dann weisst Du, was zu tun ist: Hole Dir ein paar bunte Spots, stelle sie in die dunkleren Ecken&#xa;Deiner Wohnung und richte Sie an den W&#xe4;nden nach oben aus.&#xa;Alternativ und falls dein Budget reicht, kannst Du Dir auch ein paar professionelle LED-PAR-Spots&#xa;oder eine einfache Lichtorgel leihen. &#xa;&#xa;Bereite Deinen G&#xe4;sten etwas zu essen&#xa;Wenn Deine Party z.B. von 22:00 Uhr bis 3:00 Uhr nachts geht, kannst Du Dir sicher sein, dass Deine G&#xe4;ste&#xa;irgendwann Hunger bekommen. Kaufe vorher ein paar Pizzen und bereite sie bei Bedarf zu.&#xa;Deine G&#xe4;ste werden es lieben!&#xa;Verschliesse die R&#xe4;ume, die f&#xfc;r die Homeparty nicht wirklich wichtig sind&#xa;&#xa;Sicher m&#xf6;chtest Du nicht, dass Deine G&#xe4;ste unerw&#xfc;nscht in Deinem Schlafzimmer landen.&#xa;Schliesse also alle f&#xfc;r die Party unwichtigen R&#xe4;ume ab und lasse dabei nach M&#xf6;glichkeit einen Raum offen,&#xa;in dem sich Deine G&#xe4;ste vom Partytrubel ausruhen und ungest&#xf6;rte Gespr&#xe4;che f&#xfc;hren k&#xf6;nnen.&#xa;&#xa;Lass Deine G&#xe4;ste sich wie zu hause f&#xfc;hlen!&#xa;Erkl&#xe4;re jedem, wo der K&#xfc;hlschrank und die Toilette ist.&#xa;Gib ihnen das Gef&#xfc;hl, zu hause zu sein. Teile Deinen G&#xe4;sten mit, dass sie sich genau die Musik aussuchen k&#xf6;nnen,&#xa;die sie h&#xf6;ren wollen. Sorge f&#xfc;r eine Playlist, so dass es niemals komplett still wird, falls Deine Leute gerade keine&#xa;Lust mehr haben, die Musik auszusuchen.&#xa;&#xa;Bewahre Ruhe&#xa;Manche Partyg&#xe4;ste werden irgendwann betrunken und machen Fehler, sie versch&#xfc;tten Bier &#xa;oder machen Dinge kaputt. Lasse Dich davon nicht aus der Ruhe bringen und bleibe gelassen.&#xa;Sage in ruhigem Ton, dass es nicht so schlimm ist und sie sich keine Sorgen machen m&#xfc;ssen.&#xa;Bedanke Dich vielmehr daf&#xfc;r, wenn sie es Dir gebeichtet haben, In solchen Momenten sauer zu werden, hilft nicht&#xa;weiter und die eben noch tolle Stimmung auf Deiner Home Party verschlechtert sich. Sp&#xe4;ter l&#xe4;sst sich sicher&#xa;gemeinsam in Ruhe eine L&#xf6;sung f&#xfc;r das Problem finden.&#xa;&#xa;Kartoffechips und Spielkarten&#xa;Zwei kleine aber wichtige Details, die Deine G&#xe4;ste sehr zu sch&#xe4;tzen wissen.&#xa;Chips sind gut gegen den kleinen Hunger und Spielkarten eignen sich gut f&#xfc;r kleine Trinkspiele in einer&#xa;kleinen Runde.&#xa;&#xa;Selber Musik machen&#xa;Besitzt Du eine Gitarre oder etwas &#xe4;hnliches? Selber Musik zu machen, lockert jede Homeparty enorm auf,&#xa;und es ist immer toll, wenn schliesslich alle gemeinsam bei einem Song mit einstimmen.&#xa;&#xa;Drinks mixen&#xa;Nichts beeindruckt Deine Partyg&#xe4;ste mehr, als wenn Du ein paar gute Drinks mixen kannst&#xa;"/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Component class="javax.swing.JLabel" name="jLabel1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Tanzparty"/>
+      </Properties>
+    </Component>
+  </SubComponents>
+</Form>

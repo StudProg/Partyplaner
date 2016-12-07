@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <Properties>
+    <Property name="defaultCloseOperation" type="int" value="2"/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+  </SyntheticProperties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" attributes="0">
+              <EmptySpace min="-2" pref="144" max="-2" attributes="0"/>
+              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <Component id="jScrollPane1" min="-2" pref="636" max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="41" max="32767" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+              <Component id="jScrollPane1" pref="505" max="32767" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+      <AuxValues>
+        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+      </AuxValues>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JTextArea" name="jTextArea1">
+          <Properties>
+            <Property name="columns" type="int" value="20"/>
+            <Property name="rows" type="int" value="5"/>
+            <Property name="text" type="java.lang.String" value="1. Ein Pizza-R&#xe4;tsel&#xa;Was darf bei einem perfekten Abend mit den BFF&apos;s nicht fehlen?&#xa;Pizza nat&#xfc;rlich! Doch einfach welche bestellen ist langweilig und&#xa;kommt uns nicht in die T&#xfc;te. Wir finden Ihr solltet die Pizza selber machen!&#xa;Zumindest selber belegen. Daraus l&#xe4;sst sich n&#xe4;mlich ein richtig sch&#xf6;nes Spiel&#xa;machen: Zuerst nimmt sich eine von Euch den Pizzateig. Dann werden Salami, &#xa;Oliven oder Pilze in Form eines lustigen Bildes auf die Pizza gelegt. &#xa;Wer zuerst err&#xe4;t, was f&#xfc;r ein Bild das werden soll, darf diese Pizza essen.&#xa;Dann ist die N&#xe4;chste dran...&#xa;&#xa;2. Ein perfektes Motto&#xa;Was w&#xe4;re ein cooler M&#xe4;delsabend ohne ein noch cooleres Motto?&#xa;Eben, so wie immer. Damit dieser Abend aber unvergesslich wird, s&#xa;olltet Ihr Euch auf jeden Fall ein witziges Motto &#xfc;berlegen. Unser Lieblings-Motto? Auf jeden Fall Pyjama-Party! Bei seinen BFF&apos;s f&#xfc;hlt man sich doch wie zuhause. Warum sollte man also nicht direkt in chilligen Schlumpfklamotten dort auftauchen. So wirkt euer Treffen gleich viel vertrauter und gem&#xfc;tlicher! #Squadgoals&#xa;Keine Hose, kein Problem! Im Schlafanzug ist einfach alles besser!&#xa;&#xa;3. Eine spontane Modenschau&#xa;Dieses Problem kennen wir M&#xe4;dels doch alle: Man hat so viele Anziehsachen in&#xa;seinem Kleiderschrank h&#xe4;ngen, die man gar nicht mehr anzieht - aber wegschmeissen &#xa;wollen wir sie irgendwie auch nicht.. Dann nutzt Euren M&#xe4;delsabend doch einfach&#xa;als &quot;Tauschb&#xf6;rse f&#xfc;r einsame Kleider&quot;. Jede von Euch bringt Anziehsachen mit,&#xa; die sie nicht mehr haben m&#xf6;chte. Dann tauscht ihr untereinander.&#xa;Damit die ganze Tauschaktion aber noch einen spa&#xdf;igen Beigeschmack bekommt, &#xa;solltet Ihr eine kleine Modenschau veranstalten. Jede pr&#xe4;sentiert Ihre mitgebrachten &#xa;Teile zu einem Song Ihrer Wahl! =)&#xa;&#xa;4. Ein lustiges Umstyling&#xa;Wo wir gerade schon beim Styling sind: Ihr wolltet schon immer Mal eine &#xa;total abgefahrenen Frisur ausprobieren, die Ihr irgendwo auf Instagram &#xa;gesehen habt? Dann ist jetzt der perfekte Zeitpunkt daf&#xfc;r! Probiert mit &#xa;Euren BFF&apos;s doch einfach mal ein paar Sch&#xf6;nheits-Experimente aus, f&#xfc;r die &#xa;Ihr sonst keine Zeit habt. Neben Frisuren k&#xf6;nnen das auch Folien-N&#xe4;gel, falsche Wimpern oder gr&#xfc;ner Eyeliner sein. Alles gemeinsam auszuprobieren wird Euch garantiert viel Spa&#xdf; machen und f&#xfc;r ordentliches Gel&#xe4;chter sorgen!&#xa;&#xa;5. Ein geniales Selfie&#xa;Damit der Abend wirklich unvergesslich wird, solltet Ihr auf jeden Fall eine&#xa;Erinnerung schaffen - wie ein abgefahrenes Selfie zum Beispiel! Klar, Selfies&#xa;macht Ihr st&#xe4;ndig, doch bei diesem geht es nicht darum gut auszusehen, sondern &#xa;es sollte m&#xf6;glichst witzig und au&#xdf;ergew&#xf6;hnlich sein. Und dabei k&#xf6;nnt Ihr so kreativ &#xa;und verr&#xfc;ckt sein, wie Ihr wollt! Ob Ihr Euch vorher mit Toilettenpapier einwickelt&#xa;wie eine Mumie, oder euch ein Pizza-St&#xfc;ck auf den Kopf legt ist Euch &#xfc;berlassen.&#xa;Das Beste: Jedes Mal, wenn Ihr Euch das Selfie anschaut, bringt es Euch wieder zum lachen &#xa;und erinnert Euch an den tollen BFF-Abend.&#xa;&#xa;6. Ein s&#xfc;&#xdf;er R&#xfc;ckblick&#xa;Wo wir schonmal bei Fotos sind: Schnappt Euch Eure alten Fotoalben,&#xa;und bl&#xe4;ttert sie gemeinsam durch. Denn viele von Euch kennen sich vielleicht &#xa;schon seid dem Kindergarten und wurden fr&#xfc;her st&#xe4;ndig zusammen Fotografiert.&#xa;Das weckt sch&#xf6;ne Erinnerungen, &#xfc;ber die Ihr Euch pr&#xe4;chtig am&#xfc;sieren werdet.&#xa;Falls Ihr Euch erst ein paar Monate kennt ist das auch eine tolle Sache.&#xa;Ihr lernt Eure BFF noch besser kennen. Und ganz ehrlich: wer liebt es nicht,&#xa;sich alte Kinderfotos anzusehen und &#xfc;ber die furchtbaren Klamotten von damals&#xa;zu lachen! =)&#xa;&#xa;7. Ein legend&#xe4;rer Film&#xa;Erinnert Ihr Euch noch an Euren Lieblingsfilm von fr&#xfc;her?&#xa;Dann schaut Ihn Euch gemeinsam an! Unser Tipp: &quot;High School Musical 1&quot;.&#xa;Den Film hat garantiert jede von Euch geliebt und, obwohl es wahrscheinlich keiner &#xa;zugeben m&#xf6;chte, k&#xf6;nnt Ihr noch jedes Lied auswendig. Also DVD reinschieben und &#xa;flei&#xdf;ig mitsingen!! Lachflash garantiert!&#xa;&#xa;8. Ein Spiel zum Essen&#xa;Was geh&#xf6;rt noch zu einem coolen Abend? Genau: Wahrheit oder Pflicht!Das beliebte &#xa;Partyspiel ist unter Freundinnen einfach ein Dauerbrenner, den man immer wieder&#xa;spielen kann! Ganz sch&#xf6;n praktisch, wenn man das Spiel dann noch mit Essen verbinden kann,&#xa;z.B. mit leckeren Waffeln! Denn bevor Ihr das Waffeleisen zu macht, sollte jede &#xa;von Euch eine kleinen Zettel in den Teig legen. Auf diesem Zettel steht dann entwerder &#xa;Wahrheit, mit einer Frage, oder aber Pflicht, mit einer Aufgabe.&#xa;Wenn die Waffeln fertig sind, nimmt sich jede ein St&#xfc;ck, mit einem Zettel drin.&#xa;Erst wenn die Aufgabe erf&#xfc;llt ist, d&#xfc;rft Ihr das St&#xfc;ck essen!&#xa;"/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Component class="javax.swing.JLabel" name="jLabel1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Couchparty"/>
+      </Properties>
+    </Component>
+  </SubComponents>
+</Form>

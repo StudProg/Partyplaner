@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <Properties>
+    <Property name="defaultCloseOperation" type="int" value="2"/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+  </SyntheticProperties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="157" max="-2" attributes="0"/>
+                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jScrollPane1" min="-2" pref="682" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace max="32767" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
+              <Component id="jScrollPane1" pref="491" max="32767" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+      <AuxValues>
+        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+      </AuxValues>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JTextArea" name="jTextArea1">
+          <Properties>
+            <Property name="columns" type="int" value="20"/>
+            <Property name="rows" type="int" value="5"/>
+            <Property name="text" type="java.lang.String" value="Starten Sie fr&#xfc;hzeitig (ca. 2-3 Monate vorher) mit der Planung!&#xa;Sammeln Sie Ideen und lassen Sie sich inspirieren.&#xa;&#xa;Legen Sie das Motto oder das Thema des Kindergeburtstags zusammen mit Ihrem Kind fest.&#xa;&#xa;&#xdc;berlegen Sie, wo und wie Sie mit Ihrem Kind feiern m&#xf6;chten. Soll die Party zu &#xa;Hause stattfinden, holen Sie sich Unterst&#xfc;tzung oder nutzen Sie einen Veranstalter,&#xa;bei dem Sie ausw&#xe4;rts die Feier begehen.&#xa;&#xa;Einigen Sie sich auf die Anzahl der Kinder. Als Faustregel gilt &#x2013; das Geburtstagskind&#xa;darf so viele G&#xe4;ste einladen, wie es alt ist (plus/minus ein Kind).&#xa;Bei Kindern ab ca. 10 Jahren kommt es auf die Art der Veranstaltung an -&#xa;weniger ist oft mehr!&#xa;&#xa;Nehmen Sie Kontakt mit einem Veranstalter oder Animateur f&#xfc;r Infos,&#xa;Terminabstimmung und letztlich Buchung auf.&#xa;&#xa;Besorgen Sie Einladungen oder Zubeh&#xf6;r und basteln bzw. beschriften diese.&#xa;Am besten ca. 3 Wochen vorher schon verteilen, damit Kinder und Eltern besser &#xa;planen k&#xf6;nnen.&#xa;&#xa;Werden Dekoartikel oder Spielmaterial ben&#xf6;tigt?&#xa;Utensilien dazu rechtzeitig besorgen.&#xa;&#xa;Was soll es zu essen und zu trinken geben? Rezepte aussuchen und Einkaufszettel&#xa;vorbereiten.&#xa;&#xa;Kleine Geschenke f&#xfc;r Gastkinder besorgen (Mitgebsel-T&#xfc;ten).&#xa;Geschenkideen f&#xfc;r das Geburtstagskind &#xfc;berlegen. In einigen Spielwaren-&#xa;und Buchgesch&#xe4;ften gibt es die M&#xf6;glichkeit, Geschenkekisten oder &#x2013;k&#xf6;rbe&#xa;aufzustellen.&#xa;Dort werden vorher die Geschenkw&#xfc;nsche ausgesucht und anschlie&#xdf;end k&#xf6;nnen&#xa;Freunde und Verwandte gezielt einen Wunsch erf&#xfc;llen. &#xa;&#xa;Ben&#xf6;tigen Sie noch Helfer oder Autofahrer? &#xc4;ltere Geschwister freuen sich,&#xa;eine Aufgabe &#xfc;bernehmen zu d&#xfc;rfen. Eltern von eingeladenen Kindern finden sich&#xa;bestimmt, die eine Hin- oder R&#xfc;ckfahrt zum Veranstaltungsort &#xfc;bernehmen.&#xa;Legen Sie zus&#xe4;tzlich noch bereit: Fotoapparat, eventuell Filmkamera, Notfallkiste (f&#xfc;r kleinere Blessuren z. B. Pflaster, Sonnencreme bei einer Feier im Freien, ggf. Wechselkleidung etc.)"/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Component class="javax.swing.JLabel" name="jLabel1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Kinderparty"/>
+      </Properties>
+    </Component>
+  </SubComponents>
+</Form>
