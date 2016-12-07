@@ -77,7 +77,9 @@ public class Startseite extends javax.swing.JFrame {
         partyanzeigen = new javax.swing.JMenuItem();
         partyerstellen = new javax.swing.JMenuItem();
         gaestebuchmenue = new javax.swing.JMenu();
+        gbanzeigen = new javax.swing.JMenuItem();
         warenlistemenue = new javax.swing.JMenu();
+        warenanzeigen = new javax.swing.JMenuItem();
         tipps = new javax.swing.JMenu();
         kinderparty = new javax.swing.JMenuItem();
         couchparty = new javax.swing.JMenuItem();
@@ -273,6 +275,15 @@ public class Startseite extends javax.swing.JFrame {
                 gaestebuchmenueActionPerformed(evt);
             }
         });
+
+        gbanzeigen.setText("Gästebuch anzeigen");
+        gbanzeigen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                gbanzeigenActionPerformed(evt);
+            }
+        });
+        gaestebuchmenue.add(gbanzeigen);
+
         startmenue.add(gaestebuchmenue);
 
         warenlistemenue.setText("Warenliste");
@@ -281,6 +292,15 @@ public class Startseite extends javax.swing.JFrame {
                 warenlistemenueActionPerformed(evt);
             }
         });
+
+        warenanzeigen.setText("Waren anzeigen");
+        warenanzeigen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                warenanzeigenActionPerformed(evt);
+            }
+        });
+        warenlistemenue.add(warenanzeigen);
+
         startmenue.add(warenlistemenue);
 
         tipps.setText("Tipps");
@@ -388,6 +408,17 @@ public class Startseite extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_partyEinfügenActionPerformed
 
+    private void gbanzeigenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gbanzeigenActionPerformed
+        Gästebuch gb= new Gästebuch();
+        gb.setVisible(true);
+    }//GEN-LAST:event_gbanzeigenActionPerformed
+
+    private void warenanzeigenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_warenanzeigenActionPerformed
+        Warenliste wl= new Warenliste();
+        wl.setVisible(true);
+        
+    }//GEN-LAST:event_warenanzeigenActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField anermkungeintragen;
@@ -400,6 +431,7 @@ public class Startseite extends javax.swing.JFrame {
     private javax.swing.JTextField gaesteanzahleintragen;
     private javax.swing.JMenu gaestebuchmenue;
     private javax.swing.JToggleButton gaestelisteerstellen;
+    private javax.swing.JMenuItem gbanzeigen;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JPopupMenu jPopupMenu1;
@@ -419,6 +451,7 @@ public class Startseite extends javax.swing.JFrame {
     private javax.swing.JMenuBar startmenue;
     private javax.swing.JMenuItem tanzparty;
     private javax.swing.JMenu tipps;
+    private javax.swing.JMenuItem warenanzeigen;
     private javax.swing.JMenu warenlistemenue;
     // End of variables declaration//GEN-END:variables
 
