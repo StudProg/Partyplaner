@@ -22,6 +22,7 @@ public class Partyverwaltung {
     
     public Partyverwaltung(PPdb datenbank) {
         this.datenbank = datenbank;
+        this.partyListe = datenbank.gibAllePartys();
     }
 
     public List<Party> getPartyliste(){
@@ -45,7 +46,7 @@ public class Partyverwaltung {
             throw new PartyExestiertBereitsException(name);
         Party party = new Party(name, budget, datum, partyTyp);
         partyListe.add(party);
-        datenbank.partyEinfügen(party);
+        datenbank.partyEinfuegen(party);
     }
     
     /**

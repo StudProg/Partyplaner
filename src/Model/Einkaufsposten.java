@@ -43,7 +43,7 @@ public class Einkaufsposten {
      */
     public void ware_hinzufuegen(Ware ware) {
         warenListe.add(ware);
-        menge += ware.getMenge();
+        menge++;
     }
     
     /**
@@ -53,7 +53,7 @@ public class Einkaufsposten {
     public void ware_entfernen(String warenName) {
         for(Ware w : warenListe) {
             if(w.getWarenName().equals(warenName)) {
-                menge -= w.getMenge();
+                menge--;
                 warenListe.remove(w);
                 return;
             }
@@ -67,7 +67,7 @@ public class Einkaufsposten {
     public double gesamtausgaben_berechnen() {
         double gesamtSumme = 0.0;
         for(Ware ware : warenListe) {
-            gesamtSumme += ware.getPreis() * ware.getMenge();
+            gesamtSumme += ware.getPreis();
         }
         return gesamtSumme;
     }

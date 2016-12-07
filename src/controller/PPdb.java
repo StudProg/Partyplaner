@@ -37,20 +37,27 @@ public class PPdb {
             // Library erforderlich.
             Class.forName("org.hsqldb.jdbc.JDBCDriver");
         } catch (ClassNotFoundException e) {
-            System.out.println("Fehler!!!");
+            e.printStackTrace();
             return;
         }
 
         con = null;
 
         try {
-            con = DriverManager.getConnection("jdbc:hsqldb:file:data\\partys", "SA", "");
+            con = DriverManager.getConnection("jdbc:hsqldb:file:data/partys;ifexists=true", "SA", "");
+            Statement statement = con.createStatement();
+            statement.executeQuery("CREATE TABLE IF NOT EXISTS "
+                    + "Ware(index int, warename varChar(15), preis double, menge varchar(10), alkoholgehalt double)");
+            statement.executeQuery("CREATE TABLE IF NOT EXISTS "
+                    + "Gast(index int, vorname varChar(20), nachname varChar(20), geburtstdatum date, email varChar(100), telefon varChar(20))");
+            statement.executeQuery("CREATE TABLE IF NOT EXISTS "
+                    + "Party(index int, name varChar(50), budget double, raumbedarf int, tipps varChar(1000), datum varChar(15))");
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
-    public void wareHinzufügen(String warenName, double preis, String menge, double alkoholgehalt) throws SQLException {
+    public void wareEinfügen(String warenName, double preis, String menge, double alkoholgehalt) throws SQLException {
         int index = 0;
         try {
             Statement stmt = con.createStatement();
@@ -58,7 +65,8 @@ public class PPdb {
             ResultSet r = stmt.executeQuery("SELECT * FROM Ware");
 
             while (r.next()) {
-                if (r.getInt(1) > index) {
+                if (r.getInt(1) < index) {
+                    continue;
                 }
                 index = r.getInt(1);
             }
@@ -67,10 +75,10 @@ public class PPdb {
         }
 
         try {
-            String sql = "INSERT INTO Ware (strichcode, warenname, preis, menge, alkoholgehalt) VALUES (?, ?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO Ware (index, warenname, preis, menge, alkoholgehalt) VALUES (?, ?, ?, ?, ?, ?)";
 
             PreparedStatement prep = con.prepareStatement(sql);
-            prep.setInt(1, index);
+            prep.setInt(1, index+1);
             prep.setString(2, warenName);
             prep.setDouble(3, preis);
             prep.setString(4, menge);
@@ -91,7 +99,8 @@ public class PPdb {
             ResultSet r = stmt.executeQuery("SELECT * FROM Gast");
 
             while (r.next()) {
-                if (r.getInt(1) > index) {
+                if (r.getInt(1) < index) {
+                    continue;
                 }
                 index = r.getInt(1);
             }
@@ -100,8 +109,9 @@ public class PPdb {
         }
 
         try {
-            String sql = "INSERT INTO Gast VALUES (4, ?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO Gast VALUES (?, ?, ?, ?, ?, ?)";
             PreparedStatement prep = con.prepareStatement(sql);
+            prep.setInt(1, index+1);
             prep.setString(2, vorname);
             prep.setString(3, nachname);
             /**
@@ -121,7 +131,7 @@ public class PPdb {
 
     }
 
-    public void partyEinfügen(Party party) {
+    public void partyEinfuegen(Party party) {
 
         int index = 0;
         try {
@@ -129,8 +139,10 @@ public class PPdb {
             ResultSet r = stmt.executeQuery("SELECT * FROM Party");
 
             while (r.next()) {
-              
-              index = r.getInt(1);
+                if (r.getInt(1) < index) {
+                    continue;
+                }
+                index = r.getInt(1);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -181,14 +193,19 @@ public class PPdb {
         PPdb p = new PPdb();
         // p.wareEinfügen(6, "Coca Cola", 0.99, "1 Lter", 0.0);
 
-        p.selectAll();
+        //p.selectAll();
         List<Gast> gaeste = p.gibAlleGaeste();
-        List<Ware> waren = p.gibAlleWaren();
-        List<Party> partys = p.gibAllePartys();
         System.out.println(gaeste.size());
-        System.out.println(waren.size());
-        System.out.println(partys.size());
-
+        for(Gast gast : gaeste) {
+            System.out.println(gast.getName());
+        }
+        List<Ware> waren = p.gibAlleWaren();
+        for(Ware ware : waren)
+            System.out.println(ware.getWarenName() + "  " + ware.getPreis());
+        List<Party> partys = p.gibAllePartys();
+        for(Party party : partys) {
+            System.out.println(party.getName());
+        }
     }
 
     public ResultSet executeSQL(String sql) {
@@ -285,7 +302,7 @@ public class PPdb {
                 int id = res.getInt(1);
                 String warenName = res.getString(2);
                 Double preis = res.getDouble(3);
-                int menge = Integer.parseInt(res.getString(4));
+                String menge = res.getString(4);
                 Double alkoholgehalt = res.getDouble(5);
                 Ware ware = new Ware(warenName, preis, menge, alkoholgehalt);
                 //mware.setWarennummer(id);
