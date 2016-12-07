@@ -31,6 +31,7 @@ public class Controller implements ActionListener {
     public Controller() {
         //initialisierung des Models
         PPdb datenbank = new PPdb();
+        //lustig
         model = new Model(this, datenbank);
         gui = new Startseite(this);
         gui.setVisible(true);
