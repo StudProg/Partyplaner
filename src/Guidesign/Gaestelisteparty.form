@@ -38,7 +38,7 @@
                               <Component id="jScrollBar1" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="gasthinzufügengb" min="-2" max="-2" attributes="0"/>
+                              <Component id="gasthinzufuegen" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                               <Component id="gastentfernen" min="-2" max="-2" attributes="0"/>
                           </Group>
@@ -65,7 +65,7 @@
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="gasthinzufügengb" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="gasthinzufuegen" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="gastentfernen" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
@@ -74,21 +74,15 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JToggleButton" name="gasthinzuf&#xfc;gengb">
+    <Component class="javax.swing.JToggleButton" name="gasthinzufuegen">
       <Properties>
         <Property name="text" type="java.lang.String" value="Gast hinzuf&#xfc;gen"/>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="gasthinzuf&#xfc;gengbActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JToggleButton" name="gastentfernen">
       <Properties>
         <Property name="text" type="java.lang.String" value="Gast entfernen"/>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="gastentfernenActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JScrollBar" name="jScrollBar1">
     </Component>

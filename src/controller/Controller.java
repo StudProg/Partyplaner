@@ -63,7 +63,7 @@ public class Controller implements ActionListener {
             partyListe.dispose();
             partyListe = null;
             gui.getPartynameeintragen().setText(party.getName());
-            gui.getPartydatumeintragen().setText(party.getDatum().toString());
+            gui.getPartydatumeintragen().setText(party.getDatumAlsString());
             
             gui.getPartybudget().setText(Double.toString(party.getBudget()));
             
