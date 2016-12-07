@@ -1,7 +1,4 @@
-
-
 package controller;
-
 
 import Model.*;
 import java.sql.Connection;
@@ -37,175 +34,32 @@ public class PPdb {
             // Library erforderlich.
             Class.forName("org.hsqldb.jdbc.JDBCDriver");
         } catch (ClassNotFoundException e) {
-            e.printStackTrace();
+            System.out.println("Fehler!!!");
             return;
         }
 
         con = null;
 
         try {
-            con = DriverManager.getConnection("jdbc:hsqldb:file:data/partys;ifexists=true", "SA", "");
-            Statement statement = con.createStatement();
-            statement.executeQuery("CREATE TABLE IF NOT EXISTS "
-                    + "Ware(index int, warename varChar(15), preis double, menge varchar(10), alkoholgehalt double)");
-            statement.executeQuery("CREATE TABLE IF NOT EXISTS "
-                    + "Gast(index int, vorname varChar(20), nachname varChar(20), geburtstdatum date, email varChar(100), telefon varChar(20))");
-            statement.executeQuery("CREATE TABLE IF NOT EXISTS "
-                    + "Party(index int, name varChar(50), budget double, raumbedarf int, tipps varChar(1000), datum varChar(15))");
+            con = DriverManager.getConnection("jdbc:hsqldb:file:data\\partys", "SA", "");
         } catch (SQLException e) {
             e.printStackTrace();
         }
-    }
-
-    public void wareEinfügen(String warenName, double preis, String menge, double alkoholgehalt) throws SQLException {
-        int index = 0;
-        try {
-            Statement stmt = con.createStatement();
-
-            ResultSet r = stmt.executeQuery("SELECT * FROM Ware");
-
-            while (r.next()) {
-                if (r.getInt(1) < index) {
-                    continue;
-                }
-                index = r.getInt(1);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        try {
-            String sql = "INSERT INTO Ware (index, warenname, preis, menge, alkoholgehalt) VALUES (?, ?, ?, ?, ?, ?)";
-
-            PreparedStatement prep = con.prepareStatement(sql);
-            prep.setInt(1, index+1);
-            prep.setString(2, warenName);
-            prep.setDouble(3, preis);
-            prep.setString(4, menge);
-            prep.setDouble(5, alkoholgehalt);
-            prep.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-    }
-
-    public void gastEinfügen(String vorname, String nachname,
-            Date geburtsdatum, String email, String telefon) {
-
-        int index = 0;
-        try {
-            Statement stmt = con.createStatement();
-            ResultSet r = stmt.executeQuery("SELECT * FROM Gast");
-
-            while (r.next()) {
-                if (r.getInt(1) < index) {
-                    continue;
-                }
-                index = r.getInt(1);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        try {
-            String sql = "INSERT INTO Gast VALUES (?, ?, ?, ?, ?, ?)";
-            PreparedStatement prep = con.prepareStatement(sql);
-            prep.setInt(1, index+1);
-            prep.setString(2, vorname);
-            prep.setString(3, nachname);
-            /**
-             * String[] datumsteile = geburtsdatum.split("-"); int jahr =
-             * Integer.parseInt(datumsteile[0]); int monat =
-             * Integer.parseInt(datumsteile[1]) - 1; int tag =
-             * Integer.parseInt(datumsteile[2]); GregorianCalendar greg = new
-             * GregorianCalendar(jahr, monat, tag);
-             */
-            prep.setDate(4, geburtsdatum);
-            prep.setString(5, email);
-            prep.setString(6, telefon);
-            prep.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-    }
-
-    public void partyEinfuegen(Party party) {
-
-        int index = 0;
-        try {
-            Statement stmt = con.createStatement();
-            ResultSet r = stmt.executeQuery("SELECT * FROM Party");
-
-            while (r.next()) {
-                if (r.getInt(1) < index) {
-                    continue;
-                }
-                index = r.getInt(1);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        try {
-            String sql = "INSERT INTO Party VALUES (?, ?, ?, ?, ?, ?)";
-            PreparedStatement prep = con.prepareStatement(sql);
-            prep.setInt(1, index+1);
-            prep.setString(2, party.getName());
-            prep.setDouble(3, party.getBudget());
-            prep.setInt(4, party.getRaumbedarf());
-            prep.setString(5, party.getTipps());
-            GregorianCalendar datum = party.getDatum();
-            int jahr = datum.get(Calendar.YEAR);
-            int monat = datum.get(Calendar.MONTH)+1;
-            int tag = datum.get(Calendar.DAY_OF_MONTH);
-            prep.setString(6, jahr+"-"+monat+"-"+tag);
-            prep.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-    }
-
-    public boolean gastErstellen(Gast gast) throws SQLException {
-
-        boolean erfolgreich = false;
-
-        Statement stmt = con.createStatement();
-        GregorianCalendar datum = gast.getGeburtstdatum();
-        String sqlDatum = datum.get(GregorianCalendar.YEAR) + "-" + (datum.get(GregorianCalendar.MONTH) + 1) + "-" + datum.get(GregorianCalendar.DAY_OF_MONTH);
-        stmt.executeUpdate("INSERT INTO gast (vorname, nachname, geburtsdatum, email, telefon) values ('"
-                + gast.getVorname() + "', '" + gast.getNachname() + "', '" + sqlDatum + "', '" + gast.getEmail() + "', '" + gast.getTelefon() + "')", Statement.RETURN_GENERATED_KEYS);
-        // Auslesen des erzeugten Primärschlüssels (id)
-        ResultSet rst = stmt.getGeneratedKeys();
-        if (rst.next()) {
-            gast.setGastnummer(rst.getInt(1));
-            erfolgreich = true;
-        }
-
-        stmt.close();
-        return erfolgreich;
     }
 
     public static void main(String[] args) throws SQLException {
 
         PPdb p = new PPdb();
         // p.wareEinfügen(6, "Coca Cola", 0.99, "1 Lter", 0.0);
-
-        //p.selectAll();
+        // p.gastEinfügen("Max", "Mustermann", 1990.01.01, "m.m@mail.com", "01234567891");
+        p.selectAll();
         List<Gast> gaeste = p.gibAlleGaeste();
-        System.out.println(gaeste.size());
-        for(Gast gast : gaeste) {
-            System.out.println(gast.getName());
-        }
         List<Ware> waren = p.gibAlleWaren();
-        for(Ware ware : waren)
-            System.out.println(ware.getWarenName() + "  " + ware.getPreis());
         List<Party> partys = p.gibAllePartys();
-        for(Party party : partys) {
-            System.out.println(party.getName());
-        }
+        System.out.println(gaeste.size());
+        System.out.println(waren.size());
+        System.out.println(partys.size());
+
     }
 
     public ResultSet executeSQL(String sql) {
@@ -235,7 +89,7 @@ public class PPdb {
                 String partyname = res.getString(2);
                 double budget = res.getDouble(3);
                 int raumbedarf = res.getInt(4);
-                String tipps = res.getString(5);
+                String anmerkung = res.getString(5);
                 String datum = res.getString(6);
                 String[] datumsteile = datum.split("-");
                 int jahr = Integer.parseInt(datumsteile[0]);
@@ -253,6 +107,48 @@ public class PPdb {
             e.printStackTrace();
         }
         return partys;
+    }
+
+    public void partyEinfügen(Party party) {
+
+        try {
+            Statement stmt = con.createStatement();
+            ResultSet r = stmt.executeQuery("SELECT * FROM Party");
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            String sql = "INSERT INTO Party (partyname, budget, raumbedarf, tipps, datum) VALUES (?, ?, ?, ?, ?)";
+            PreparedStatement prep = con.prepareStatement(sql);
+            prep.setString(1, party.getName());
+            prep.setDouble(2, party.getBudget());
+            prep.setInt(3, party.getRaumbedarf());
+            prep.setString(4, party.getAnmerkung());
+            GregorianCalendar datum = party.getDatum();
+            int jahr = datum.get(Calendar.YEAR);
+            int monat = datum.get(Calendar.MONTH) + 1;
+            int tag = datum.get(Calendar.DAY_OF_MONTH);
+            prep.setString(5, jahr + "-" + monat + "-" + tag);
+            prep.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public void partyLöschen(int partynummer) {
+
+        try {
+            String sql = "Delete from Party where ID = ?";
+            PreparedStatement prep = con.prepareStatement(sql);
+            prep.setInt(1, partynummer);
+            prep.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
     }
 
     public List<Gast> gibAlleGaeste() {
@@ -289,6 +185,52 @@ public class PPdb {
         return gaeste;
     }
 
+    public void gastEinfügen(String vorname, String nachname,
+            Date geburtsdatum, String email, String telefon) {
+
+        try {
+            Statement stmt = con.createStatement();
+            ResultSet r = stmt.executeQuery("SELECT * FROM Gast");
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            String sql = "INSERT INTO Gast (vorname, nachname, geburtsdatum, email, telefonnr) VALUES (?, ?, ?, ?, ?)";
+            PreparedStatement prep = con.prepareStatement(sql);
+            prep.setString(1, vorname);
+            prep.setString(2, nachname);
+            /**
+             * String[] datumsteile = geburtsdatum.split("-"); int jahr =
+             * Integer.parseInt(datumsteile[0]); int monat =
+             * Integer.parseInt(datumsteile[1]) - 1; int tag =
+             * Integer.parseInt(datumsteile[2]); GregorianCalendar greg = new
+             * GregorianCalendar(jahr, monat, tag);
+             */
+            prep.setDate(3, geburtsdatum);
+            prep.setString(4, email);
+            prep.setString(5, telefon);
+            prep.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public void gastLöschen(int gastnummer) {
+
+        try {
+            String sql = "Delete from Gast where GastID = ?";
+            PreparedStatement prep = con.prepareStatement(sql);
+            prep.setInt(1, gastnummer);
+            prep.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
+
     public List<Ware> gibAlleWaren() {
         List<Ware> waren = new ArrayList<Ware>();
 
@@ -302,7 +244,7 @@ public class PPdb {
                 int id = res.getInt(1);
                 String warenName = res.getString(2);
                 Double preis = res.getDouble(3);
-                String menge = res.getString(4);
+                int menge = Integer.parseInt(res.getString(4));
                 Double alkoholgehalt = res.getDouble(5);
                 Ware ware = new Ware(warenName, preis, menge, alkoholgehalt);
                 //mware.setWarennummer(id);
@@ -315,6 +257,44 @@ public class PPdb {
             e.printStackTrace();
         }
         return waren;
+    }
+
+    public void wareHinzufügen(String warenName, double preis, String menge, double alkoholgehalt) throws SQLException {
+
+        try {
+            Statement stmt = con.createStatement();
+            ResultSet r = stmt.executeQuery("SELECT * FROM Ware");
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            String sql = "INSERT INTO Ware (warenname, preis, menge, alkoholgehalt) VALUES (?, ?, ?, ?)";
+
+            PreparedStatement prep = con.prepareStatement(sql);
+            prep.setString(1, warenName);
+            prep.setDouble(2, preis);
+            prep.setString(3, menge);
+            prep.setDouble(4, alkoholgehalt);
+            prep.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public void wareLöschen(int warennummer) {
+
+        try {
+            String sql = "Delete from Ware where strichcode = ?";
+            PreparedStatement prep = con.prepareStatement(sql);
+            prep.setInt(1, warennummer);
+            prep.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
     }
 
     public void selectAll() {
@@ -338,6 +318,26 @@ public class PPdb {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    public boolean gastErstellen(Gast gast) throws SQLException {
+
+        boolean erfolgreich = false;
+
+        Statement stmt = con.createStatement();
+        GregorianCalendar datum = gast.getGeburtstdatum();
+        String sqlDatum = datum.get(GregorianCalendar.YEAR) + "-" + (datum.get(GregorianCalendar.MONTH) + 1) + "-" + datum.get(GregorianCalendar.DAY_OF_MONTH);
+        stmt.executeUpdate("INSERT INTO gast (vorname, nachname, geburtsdatum, email, telefon) values ('"
+                + gast.getVorname() + "', '" + gast.getNachname() + "', '" + sqlDatum + "', '" + gast.getEmail() + "', '" + gast.getTelefon() + "')", Statement.RETURN_GENERATED_KEYS);
+        // Auslesen des erzeugten Primärschlüssels (id)
+        ResultSet rst = stmt.getGeneratedKeys();
+        if (rst.next()) {
+            gast.setGastnummer(rst.getInt(1));
+            erfolgreich = true;
+        }
+
+        stmt.close();
+        return erfolgreich;
     }
 
 }
