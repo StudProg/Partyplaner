@@ -2,6 +2,7 @@ package Model;
 
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.List;
 
@@ -59,6 +60,12 @@ public class Party {
         this.budget = budget;
     }
 
+    public String getDatumAlsString () {
+        int datumTag = datum.get(Calendar.DAY_OF_MONTH);
+        int datumMonat = datum.get(Calendar.MONTH);
+        int datumJahr = datum.get(Calendar.YEAR);
+        return datumTag + "." + datumMonat + "." + datumJahr;
+    }
     /**
      * Getter für das Datum der Party.
      * @return
