@@ -19,7 +19,7 @@ public class Party {
     private String name;
     private double budget;
     private GregorianCalendar datum;
-    private String tipps;
+    private String anmerkung;
     private int raumbedarf;
     private Partytyp partytyp;
     
@@ -79,8 +79,8 @@ public class Party {
      * Getter für die Tipps, die es zu dieser Party gibt.
      * @return
      */
-    public String getTipps() {
-        return tipps;
+    public String getAnmerkung() {
+        return anmerkung;
     }
 
     /**
@@ -120,7 +120,7 @@ public class Party {
         this.budget = budget;
         this.datum = datum;
         this.partytyp = partytyp;
-        tipps = "";
+        anmerkung = "";
         warenListe = new ArrayList<Einkaufsposten>();
         gaesteListe = new ArrayList<Gast>();
         kommentarListe = new ArrayList<Kommentar>();

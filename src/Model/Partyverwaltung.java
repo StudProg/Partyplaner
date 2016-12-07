@@ -89,7 +89,7 @@ public class Partyverwaltung {
             throws PartyExestiertNichtException {
         for(Party party : partyListe) {
             if(party.getName().equals(name))
-                return party.getTipps();
+                return party.getAnmerkung();
         }
         throw new PartyExestiertNichtException("Party mit Namen " + name + 
                 " exestiert nicht!");

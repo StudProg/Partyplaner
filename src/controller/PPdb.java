@@ -109,7 +109,7 @@ public class PPdb {
         return partys;
     }
 
-    public void partyEinfügen(Party party) {
+    public void partyEinfuegen(Party party) {
 
         try {
             Statement stmt = con.createStatement();
@@ -244,7 +244,7 @@ public class PPdb {
                 int id = res.getInt(1);
                 String warenName = res.getString(2);
                 Double preis = res.getDouble(3);
-                int menge = Integer.parseInt(res.getString(4));
+                String menge = res.getString(4);
                 Double alkoholgehalt = res.getDouble(5);
                 Ware ware = new Ware(warenName, preis, menge, alkoholgehalt);
                 //mware.setWarennummer(id);
