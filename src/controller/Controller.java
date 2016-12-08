@@ -6,6 +6,7 @@
 package controller;
 
 import Guidesign.Gästebuch;
+import Guidesign.Partyerstellen;
 import Guidesign.Partyliste;
 import Guidesign.Startseite;
 import Model.Model;
@@ -27,6 +28,7 @@ public class Controller implements ActionListener {
     private final Model model;
     private final Startseite gui;
     private Partyliste partyListe;
+    private Partyerstellen partyerstellen;
     
     public Controller() {
         //initialisierung des Models
@@ -49,13 +51,17 @@ public class Controller implements ActionListener {
             partyAnzeigen();
         } else if(e.getActionCommand().equals("Party erstellen")) {
             System.out.println("Party erstellen wurde geklickt!");
+            partyerstellen = new Partyerstellen(this);
+            partyerstellen.setAlwaysOnTop(true);
+            partyerstellen.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+            partyerstellen.setVisible(true);
         } else if(e.getActionCommand().equals("Gaestebuch")) {
             System.out.println("hallo");
             Gästebuch gaestebuch = new Gästebuch();
             gaestebuch.setVisible(true);
             gaestebuch.setAlwaysOnTop(true);
             gaestebuch.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        } else if (e.getActionCommand().equals("speichern")) {
+        } else if (e.getActionCommand().equals("Speichern")) {
             partySpeichern();
         } else if (e.getActionCommand().equals("Partyliste.PartyAnzeigen")) {
             int index = partyListe.getpartylist().getSelectedIndex();
@@ -64,9 +70,70 @@ public class Controller implements ActionListener {
             partyListe = null;
             gui.getPartynameeintragen().setText(party.getName());
             gui.getPartydatumeintragen().setText(party.getDatumAlsString());
-            
             gui.getPartybudget().setText(Double.toString(party.getBudget()));
-            
+        } else if (e.getActionCommand().equals("PartyErstellen.Speichern")) {
+            String name = partyerstellen.getpartyname().getText();
+            String datum = partyerstellen.getpartydatum().getText();
+            String budget = partyerstellen.getpartybudget().getText();
+            String kategorie = (String)partyerstellen.getpartyKategorien().getSelectedItem();
+            if (name.equals("")) {
+                partyerstellen.errorLabel.setText("Bitte einen Namen eingeben.");
+                partyerstellen.errorLabel.setForeground(Color.red);
+                return;
+            }
+            String[] datumArray = datum.split("\\.");
+            if(datumArray.length != 3) {
+                partyerstellen.errorLabel.setText("Ungültiges Datum.");
+                System.out.println("array nicht 3 lang  " + datumArray.length + "    " + datum);
+                partyerstellen.errorLabel.setForeground(Color.red);
+                return;
+            }
+            GregorianCalendar gregorianDatum;
+            try {
+                int tag = Integer.parseInt(datumArray[0]);
+                int monat = Integer.parseInt(datumArray[1]);
+                int jahr = Integer.parseInt(datumArray[2]);
+                if(tag < 1 || tag > 31 || monat < 1 || monat > 12) { //TODO: Ist das jahr wichtig ? Und wie sieht es mit Feb.aus?
+                    partyerstellen.errorLabel.setText("Ungültiges Datum.");
+                    System.out.println("Fehler beim überprüfen: " + tag + "   " + monat);
+                    partyerstellen.errorLabel.setForeground(Color.red);
+                    return;
+                }
+                gregorianDatum = new GregorianCalendar(jahr, monat, tag);
+            } catch (NumberFormatException exeption) {
+                partyerstellen.errorLabel.setText("Ungültiges Datum.");
+                System.out.println(exeption);
+                partyerstellen.errorLabel.setForeground(Color.red);
+                return;
+            }
+            double partyBudget;
+            try {
+                partyBudget = Double.parseDouble(budget);
+                if(partyBudget <= 0) {
+                    partyerstellen.errorLabel.setText("Sie sind pleite.");
+                    partyerstellen.errorLabel.setForeground(Color.red);
+                    return;
+                }
+            } catch (NumberFormatException exception) {
+                partyerstellen.errorLabel.setText("Ungültiges Budget.");
+                partyerstellen.errorLabel.setForeground(Color.red);
+                return;
+            }
+            try {
+                model.partyverwaltung.party_erstellen(name, partyBudget, 
+                    gregorianDatum, Partytyp.valueOf(kategorie)); //TODO: Partytype auswählbar machen
+            } catch (PartyExestiertBereitsException exception) {
+                partyerstellen.errorLabel.setText("Dieser Partyname existiert bereits.");
+                partyerstellen.errorLabel.setForeground(Color.red);
+                return;
+            } catch (IllegalArgumentException e1) {
+                partyerstellen.errorLabel.setText("Bitte eine Kategorie wählen.");
+                partyerstellen.errorLabel.setForeground(Color.red);
+                return;
+            }
+            partyerstellen.dispose();
+        } else if (e.getActionCommand().equals("PartyErstellen.Abbrechen")) {
+            partyerstellen.dispose();
         }
     }
 
@@ -89,15 +156,15 @@ public class Controller implements ActionListener {
             String datum = gui.getPartydatumeintragen().getText();
             String budget = gui.getPartybudget().getText();
             if (name.equals("")) {
-                gui.errorLabel.setText("Bitte einen Namen eingeben.");
-                gui.errorLabel.setForeground(Color.red);
+                gui.getErrorLabel().setText("Bitte einen Namen eingeben.");
+                gui.getErrorLabel().setForeground(Color.red);
                 return;
             }
             String[] datumArray = datum.split("\\.");
             if(datumArray.length != 3) {
-                gui.errorLabel.setText("Ungültiges Datum.");
+                gui.getErrorLabel().setText("Ungültiges Datum.");
                 System.out.println("array nicht 3 lang  " + datumArray.length + "    " + datum);
-                gui.errorLabel.setForeground(Color.red);
+                gui.getErrorLabel().setForeground(Color.red);
                 return;
             }
             GregorianCalendar gregorianDatum;
@@ -106,39 +173,39 @@ public class Controller implements ActionListener {
                 int monat = Integer.parseInt(datumArray[1]);
                 int jahr = Integer.parseInt(datumArray[2]);
                 if(tag < 1 || tag > 31 || monat < 1 || monat > 12) { //TODO: Ist das jahr wichtig ? Und wie sieht es mit Feb.aus?
-                    gui.errorLabel.setText("Ungültiges Datum.");
+                    gui.getErrorLabel().setText("Ungültiges Datum.");
                     System.out.println("Fehler beim überprüfen: " + tag + "   " + monat);
-                    gui.errorLabel.setForeground(Color.red);
+                    gui.getErrorLabel().setForeground(Color.red);
                     return;
                 }
                 gregorianDatum = new GregorianCalendar(jahr, monat, tag);
             } catch (NumberFormatException exeption) {
-                gui.errorLabel.setText("Ungültiges Datum.");
+                gui.getErrorLabel().setText("Ungültiges Datum.");
                 System.out.println(exeption);
-                gui.errorLabel.setForeground(Color.red);
+                gui.getErrorLabel().setForeground(Color.red);
                 return;
             }
             double partyBudget;
             try {
                 partyBudget = Double.parseDouble(budget);
                 if(partyBudget <= 0) {
-                    gui.errorLabel.setText("Sie sind pleite.");
-                    gui.errorLabel.setForeground(Color.red);
+                    gui.getErrorLabel().setText("Sie sind pleite.");
+                    gui.getErrorLabel().setForeground(Color.red);
                     return;
                 }
             } catch (NumberFormatException exception) {
-                gui.errorLabel.setText("Ungültiges Budget.");
-                gui.setForeground(Color.red);
+                gui.getErrorLabel().setText("Ungültiges Budget.");
+                gui.getErrorLabel().setForeground(Color.red);
                 return;
             }
             try {
                 model.partyverwaltung.party_erstellen(name, partyBudget, 
-                    gregorianDatum, Partytyp.TANZPARTY); //TODO: Partytype auswählbar machen
+                    gregorianDatum, Partytyp.Tanzparty); //TODO: Partytype auswählbar machen
             } catch (PartyExestiertBereitsException exception) {
-                gui.errorLabel.setText("Dieser Partyname existiert bereits.");
-                gui.errorLabel.setForeground(Color.red);
+                gui.getErrorLabel().setText("Dieser Partyname existiert bereits.");
+                gui.getErrorLabel().setForeground(Color.red);
                 return;
             }
-            gui.errorLabel.setText("");
+            gui.getErrorLabel().setText("");
     }
 }

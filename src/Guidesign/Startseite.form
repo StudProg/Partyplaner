@@ -131,9 +131,8 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
               <Component id="jLayeredPane1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="287" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="214" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -142,7 +141,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jLayeredPane1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="71" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -154,68 +153,65 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="anmerkung" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="anermkungeintragen" min="-2" pref="190" max="-2" attributes="0"/>
+                                  <Component id="partyname" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="partynameeintragen" linkSize="1" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="partyname" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="32767" attributes="0"/>
-                                          <Component id="partynameeintragen" linkSize="1" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="partydatum" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="32767" attributes="0"/>
-                                          <Component id="partydatumeintragen" linkSize="1" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="gaesteanzahl" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="gaesteanzahleintragen" linkSize="1" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="budget" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="32767" attributes="0"/>
-                                          <Component id="partybudget" linkSize="1" min="-2" pref="87" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
+                                  <Component id="partydatum" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="partydatumeintragen" linkSize="1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="gaesteanzahl" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="gaesteanzahleintragen" linkSize="1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="budget" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="partybudget" linkSize="1" min="-2" pref="87" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="1" attributes="0">
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="raumbedarf" min="-2" pref="44" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" attributes="0">
-                                          <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="raumbedarfberechnung" linkSize="2" min="-2" max="-2" attributes="0"/>
-                                              <Component id="einkaufslisteerstellen" linkSize="2" min="-2" max="-2" attributes="0"/>
-                                              <Component id="gaestelisteerstellen" linkSize="2" min="-2" max="-2" attributes="0"/>
-                                          </Group>
+                                          <Component id="raumbedarfberechnung" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                       </Group>
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="raumbedarf" min="-2" pref="44" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                                      </Group>
+                                      <Component id="gaestelisteerstellen" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="einkaufslisteerstellen" alignment="0" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
                       </Group>
+                      <Component id="errorLabel" alignment="0" min="-2" pref="377" max="-2" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="97" max="-2" attributes="0"/>
-                          <Component id="partyabbrechen" min="-2" max="-2" attributes="0"/>
+                          <Component id="anmerkung" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="partyEinfügen" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="errorLabel" min="-2" pref="377" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="anermkungeintragen" min="-2" pref="190" max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Component id="partyabbrechen" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="partyEinfuegen" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
                       </Group>
                   </Group>
-                  <EmptySpace pref="88" max="32767" attributes="0"/>
+                  <EmptySpace pref="171" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -229,10 +225,12 @@
                       <Component id="gaestelisteerstellen" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="partydatum" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="partydatumeintragen" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="einkaufslisteerstellen" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="partydatum" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="partydatumeintragen" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Component id="einkaufslisteerstellen" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -254,11 +252,11 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="partyabbrechen" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="partyEinfügen" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="partyEinfuegen" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="errorLabel" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="100" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="193" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -302,30 +300,6 @@
         </Component>
         <Component class="javax.swing.JTextField" name="anermkungeintragen">
         </Component>
-        <Component class="javax.swing.JToggleButton" name="gaestelisteerstellen">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="G&#xe4;steliste erstellen"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="gaestelisteerstellenActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JToggleButton" name="einkaufslisteerstellen">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Einkaufsliste erstellen"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="einkaufslisteerstellenActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JToggleButton" name="raumbedarfberechnung">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Raumbedarf berechnen"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="raumbedarfberechnungActionPerformed"/>
-          </Events>
-        </Component>
         <Component class="javax.swing.JTextField" name="raumbedarf">
           <Properties>
             <Property name="text" type="java.lang.String" value="qm"/>
@@ -334,26 +308,36 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="raumbedarfActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JToggleButton" name="partyabbrechen">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="abbrechen"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="partyabbrechenActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JToggleButton" name="partyEinf&#xfc;gen">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="speichern"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="partyEinf&#xfc;genActionPerformed"/>
-          </Events>
-        </Component>
         <Component class="javax.swing.JLabel" name="errorLabel">
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
+        </Component>
+        <Component class="javax.swing.JButton" name="partyabbrechen">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Abbrechen"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="partyEinfuegen">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Speichern"/>
+            <Property name="name" type="java.lang.String" value="" noResource="true"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="gaestelisteerstellen">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="G&#xe4;steliste erstellen"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="einkaufslisteerstellen">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Einkaufsliste erstellen"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="raumbedarfberechnung">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Raumbedarf berechnen"/>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>

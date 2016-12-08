@@ -12,6 +12,6 @@ package Model;
  */
 public enum Partytyp {
 
-	TANZPARTY, COUCHPARTY, KINDERGEBURTSTAG;
+	Tanzparty, Couchparty, Kinderparty;
 }
 
