@@ -138,7 +138,7 @@ public class PPdb {
 
     }
 
-    public void partyLöschen(int partynummer) {
+    public void partyLoeschen(int partynummer) {
 
         try {
             String sql = "Delete from Party where ID = ?";
@@ -149,6 +149,28 @@ public class PPdb {
             e.printStackTrace();
         }
 
+    }
+
+    public void partyBearbeiten(int partynummer, Party party) {
+
+        try {
+            String sql = "UPDATE Party SET Partyname = ?, Budget = ?, Raumbedarf = ?,"
+                    + "Tipps = ?, Datum = ? WHERE id = ?";
+            PreparedStatement prep = con.prepareStatement(sql);
+            prep.setString(1, party.getName());
+            prep.setDouble(2, party.getBudget());
+            prep.setInt(3, party.getRaumbedarf());
+            prep.setString(4, party.getAnmerkung());
+            GregorianCalendar datum = party.getDatum();
+            int jahr = datum.get(Calendar.YEAR);
+            int monat = datum.get(Calendar.MONTH) + 1;
+            int tag = datum.get(Calendar.DAY_OF_MONTH);
+            prep.setString(5, jahr + "-" + monat + "-" + tag);
+            prep.setInt(6, partynummer);
+            prep.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public List<Gast> gibAlleGaeste() {
@@ -218,7 +240,7 @@ public class PPdb {
 
     }
 
-    public void gastLöschen(int gastnummer) {
+    public void gastLoeschen(int gastnummer) {
 
         try {
             String sql = "Delete from Gast where GastID = ?";
@@ -228,7 +250,28 @@ public class PPdb {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
 
+    public void gastBearbeiten(Gast gast) {
+
+        try {
+            String sql = "UPDATE Gast SET Vorname = ?, Nachname = ?, Geburtsdatum = ?,"
+                    + "Email = ?, Telefonnr = ? WHERE GastId = ?";
+            PreparedStatement prep = con.prepareStatement(sql);
+            prep.setString(1, gast.getVorname());
+            prep.setString(2, gast.getNachname());
+            GregorianCalendar datum = gast.getGeburtstdatum();
+            int jahr = datum.get(Calendar.YEAR);
+            int monat = datum.get(Calendar.MONTH) + 1;
+            int tag = datum.get(Calendar.DAY_OF_MONTH);
+            prep.setString(3, jahr + "-" + monat + "-" + tag);
+            prep.setString(4, gast.getEmail());
+            prep.setString(5, gast.getTelefon());
+            prep.setInt(6, gast.getGastnummer());
+            prep.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public List<Ware> gibAlleWaren() {
@@ -259,7 +302,7 @@ public class PPdb {
         return waren;
     }
 
-    public void wareHinzufügen(String warenName, double preis, String menge, double alkoholgehalt) throws SQLException {
+    public void wareEinfuegen(Ware ware) throws SQLException {
 
         try {
             Statement stmt = con.createStatement();
@@ -273,10 +316,10 @@ public class PPdb {
             String sql = "INSERT INTO Ware (warenname, preis, menge, alkoholgehalt) VALUES (?, ?, ?, ?)";
 
             PreparedStatement prep = con.prepareStatement(sql);
-            prep.setString(1, warenName);
-            prep.setDouble(2, preis);
-            prep.setString(3, menge);
-            prep.setDouble(4, alkoholgehalt);
+            prep.setString(1, ware.getWarenName());
+            prep.setDouble(2, ware.getPreis());
+            prep.setString(3, ware.getMenge());
+            prep.setDouble(4, ware.getAlkoholgehalt());
             prep.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -284,7 +327,7 @@ public class PPdb {
 
     }
 
-    public void wareLöschen(int warennummer) {
+    public void wareLoeschen(int warennummer) {
 
         try {
             String sql = "Delete from Ware where strichcode = ?";
@@ -294,7 +337,23 @@ public class PPdb {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
 
+    public void wareBearbeiten(int warennummer, Ware ware) {
+
+        try {
+            String sql = "UPDATE Ware SET Warenname = ?, Preis = ?, Menge = ?,"
+                    + "Alkoholgehalt = ? WHERE Strichcode = ?";
+            PreparedStatement prep = con.prepareStatement(sql);
+            prep.setString(1, ware.getWarenName());
+            prep.setDouble(2, ware.getPreis());
+            prep.setString(3, ware.getMenge());
+            prep.setDouble(4, ware.getAlkoholgehalt());
+            prep.setInt(5, warennummer);
+            prep.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public void selectAll() {
