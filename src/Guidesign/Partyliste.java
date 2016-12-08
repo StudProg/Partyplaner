@@ -42,25 +42,17 @@ public class Partyliste extends javax.swing.JDialog {
         partylist = new javax.swing.JList<>();
         partyanzeigen = new javax.swing.JToggleButton();
         partyloeschen = new javax.swing.JToggleButton();
-        partybearbeiten = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         partyliste.setText("Partyliste");
 
-        partylist.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
         jScrollPane1.setViewportView(partylist);
 
         partyanzeigen.setText("Party anzeigen");
         partyanzeigen.setActionCommand("Partyliste.PartyAnzeigen");
 
         partyloeschen.setText("Party löschen");
-
-        partybearbeiten.setText("Party bearbeiten");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -78,10 +70,8 @@ public class Partyliste extends javax.swing.JDialog {
                         .addContainerGap()
                         .addComponent(partyanzeigen)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(partyloeschen)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(partybearbeiten)))
-                .addContainerGap(59, Short.MAX_VALUE))
+                        .addComponent(partyloeschen)))
+                .addContainerGap(100, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -93,8 +83,7 @@ public class Partyliste extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(partyanzeigen)
-                    .addComponent(partyloeschen)
-                    .addComponent(partybearbeiten))
+                    .addComponent(partyloeschen))
                 .addContainerGap(17, Short.MAX_VALUE))
         );
 
@@ -111,7 +100,6 @@ public class Partyliste extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JToggleButton partyanzeigen;
-    private javax.swing.JToggleButton partybearbeiten;
     private javax.swing.JList<String> partylist;
     private javax.swing.JLabel partyliste;
     private javax.swing.JToggleButton partyloeschen;

@@ -18,6 +18,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.GregorianCalendar;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 
 /**
@@ -29,6 +31,7 @@ public class Controller implements ActionListener {
     private final Startseite gui;
     private Partyliste partyListe;
     private Partyerstellen partyerstellen;
+    private String alterPartyName;
     
     public Controller() {
         //initialisierung des Models
@@ -68,6 +71,7 @@ public class Controller implements ActionListener {
             Party party = model.partyverwaltung.getPartyliste().get(index);
             partyListe.dispose();
             partyListe = null;
+            alterPartyName = party.getName();
             gui.getPartynameeintragen().setText(party.getName());
             gui.getPartydatumeintragen().setText(party.getDatumAlsString());
             gui.getPartybudget().setText(Double.toString(party.getBudget()));
@@ -121,7 +125,7 @@ public class Controller implements ActionListener {
             }
             try {
                 model.partyverwaltung.party_erstellen(name, partyBudget, 
-                    gregorianDatum, Partytyp.valueOf(kategorie)); //TODO: Partytype auswählbar machen
+                    gregorianDatum, Partytyp.valueOf(kategorie)); 
             } catch (PartyExestiertBereitsException exception) {
                 partyerstellen.errorLabel.setText("Dieser Partyname existiert bereits.");
                 partyerstellen.errorLabel.setForeground(Color.red);
@@ -151,6 +155,8 @@ public class Controller implements ActionListener {
     }
     
     private void partySpeichern() {
+        if (alterPartyName == null)
+            return;
         System.out.println("Speichern triggered");
             String name = gui.getPartynameeintragen().getText();
             String datum = gui.getPartydatumeintragen().getText();
@@ -198,14 +204,17 @@ public class Controller implements ActionListener {
                 gui.getErrorLabel().setForeground(Color.red);
                 return;
             }
-            try {
-                model.partyverwaltung.party_erstellen(name, partyBudget, 
-                    gregorianDatum, Partytyp.Tanzparty); //TODO: Partytype auswählbar machen
-            } catch (PartyExestiertBereitsException exception) {
-                gui.getErrorLabel().setText("Dieser Partyname existiert bereits.");
+            
+        try { 
+            model.partyverwaltung.party_bearbeiten(alterPartyName,name, partyBudget, gregorianDatum );
+        } catch (PartyExestiertBereitsException ex) {
+            gui.getErrorLabel().setText("Dieser Partyname existiert bereits.");
                 gui.getErrorLabel().setForeground(Color.red);
                 return;
-            }
-            gui.getErrorLabel().setText("");
+        }
+            
+            
+            gui.getErrorLabel().setText("Partyänderungen erfolgreich gespeichert");
+            gui.getErrorLabel().setForeground(Color.green);
     }
 }

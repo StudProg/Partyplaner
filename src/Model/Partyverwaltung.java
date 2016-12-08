@@ -66,17 +66,35 @@ public class Partyverwaltung {
      * Löscht eine Party aus dem Verzeichniss für Partys.
      * @param name Der Name der Party die gelöscht werden soll
      */
-    public void party_loeschen(String name) { //name darf nur einmal exestieren
+    public void party_loeschen(String name) { 
+        int i = 0;
         for(Party party : partyListe) {
             if(party.getName().equals(name)) {
                 partyListe.remove(party);
+                datenbank.partyLoeschen(i);
                 break;
             }
+            i++;
         }
     }
     
-    public void party_aendern() {
-        //TODO: was soll geändert werden?
+    public void party_bearbeiten(String alterPartyName, String partyname, double partyBudget,
+            GregorianCalendar datum ) throws PartyExestiertBereitsException {
+        if (partySuchenMitName(partyname))
+            throw new PartyExestiertBereitsException(partyname);
+        int i = 0;
+        for(Party party : partyListe) {
+            if(party.getName().equals(alterPartyName)) {
+                party.setBudget(partyBudget);
+                party.setDatum(datum);
+                party.setName(partyname);
+                datenbank.partyBearbeiten(i, party);
+                break;
+            }
+            i++;
+                
+        }
+        
     }
     
     /**
