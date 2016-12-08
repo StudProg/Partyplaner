@@ -75,7 +75,17 @@ public class Controller implements ActionListener {
             gui.getPartynameeintragen().setText(party.getName());
             gui.getPartydatumeintragen().setText(party.getDatumAlsString());
             gui.getPartybudget().setText(Double.toString(party.getBudget()));
-        } else if (e.getActionCommand().equals("PartyErstellen.Speichern")) {
+        } else if (e.getActionCommand().equals("Partyliste.PartyLöschen")) {
+            int index = partyListe.getpartylist().getSelectedIndex();
+            Party party = model.partyverwaltung.getPartyliste().get(index);
+            model.partyverwaltung.party_loeschen(party.getName());
+            List<Party> partys = model.partyverwaltung.getPartyliste();
+            String[] partyArray = new String[partys.size()];
+            for(int i = 0; i < partys.size(); i++) {
+                partyArray[i] = partys.get(i).getName();
+            }
+            partyListe.getpartylist().setListData(partyArray);
+        }else if (e.getActionCommand().equals("PartyErstellen.Speichern")) {
             String name = partyerstellen.getpartyname().getText();
             String datum = partyerstellen.getpartydatum().getText();
             String budget = partyerstellen.getpartybudget().getText();

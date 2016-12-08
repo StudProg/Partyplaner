@@ -53,6 +53,7 @@ public class Partyliste extends javax.swing.JDialog {
         partyanzeigen.setActionCommand("Partyliste.PartyAnzeigen");
 
         partyloeschen.setText("Party löschen");
+        partyloeschen.setActionCommand("Partyliste.PartyLöschen");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -94,7 +95,7 @@ public class Partyliste extends javax.swing.JDialog {
     
     private void addActionListener() {
         partyanzeigen.addActionListener(controller);
-        
+        partyloeschen.addActionListener(controller);
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
