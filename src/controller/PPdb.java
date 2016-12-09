@@ -208,29 +208,19 @@ public class PPdb {
     }
 
     public void gastEinfügen(String vorname, String nachname,
-            Date geburtsdatum, String email, String telefon) {
+            GregorianCalendar geburtsdatum, String email, String telefon) {
 
-        try {
-            Statement stmt = con.createStatement();
-            ResultSet r = stmt.executeQuery("SELECT * FROM Gast");
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+       
 
         try {
             String sql = "INSERT INTO Gast (vorname, nachname, geburtsdatum, email, telefonnr) VALUES (?, ?, ?, ?, ?)";
             PreparedStatement prep = con.prepareStatement(sql);
             prep.setString(1, vorname);
             prep.setString(2, nachname);
-            /**
-             * String[] datumsteile = geburtsdatum.split("-"); int jahr =
-             * Integer.parseInt(datumsteile[0]); int monat =
-             * Integer.parseInt(datumsteile[1]) - 1; int tag =
-             * Integer.parseInt(datumsteile[2]); GregorianCalendar greg = new
-             * GregorianCalendar(jahr, monat, tag);
-             */
-            prep.setDate(3, geburtsdatum);
+            int jahr = geburtsdatum.get(Calendar.YEAR);
+            int monat = geburtsdatum.get(Calendar.MONTH) + 1;
+            int tag = geburtsdatum.get(Calendar.DAY_OF_MONTH);
+            prep.setString(3, jahr + "-" + monat + "-" + tag);
             prep.setString(4, email);
             prep.setString(5, telefon);
             prep.executeUpdate();
