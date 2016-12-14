@@ -4,12 +4,7 @@ package Model;
 import controller.PPdb;
 import java.util.GregorianCalendar;
 import java.util.List;
-
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+import java.util.ArrayList;
 
 /**
  *
@@ -18,19 +13,20 @@ import java.util.List;
 public class Gaesteverwaltung {
     //Warum ist dies static? Wir wollen nur eine liste mit allen gästen haben
     //aus der der Benutzer letzendlich eine Liste von gästen zusammenstellt.
-    private static List<Gast> gaesteListe;
+    private List<Gast> gaesteListe = new ArrayList<Gast>();
+    private PPdb datenbank;
 
     /**
      * Gibt eine Liste mit allen Gästen zurück.
      * @return
      */
-    public static List<Gast> getGaesteListe() {
+    public List<Gast> getGaesteListe() {
         return gaesteListe;
     }
-    private final PPdb datenbank;
-    
+   
     public Gaesteverwaltung(PPdb datenbank) {
         this.datenbank = datenbank;
+        this.gaesteListe = datenbank.gibAlleGaeste();
     }
      
     /**
@@ -45,6 +41,7 @@ public class Gaesteverwaltung {
             GregorianCalendar geburtstdatum, String email, String telefon) {
         Gast gast = new Gast(vorname, nachname, geburtstdatum, email, telefon);
         gaesteListe.add(gast);
+        datenbank.gastEinfuegen(gast);
     }
     
     public void gast_aendern(Gast gast) {

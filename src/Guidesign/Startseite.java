@@ -384,6 +384,7 @@ public class Startseite extends javax.swing.JFrame {
         double g, rb;
        g= Double.parseDouble(gaesteanzahleintragen.getText());
        rb= g*1.4;
+       rb = Math.round(rb*1000)/1000.0;
        raumbedarf.setText(rb+ " qm");
     }//GEN-LAST:event_raumbedarfberechnungActionPerformed
 
