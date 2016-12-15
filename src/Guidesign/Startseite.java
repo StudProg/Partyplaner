@@ -363,10 +363,14 @@ public class Startseite extends javax.swing.JFrame {
 
     private void raumbedarfberechnungActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_raumbedarfberechnungActionPerformed
         double g, rb;
-       g= Double.parseDouble(gaesteanzahleintragen.getText());
-       rb= g*1.4;
-       rb = Math.round(rb*1000)/1000.0;
-       raumbedarf.setText(rb+ " qm");
+        try {
+            g= Double.parseDouble(gaesteanzahleintragen.getText());
+        } catch (NumberFormatException e) {
+            return;
+        }
+        rb= g*1.4;
+        rb = Math.round(rb*1000)/1000.0;
+        raumbedarf.setText(rb+ " qm");
     }//GEN-LAST:event_raumbedarfberechnungActionPerformed
 
 
