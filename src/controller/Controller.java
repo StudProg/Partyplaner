@@ -200,6 +200,12 @@ public class Controller implements ActionListener {
             }
             model.gaesteverwaltung.gast_erstellen(vname, nname, gregorianDatum, mail, telefon);
             gasthinzufuegen.dispose();
+            List<Gast> gaeste = model.gaesteverwaltung.getGaesteListe();
+            String[] gaesteArray = new String[gaeste.size()];
+            for(int i = 0; i < gaeste.size(); i++) {
+                gaesteArray[i] = gaeste.get(i).getName();
+            }
+            gaestebuch.getgaesteListe().setListData(gaesteArray);
         } else if(e.getActionCommand().equals("Gast entfernen")) {
             int index = gaestebuch.getgaesteListe().getSelectedIndex();
             Gast gast = model.gaesteverwaltung.getGaesteListe().get(index);
@@ -226,20 +232,20 @@ public class Controller implements ActionListener {
             gastbearbeiten.getTeleintragen().setText(gast.getTelefon());
             gastbearbeiten.getGbteintragen().setText(gast.getDatumAlsString());
         } else if(e.getActionCommand().equals("bearbeiteter Gast")) {
-            String vname = gasthinzufuegen.getVorname().getText();
-            String nname = gasthinzufuegen.getNachname().getText();
-            String gbdatum = gasthinzufuegen.getGeburtsdatum().getText();
-            String telefon = gasthinzufuegen.getTelefon().getText();
-            String mail = gasthinzufuegen.getMail().getText();
+            String vname = gastbearbeiten.getVnameeintragen().getText();
+            String nname = gastbearbeiten.getNnameeintragen().getText();
+            String gbdatum = gastbearbeiten.getGbteintragen().getText();
+            String telefon = gastbearbeiten.getTeleintragen().getText();
+            String mail = gastbearbeiten.getMaileintragen().getText();
             if(vname.equals("") || nname.equals("")) {
-                gasthinzufuegen.geterrorLabel().setText("Namen sind nicht richtig ausgefüllt!");
-                gasthinzufuegen.geterrorLabel().setForeground(Color.red);
+                gastbearbeiten.getErrorLabel().setText("Namen sind nicht richtig ausgefüllt!");
+                gastbearbeiten.getErrorLabel().setForeground(Color.red);
                 return;
             }
             String[] datumArray = gbdatum.split("\\.");
             if(datumArray.length != 3) {
-                gasthinzufuegen.geterrorLabel().setText("Ungültiges Geburtsdatum.");
-                gasthinzufuegen.geterrorLabel().setForeground(Color.red);
+                gastbearbeiten.getErrorLabel().setText("Ungültiges Geburtsdatum.");
+                gastbearbeiten.getErrorLabel().setForeground(Color.red);
                 return;
             }
             GregorianCalendar gregorianDatum;
@@ -248,21 +254,27 @@ public class Controller implements ActionListener {
                 int monat = Integer.parseInt(datumArray[1]);
                 int jahr = Integer.parseInt(datumArray[2]);
                 if(tag < 1 || tag > 31 || monat < 1 || monat > 12) { //TODO: Ist das jahr wichtig ? Und wie sieht es mit Feb.aus?
-                    gasthinzufuegen.geterrorLabel().setText("Ungültiges Geburtsdatum.");
-                    gasthinzufuegen.geterrorLabel().setForeground(Color.red);
+                    gastbearbeiten.getErrorLabel().setText("Ungültiges Geburtsdatum.");
+                    gastbearbeiten.getErrorLabel().setForeground(Color.red);
                     return;
                 }
                 gregorianDatum = new GregorianCalendar(jahr, monat, tag);
             } catch (NumberFormatException exeption) {
-                gasthinzufuegen.geterrorLabel().setText("Ungültiges Geburtsdatum.");
-                gasthinzufuegen.geterrorLabel().setForeground(Color.red);
+                gastbearbeiten.getErrorLabel().setText("Ungültiges Geburtsdatum.");
+                gastbearbeiten.getErrorLabel().setForeground(Color.red);
                 return;
             }
             Gast gast = model.gaesteverwaltung.getGaesteListe().get(indexBearbeiteterGast);
             indexBearbeiteterGast = -1;
             model.gaesteverwaltung.gast_loeschen(gast);
             model.gaesteverwaltung.gast_erstellen(vname, nname, gregorianDatum, mail, telefon);
-            gasthinzufuegen.dispose();
+            gastbearbeiten.dispose();
+            List<Gast> gaeste = model.gaesteverwaltung.getGaesteListe();
+            String[] gaesteArray = new String[gaeste.size()];
+            for(int i = 0; i < gaeste.size(); i++) {
+                gaesteArray[i] = gaeste.get(i).getName();
+            }
+            gaestebuch.getgaesteListe().setListData(gaesteArray);
         }
     }
 

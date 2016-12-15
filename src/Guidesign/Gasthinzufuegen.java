@@ -13,7 +13,7 @@ import javax.swing.JTextField;
  *
  * @author Miri
  */
-public class Gasthinzufuegen extends javax.swing.JDialog{
+public class Gasthinzufuegen extends javax.swing.JFrame{
     public JTextField getVorname() {
         return vnameeintragen;
     }

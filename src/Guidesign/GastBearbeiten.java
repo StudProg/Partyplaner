@@ -6,13 +6,14 @@
 package Guidesign;
 
 import controller.Controller;
+import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 /**
  *
  * @author Miri
  */
-public class GastBearbeiten extends javax.swing.JDialog{
+public class GastBearbeiten extends javax.swing.JFrame{
 
     public JTextField getVnameeintragen() {
         return vnameeintragen;
@@ -33,6 +34,11 @@ public class GastBearbeiten extends javax.swing.JDialog{
     public JTextField getTeleintragen() {
         return teleintragen;
     }
+
+    public JLabel getErrorLabel() {
+        return errorLabel;
+    }
+    
 
     /**
      * Creates new form Gasthinzufügen
@@ -63,6 +69,7 @@ public class GastBearbeiten extends javax.swing.JDialog{
         maileintragen = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         gastspeichern = new javax.swing.JToggleButton();
+        errorLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -83,6 +90,10 @@ public class GastBearbeiten extends javax.swing.JDialog{
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(gastspeichern)
+                .addGap(35, 35, 35))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -102,12 +113,11 @@ public class GastBearbeiten extends javax.swing.JDialog{
                             .addComponent(vnameeintragen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(153, 153, 153)
-                        .addComponent(jLabel6)))
+                        .addComponent(jLabel6))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(errorLabel)))
                 .addContainerGap(129, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(gastspeichern)
-                .addGap(35, 35, 35))
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {gbteintragen, maileintragen, nnameeintragen, teleintragen, vnameeintragen});
@@ -137,7 +147,9 @@ public class GastBearbeiten extends javax.swing.JDialog{
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(gastmail)
                     .addComponent(maileintragen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(errorLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
                 .addComponent(gastspeichern)
                 .addGap(22, 22, 22))
         );
@@ -147,6 +159,7 @@ public class GastBearbeiten extends javax.swing.JDialog{
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel errorLabel;
     private javax.swing.JLabel gastgbt;
     private javax.swing.JLabel gastmail;
     private javax.swing.JLabel gastnname;

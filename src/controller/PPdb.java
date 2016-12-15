@@ -259,8 +259,8 @@ public class PPdb {
     public void gastBearbeiten(Gast gast) {
 
         try {
-            String sql = "UPDATE Gast SET Vorname = ?, Nachname = ?, Geburtsdatum = ?,"
-                    + "Email = ?, Telefonnr = ? WHERE GastId = ?";
+            String sql = "UPDATE Gast SET vorname = ?, nachname = ?, geburtsdatum = ?,"
+                    + "email = ?, telefonnr = ? WHERE GastId = ?";
             PreparedStatement prep = con.prepareStatement(sql);
             prep.setString(1, gast.getVorname());
             prep.setString(2, gast.getNachname());
@@ -390,7 +390,7 @@ public class PPdb {
         Statement stmt = con.createStatement();
         GregorianCalendar datum = gast.getGeburtstdatum();
         String sqlDatum = datum.get(GregorianCalendar.YEAR) + "-" + (datum.get(GregorianCalendar.MONTH) + 1) + "-" + datum.get(GregorianCalendar.DAY_OF_MONTH);
-        stmt.executeUpdate("INSERT INTO gast (vorname, nachname, geburtsdatum, email, telefon) values ('"
+        stmt.executeUpdate("INSERT INTO gast (vorname, nachname, geburtsdatum, email, telefonnr) values ('"
                 + gast.getVorname() + "', '" + gast.getNachname() + "', '" + sqlDatum + "', '" + gast.getEmail() + "', '" + gast.getTelefon() + "')", Statement.RETURN_GENERATED_KEYS);
         // Auslesen des erzeugten Primärschlüssels (id)
         ResultSet rst = stmt.getGeneratedKeys();
