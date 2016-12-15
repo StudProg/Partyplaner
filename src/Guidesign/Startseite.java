@@ -250,18 +250,9 @@ public class Startseite extends javax.swing.JFrame {
 
         gaestebuchmenue.setText("Gästebuch");
         gaestebuchmenue.setActionCommand("Gaestebuch");
-        gaestebuchmenue.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                gaestebuchmenueActionPerformed(evt);
-            }
-        });
 
         gbanzeigen.setText("Gästebuch anzeigen");
-        gbanzeigen.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                gbanzeigenActionPerformed(evt);
-            }
-        });
+        gbanzeigen.setToolTipText("");
         gaestebuchmenue.add(gbanzeigen);
 
         startmenue.add(gaestebuchmenue);
@@ -332,11 +323,6 @@ public class Startseite extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void gaestebuchmenueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gaestebuchmenueActionPerformed
-        Gästebuch gb = new Gästebuch();
-        gb.setVisible(true);// Menü in Item ändern 
-    }//GEN-LAST:event_gaestebuchmenueActionPerformed
-
     private void warenlistemenueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_warenlistemenueActionPerformed
       Warenliste wl = new Warenliste();
       wl.setVisible(true);//Menü in Item ändern
@@ -356,11 +342,6 @@ public class Startseite extends javax.swing.JFrame {
         Couchparty cp = new Couchparty ();
         cp.setVisible(true);
     }//GEN-LAST:event_couchpartyActionPerformed
-
-    private void gbanzeigenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gbanzeigenActionPerformed
-        Gästebuch gb= new Gästebuch();
-        gb.setVisible(true);
-    }//GEN-LAST:event_gbanzeigenActionPerformed
 
     private void warenanzeigenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_warenanzeigenActionPerformed
         Warenliste wl= new Warenliste();
@@ -383,7 +364,7 @@ public class Startseite extends javax.swing.JFrame {
     private javax.swing.JLabel budget;
     private javax.swing.JMenuItem couchparty;
     private javax.swing.JButton einkaufslisteerstellen;
-    private javax.swing.JLabel errorLabel;
+    public javax.swing.JLabel errorLabel;
     private javax.swing.JLabel gaesteanzahl;
     private javax.swing.JTextField gaesteanzahleintragen;
     private javax.swing.JMenu gaestebuchmenue;
@@ -416,7 +397,6 @@ public class Startseite extends javax.swing.JFrame {
         this.partyerstellen.addActionListener(controller);
         this.partyanzeigen.addActionListener(controller);
         this.partyEinfuegen.addActionListener(controller);
-        this.gaestebuchmenue.addActionListener(controller);
-        
+        this.gbanzeigen.addActionListener(controller);
     }
 }

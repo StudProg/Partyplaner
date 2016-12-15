@@ -16,8 +16,8 @@ public class Model {
 
     private final Controller controller;
     public final Partyverwaltung partyverwaltung;
-    private final Einkaufslistenverwaltung einkaufslistenverwaltung;
-    private final Gaesteverwaltung gaesteverwaltung;
+    public final Einkaufslistenverwaltung einkaufslistenverwaltung;
+    public final Gaesteverwaltung gaesteverwaltung;
     
     public Model(Controller controller, PPdb datenbank) {
         this.controller = controller;

@@ -5,17 +5,40 @@
  */
 package Guidesign;
 
+import controller.Controller;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+
 /**
  *
  * @author Miri
  */
-public class Gasthinzufügen extends javax.swing.JDialog{
+public class Gasthinzufuegen extends javax.swing.JDialog{
+    public JTextField getVorname() {
+        return vnameeintragen;
+    }
+    public JTextField getNachname() {
+        return nnameeintragen;
+    }
+    public JTextField getGeburtsdatum() {
+        return gbteintragen;
+    }
+    public JTextField getTelefon() {
+        return teleintragen;
+    }
+    public JTextField getMail() {
+        return maileintragen;
+    }
+    public JLabel geterrorLabel() {
+        return errorLabel;
+    }
 
     /**
      * Creates new form Gasthinzufügen
      */
-    public Gasthinzufügen() {
+    public Gasthinzufuegen(Controller controller) {
         initComponents();
+        gastEinfuegen.addActionListener(controller);
     }
 
     /**
@@ -38,7 +61,8 @@ public class Gasthinzufügen extends javax.swing.JDialog{
         teleintragen = new javax.swing.JTextField();
         maileintragen = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        gastEinfügen = new javax.swing.JToggleButton();
+        gastEinfuegen = new javax.swing.JToggleButton();
+        errorLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -52,37 +76,22 @@ public class Gasthinzufügen extends javax.swing.JDialog{
 
         gasttel.setText("Telefon");
 
-        vnameeintragen.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                vnameeintragenActionPerformed(evt);
-            }
-        });
-
-        teleintragen.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                teleintragenActionPerformed(evt);
-            }
-        });
-
-        maileintragen.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                maileintragenActionPerformed(evt);
-            }
-        });
-
-        gastEinfügen.setText("Gast hinzufügen");
-        gastEinfügen.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                gastEinfügenActionPerformed(evt);
-            }
-        });
+        gastEinfuegen.setText("Gast hinzufügen");
+        gastEinfuegen.setActionCommand("Gast speichern");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(gastEinfuegen)
+                .addGap(35, 35, 35))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(153, 153, 153)
+                        .addComponent(jLabel6))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -99,13 +108,9 @@ public class Gasthinzufügen extends javax.swing.JDialog{
                             .addComponent(maileintragen, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(vnameeintragen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(153, 153, 153)
-                        .addComponent(jLabel6)))
+                        .addContainerGap()
+                        .addComponent(errorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(129, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(gastEinfügen)
-                .addGap(35, 35, 35))
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {gbteintragen, maileintragen, nnameeintragen, teleintragen, vnameeintragen});
@@ -135,67 +140,20 @@ public class Gasthinzufügen extends javax.swing.JDialog{
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(gastmail)
                     .addComponent(maileintragen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
-                .addComponent(gastEinfügen)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(errorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(gastEinfuegen)
                 .addGap(22, 22, 22))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void maileintragenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_maileintragenActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_maileintragenActionPerformed
-
-    private void gastEinfügenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gastEinfügenActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_gastEinfügenActionPerformed
-
-    private void vnameeintragenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vnameeintragenActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_vnameeintragenActionPerformed
-
-    private void teleintragenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_teleintragenActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_teleintragenActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Gasthinzufügen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Gasthinzufügen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Gasthinzufügen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Gasthinzufügen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Gasthinzufügen().setVisible(true);
-            }
-        });
-    }
-
+  
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JToggleButton gastEinfügen;
+    private javax.swing.JLabel errorLabel;
+    private javax.swing.JToggleButton gastEinfuegen;
     private javax.swing.JLabel gastgbt;
     private javax.swing.JLabel gastmail;
     private javax.swing.JLabel gastnname;

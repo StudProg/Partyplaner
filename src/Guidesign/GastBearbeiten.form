@@ -52,7 +52,7 @@
           </Group>
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-              <Component id="gastEinfügen" min="-2" max="-2" attributes="0"/>
+              <Component id="gastspeichern" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -88,7 +88,7 @@
                   <Component id="maileintragen" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="31" max="32767" attributes="0"/>
-              <Component id="gastEinfügen" min="-2" max="-2" attributes="0"/>
+              <Component id="gastspeichern" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -121,33 +121,22 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="vnameeintragen">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="vnameeintragenActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="nnameeintragen">
     </Component>
     <Component class="javax.swing.JTextField" name="gbteintragen">
     </Component>
     <Component class="javax.swing.JTextField" name="teleintragen">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="teleintragenActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="maileintragen">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="maileintragenActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel6">
     </Component>
-    <Component class="javax.swing.JToggleButton" name="gastEinf&#xfc;gen">
+    <Component class="javax.swing.JToggleButton" name="gastspeichern">
       <Properties>
         <Property name="text" type="java.lang.String" value="Gast hinzuf&#xfc;gen"/>
+        <Property name="actionCommand" type="java.lang.String" value="bearbeiteter Gast"/>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="gastEinf&#xfc;genActionPerformed"/>
-      </Events>
     </Component>
   </SubComponents>
 </Form>

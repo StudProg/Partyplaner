@@ -5,17 +5,41 @@
  */
 package Guidesign;
 
+import controller.Controller;
+import javax.swing.JTextField;
+
 /**
  *
  * @author Miri
  */
-public class Gast extends javax.swing.JDialog{
+public class GastBearbeiten extends javax.swing.JDialog{
+
+    public JTextField getVnameeintragen() {
+        return vnameeintragen;
+    }
+
+    public JTextField getNnameeintragen() {
+        return nnameeintragen;
+    }
+
+    public JTextField getMaileintragen() {
+        return maileintragen;
+    }
+
+    public JTextField getGbteintragen() {
+        return gbteintragen;
+    }
+
+    public JTextField getTeleintragen() {
+        return teleintragen;
+    }
 
     /**
      * Creates new form Gasthinzufügen
      */
-    public Gast() {
+    public GastBearbeiten(Controller controller) {
         initComponents();
+        gastspeichern.addActionListener(controller);
     }
 
     /**
@@ -52,30 +76,8 @@ public class Gast extends javax.swing.JDialog{
 
         gasttel.setText("Telefon");
 
-        vnameeintragen.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                vnameeintragenActionPerformed(evt);
-            }
-        });
-
-        teleintragen.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                teleintragenActionPerformed(evt);
-            }
-        });
-
-        maileintragen.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                maileintragenActionPerformed(evt);
-            }
-        });
-
         gastspeichern.setText("Gast hinzufügen");
-        gastspeichern.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                gastspeichernActionPerformed(evt);
-            }
-        });
+        gastspeichern.setActionCommand("bearbeiteter Gast");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -143,57 +145,6 @@ public class Gast extends javax.swing.JDialog{
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void maileintragenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_maileintragenActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_maileintragenActionPerformed
-
-    private void gastspeichernActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gastspeichernActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_gastspeichernActionPerformed
-
-    private void vnameeintragenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vnameeintragenActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_vnameeintragenActionPerformed
-
-    private void teleintragenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_teleintragenActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_teleintragenActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Gast.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Gast.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Gast.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Gast.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Gast().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel gastgbt;

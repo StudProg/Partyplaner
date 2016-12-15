@@ -5,17 +5,28 @@
  */
 package Guidesign;
 
+import controller.Controller;
+import javax.swing.JList;
+
 /**
  *
  * @author Miri
  */
-public class Gästebuch extends javax.swing.JDialog {
+public class Gaestebuch extends javax.swing.JDialog {
+    private Controller controller;
+
+    public JList<String> getgaesteListe() {
+        return gaesteListe;
+    }
+    
 
     /**
      * Creates new form Gästeliste
      */
-    public Gästebuch() {
+    public Gaestebuch(Controller controller) {
+        this.controller = controller;
         initComponents();
+        addActionListener();
     }
 
     /**
@@ -33,39 +44,19 @@ public class Gästebuch extends javax.swing.JDialog {
         gastbearbeiten = new javax.swing.JToggleButton();
         jScrollBar1 = new javax.swing.JScrollBar();
         jScrollPane1 = new javax.swing.JScrollPane();
-        gaestelist = new javax.swing.JList<>();
+        gaesteListe = new javax.swing.JList<>();
         gästebuch = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
         jToggleButton3.setText("jToggleButton3");
 
         gasthinzufügengb.setText("Gast hinzufügen");
-        gasthinzufügengb.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                gasthinzufügengbActionPerformed(evt);
-            }
-        });
 
         gastentfernen.setText("Gast entfernen");
-        gastentfernen.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                gastentfernenActionPerformed(evt);
-            }
-        });
 
         gastbearbeiten.setText("Gast bearbeiten");
-        gastbearbeiten.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                gastbearbeitenActionPerformed(evt);
-            }
-        });
 
-        gaestelist.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane1.setViewportView(gaestelist);
+        jScrollPane1.setViewportView(gaesteListe);
 
         gästebuch.setText("Gästebuch");
 
@@ -124,89 +115,16 @@ public class Gästebuch extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void gasthinzufügengbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gasthinzufügengbActionPerformed
-        Gasthinzufügen ng= new Gasthinzufügen();
-        ng.setVisible(true);
-    }//GEN-LAST:event_gasthinzufügengbActionPerformed
-
-    private void gastbearbeitenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gastbearbeitenActionPerformed
-        Gast gg = new Gast();
-        gg.setVisible(true);
-    }//GEN-LAST:event_gastbearbeitenActionPerformed
-
-    private void gastentfernenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gastentfernenActionPerformed
-        // TODO add your handling code here:
-        //Gast entfernen
-    }//GEN-LAST:event_gastentfernenActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Gästebuch.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Gästebuch.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Gästebuch.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Gästebuch.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Gästebuch().setVisible(true);
-            }
-        });
+       private void addActionListener() {
+        gasthinzufügengb.addActionListener(controller);
+        gastentfernen.addActionListener(controller);
+        gastbearbeiten.addActionListener(controller);
     }
+    
 
+        
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JList<String> gaestelist;
+    private javax.swing.JList<String> gaesteListe;
     private javax.swing.JToggleButton gastbearbeiten;
     private javax.swing.JToggleButton gastentfernen;
     private javax.swing.JToggleButton gasthinzufügengb;

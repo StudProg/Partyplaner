@@ -41,17 +41,12 @@
             <Property name="text" type="java.lang.String" value="G&#xe4;stebuch"/>
             <Property name="actionCommand" type="java.lang.String" value="Gaestebuch"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="gaestebuchmenueActionPerformed"/>
-          </Events>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="gbanzeigen">
               <Properties>
                 <Property name="text" type="java.lang.String" value="G&#xe4;stebuch anzeigen"/>
+                <Property name="toolTipText" type="java.lang.String" value=""/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="gbanzeigenActionPerformed"/>
-              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>

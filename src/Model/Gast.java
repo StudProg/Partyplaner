@@ -1,6 +1,7 @@
 package Model;
 
 
+import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 /*
@@ -51,6 +52,13 @@ public class Gast {
      */
     public GregorianCalendar getGeburtstdatum() {
         return geburtstdatum;
+    }
+    
+    public String getDatumAlsString () {
+        int datumTag = geburtstdatum.get(Calendar.DAY_OF_MONTH);
+        int datumMonat = geburtstdatum.get(Calendar.MONTH);
+        int datumJahr = geburtstdatum.get(Calendar.YEAR);
+        return datumTag + "." + datumMonat + "." + datumJahr;
     }
 
     /**

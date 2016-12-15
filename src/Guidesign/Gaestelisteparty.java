@@ -5,11 +5,13 @@
  */
 package Guidesign;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author Miri
  */
-public class Gaestelisteparty extends javax.swing.JDialog {
+public class Gaestelisteparty extends JFrame {
 
     /**
      * Creates new form Gästeliste
