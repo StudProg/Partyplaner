@@ -1,16 +1,9 @@
 package Model;
 
-
 import controller.PPdb;
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
 import java.util.List;
-
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
 /**
  *
@@ -20,18 +13,14 @@ public class Partyverwaltung {
     private List<Party> partyListe = new ArrayList<Party>();
     private PPdb datenbank;
     
-    public Partyverwaltung(PPdb datenbank) {
-        this.datenbank = datenbank;
-        this.partyListe = datenbank.gibAllePartys();
-    }
-
     public List<Party> getPartyliste(){
         
         return partyListe;
     }
-   
-   
-    
+    public Partyverwaltung(PPdb datenbank) {
+        this.datenbank = datenbank;
+        this.partyListe = datenbank.gibAllePartys();
+    }
     /**
      * Erstellt eine neue Party mit den angegebenen Parametern.
      * @param name Der Name der Party

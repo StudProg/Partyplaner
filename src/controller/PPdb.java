@@ -207,22 +207,36 @@ public class PPdb {
         return gaeste;
     }
 
-    public void gastEinfügen(String vorname, String nachname,
-            GregorianCalendar geburtsdatum, String email, String telefon) {
+    public void gastEinfuegen(Gast gast) {
 
-       
+        try {
+            Statement stmt = con.createStatement();
+            ResultSet r = stmt.executeQuery("SELECT * FROM Gast");
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            
+        }
 
         try {
             String sql = "INSERT INTO Gast (vorname, nachname, geburtsdatum, email, telefonnr) VALUES (?, ?, ?, ?, ?)";
             PreparedStatement prep = con.prepareStatement(sql);
-            prep.setString(1, vorname);
-            prep.setString(2, nachname);
-            int jahr = geburtsdatum.get(Calendar.YEAR);
-            int monat = geburtsdatum.get(Calendar.MONTH) + 1;
-            int tag = geburtsdatum.get(Calendar.DAY_OF_MONTH);
+            prep.setString(1, gast.getVorname());
+            prep.setString(2, gast.getNachname());
+           
+            /**
+             * String[] datumsteile = geburtsdatum.split("-"); int jahr =
+             * Integer.parseInt(datumsteile[0]); int monat =
+             * Integer.parseInt(datumsteile[1]) - 1; int tag =
+             * Integer.parseInt(datumsteile[2]); GregorianCalendar greg = new
+             * GregorianCalendar(jahr, monat, tag);
+             */GregorianCalendar datum = gast.getGeburtstdatum();
+            int jahr = datum.get(Calendar.YEAR);
+            int monat = datum.get(Calendar.MONTH) + 1;
+            int tag = datum.get(Calendar.DAY_OF_MONTH);
             prep.setString(3, jahr + "-" + monat + "-" + tag);
-            prep.setString(4, email);
-            prep.setString(5, telefon);
+            prep.setString(4, gast.getEmail());
+            prep.setString(5, gast.getTelefon());
             prep.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -292,7 +306,7 @@ public class PPdb {
         return waren;
     }
 
-    public void wareEinfuegen(Ware ware) throws SQLException {
+    public void wareEinfuegen(Ware ware) {
 
         try {
             Statement stmt = con.createStatement();

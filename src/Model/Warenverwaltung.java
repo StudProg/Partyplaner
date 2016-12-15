@@ -1,30 +1,23 @@
 package Model;
-
-
+import controller.PPdb;
+import java.util.ArrayList;
+import java.util.GregorianCalendar;
 import java.util.List;
-
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /**
  *
  * @author Sandra
  */
-public class Einkaufslistenverwaltung {
-    //Warum ist dies static? Weil wir nur eine Liste mit allen möglichen Waren 
-    //haben wollen! Der Benutzer soll letzendlich nur Waren aus dieser Liste
-    //zu seiner Party hinzufügen.
-    private static List<Ware> warenListe;
-
-    /**
-     * Gibt die Liste mit allen möglichen Waren zurück.
-     * @return
-     */
-    public static List<Ware> getWarenListe() {
+public class Warenverwaltung {
+   private List<Ware> warenListe = new ArrayList<Ware>();
+    private PPdb datenbank;
+    
+    public List<Ware> getWarenliste(){
+        
         return warenListe;
+    }
+    public Warenverwaltung(PPdb datenbank) {
+        this.datenbank = datenbank;
+        this.warenListe = datenbank.gibAlleWaren();
     }
     
     /**
@@ -36,10 +29,11 @@ public class Einkaufslistenverwaltung {
         return new Einkaufsposten(name);
     }
     
-    public void ware_hinzufuegen(String warenName, double preis, 
+    public void ware_hinzufuegen(String warenName, double preis, String menge, 
             double alkoholgehalt) {
         Ware ware = new Ware(warenName, preis, "0.0", alkoholgehalt);
         warenListe.add(ware);
+        datenbank.wareEinfuegen(ware);
     }
     
     public void einkaufslist_loeschen() {

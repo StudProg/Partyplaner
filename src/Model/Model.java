@@ -16,13 +16,13 @@ public class Model {
 
     private final Controller controller;
     public final Partyverwaltung partyverwaltung;
-    public final Einkaufslistenverwaltung einkaufslistenverwaltung;
-    public final Gaesteverwaltung gaesteverwaltung;
+    private final Warenverwaltung warenverwaltung;
+    private final Gaesteverwaltung gaesteverwaltung;
     
     public Model(Controller controller, PPdb datenbank) {
         this.controller = controller;
         partyverwaltung = new Partyverwaltung(datenbank);
-        einkaufslistenverwaltung = new Einkaufslistenverwaltung();
+        warenverwaltung = new Warenverwaltung(datenbank);
         gaesteverwaltung = new Gaesteverwaltung(datenbank);
     }
 }

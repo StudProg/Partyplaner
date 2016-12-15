@@ -112,7 +112,6 @@ public class Startseite extends javax.swing.JFrame {
             }
         });
 
-        raumbedarf.setText("qm");
         raumbedarf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 raumbedarfActionPerformed(evt);
@@ -129,6 +128,11 @@ public class Startseite extends javax.swing.JFrame {
         einkaufslisteerstellen.setText("Einkaufsliste erstellen");
 
         raumbedarfberechnung.setText("Raumbedarf berechnen");
+        raumbedarfberechnung.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                raumbedarfberechnungActionPerformed(evt);
+            }
+        });
 
         jLayeredPane1.setLayer(partyname, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(partydatum, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -174,10 +178,6 @@ public class Startseite extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(partybudget, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane1Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(raumbedarf, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(12, 12, 12))
                             .addGroup(jLayeredPane1Layout.createSequentialGroup()
                                 .addGap(68, 68, 68)
                                 .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -185,7 +185,11 @@ public class Startseite extends javax.swing.JFrame {
                                         .addComponent(raumbedarfberechnung)
                                         .addGap(0, 0, Short.MAX_VALUE))
                                     .addComponent(gaestelisteerstellen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(einkaufslisteerstellen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                                    .addComponent(einkaufslisteerstellen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane1Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(raumbedarf, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(31, 31, 31))))
                     .addComponent(errorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jLayeredPane1Layout.createSequentialGroup()
                         .addComponent(anmerkung)
@@ -350,12 +354,20 @@ public class Startseite extends javax.swing.JFrame {
     }//GEN-LAST:event_warenanzeigenActionPerformed
 
     private void raumbedarfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_raumbedarfActionPerformed
-        // Int anzahl von den angegeben Gästen einlesen, i * 1,5 = Wert W, Ausgabe w
-    }//GEN-LAST:event_raumbedarfActionPerformed
+    
+         }//GEN-LAST:event_raumbedarfActionPerformed
 
     private void gaesteanzahlintragenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gaesteanzahlintragenActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_gaesteanzahlintragenActionPerformed
+
+    private void raumbedarfberechnungActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_raumbedarfberechnungActionPerformed
+        double g, rb;
+       g= Double.parseDouble(gaesteanzahleintragen.getText());
+       rb= g*1.4;
+       rb = Math.round(rb*1000)/1000.0;
+       raumbedarf.setText(rb+ " qm");
+    }//GEN-LAST:event_raumbedarfberechnungActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
