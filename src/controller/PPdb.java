@@ -390,8 +390,11 @@ public class PPdb {
         Statement stmt = con.createStatement();
         GregorianCalendar datum = gast.getGeburtstdatum();
         String sqlDatum = datum.get(GregorianCalendar.YEAR) + "-" + (datum.get(GregorianCalendar.MONTH) + 1) + "-" + datum.get(GregorianCalendar.DAY_OF_MONTH);
-        stmt.executeUpdate("INSERT INTO gast (vorname, nachname, geburtsdatum, email, telefonnr) values ('"
-                + gast.getVorname() + "', '" + gast.getNachname() + "', '" + sqlDatum + "', '" + gast.getEmail() + "', '" + gast.getTelefon() + "')", Statement.RETURN_GENERATED_KEYS);
+        String sql = "INSERT INTO gast (vorname, nachname, geburtsdatum, email, telefonnr) values ('"
+                + gast.getVorname() + "', '" + gast.getNachname() + "', '" + sqlDatum + "', '" + gast.getEmail() + "', '" + gast.getTelefon() + "')";
+        System.out.println(sql);
+        stmt.executeUpdate(sql, Statement.RETURN_GENERATED_KEYS);
+        
         // Auslesen des erzeugten Primärschlüssels (id)
         ResultSet rst = stmt.getGeneratedKeys();
         if (rst.next()) {

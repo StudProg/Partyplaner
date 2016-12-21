@@ -12,7 +12,7 @@ import javax.swing.JList;
  *
  * @author Miri
  */
-public class Warenliste extends javax.swing.JDialog {
+public class Warenliste extends javax.swing.JFrame {
  private Controller controller;
 
     public JList<String> getwarenListe() {

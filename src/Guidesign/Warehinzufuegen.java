@@ -12,7 +12,7 @@ import javax.swing.JTextField;
  *
  * @author Miri
  */
-public class Warehinzufuegen extends javax.swing.JDialog {
+public class Warehinzufuegen extends javax.swing.JFrame {
     public JTextField getWarenname() {
         return warennameeintragen;
     }
