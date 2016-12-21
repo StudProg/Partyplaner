@@ -6,6 +6,8 @@
 package Guidesign;
 
 import javax.swing.JFrame;
+import controller.Controller;
+import javax.swing.JList;
 
 /**
  *
@@ -13,11 +15,20 @@ import javax.swing.JFrame;
  */
 public class Gaestelisteparty extends JFrame {
 
+    public JList<String> getGaesteListeEingeladen() {
+        return gaesteListeEingeladen;
+    }
+    
+    public JList<String> getGaesteListe() {
+        return gaestelist;
+    }
     /**
      * Creates new form Gästeliste
      */
-    public Gaestelisteparty() {
+    public Gaestelisteparty(Controller controller) {
         initComponents();
+        gastEntfernen.addActionListener(controller);
+        gasthinzufuegen.addActionListener(controller);
     }
 
     /**
@@ -30,63 +41,72 @@ public class Gaestelisteparty extends JFrame {
     private void initComponents() {
 
         jToggleButton3 = new javax.swing.JToggleButton();
-        gasthinzufuegen = new javax.swing.JToggleButton();
-        gastentfernen = new javax.swing.JToggleButton();
         jScrollBar1 = new javax.swing.JScrollBar();
         jScrollPane1 = new javax.swing.JScrollPane();
         gaestelist = new javax.swing.JList<>();
         gaesteliste = new javax.swing.JLabel();
+        gasthinzufuegen = new javax.swing.JButton();
+        gastEntfernen = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        gaesteListeEingeladen = new javax.swing.JList<>();
+        jLabel1 = new javax.swing.JLabel();
 
         jToggleButton3.setText("jToggleButton3");
 
-        gasthinzufuegen.setText("Gast hinzufügen");
-
-        gastentfernen.setText("Gast entfernen");
-
-        gaestelist.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
         jScrollPane1.setViewportView(gaestelist);
 
         gaesteliste.setText("Gästeliste");
+
+        gasthinzufuegen.setText("Gast hinzufügen");
+        gasthinzufuegen.setActionCommand("Gaestelisteparty.Gast hinzufuegen");
+
+        gastEntfernen.setText("Gast entfernen");
+        gastEntfernen.setActionCommand("Gaestelisteparty.Gast entfernen");
+
+        jScrollPane2.setViewportView(gaesteListeEingeladen);
+
+        jLabel1.setText("Geladene Gäste");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(36, 36, 36)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jScrollBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(gasthinzufuegen)
-                                .addGap(34, 34, 34)
-                                .addComponent(gastentfernen))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(141, 141, 141)
-                        .addComponent(gaesteliste)))
-                .addGap(290, 290, Short.MAX_VALUE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(gasthinzufuegen, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(gastEntfernen, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(141, 141, 141)
+                .addComponent(gaesteliste)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(114, 114, 114))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(6, 6, 6)
-                .addComponent(gaesteliste)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(gaesteliste)
+                    .addComponent(jLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 209, Short.MAX_VALUE)
                     .addComponent(jScrollBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 209, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(gasthinzufuegen)
-                    .addComponent(gastentfernen))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(gastEntfernen)
+                    .addComponent(gasthinzufuegen))
                 .addGap(19, 19, 19))
         );
 
@@ -95,12 +115,15 @@ public class Gaestelisteparty extends JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JList<String> gaesteListeEingeladen;
     private javax.swing.JList<String> gaestelist;
     private javax.swing.JLabel gaesteliste;
-    private javax.swing.JToggleButton gastentfernen;
-    private javax.swing.JToggleButton gasthinzufuegen;
+    private javax.swing.JButton gastEntfernen;
+    private javax.swing.JButton gasthinzufuegen;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollBar jScrollBar1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JToggleButton jToggleButton3;
     // End of variables declaration//GEN-END:variables
 }

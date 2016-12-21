@@ -6,6 +6,7 @@
 package controller;
 
 import Guidesign.Gaestebuch;
+import Guidesign.Gaestelisteparty;
 import Guidesign.GastBearbeiten;
 import Guidesign.Gasthinzufuegen;
 import Guidesign.Partyerstellen;
@@ -44,6 +45,8 @@ public class Controller implements ActionListener {
     private Gasthinzufuegen gasthinzufuegen;
     private GastBearbeiten gastbearbeiten;
     private int indexBearbeiteterGast;
+    private Party aktuelleParty;
+    private Gaestelisteparty gaesteListeParty;
     
     public Controller() {
         //initialisierung des Models
@@ -71,16 +74,18 @@ public class Controller implements ActionListener {
             partyerstellen.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
             partyerstellen.setVisible(true);
         } else if (e.getActionCommand().equals("Speichern")) {
+            if(aktuelleParty == null)
+                return;
             partySpeichern();
         } else if (e.getActionCommand().equals("Partyliste.PartyAnzeigen")) {
             int index = partyListe.getpartylist().getSelectedIndex();
-            Party party = model.partyverwaltung.getPartyliste().get(index);
+            aktuelleParty = model.partyverwaltung.getPartyliste().get(index);
             partyListe.dispose();
             partyListe = null;
-            alterPartyName = party.getName();
-            gui.getPartynameeintragen().setText(party.getName());
-            gui.getPartydatumeintragen().setText(party.getDatumAlsString());
-            gui.getPartybudget().setText(Double.toString(party.getBudget()));
+            alterPartyName = aktuelleParty.getName();
+            gui.getPartynameeintragen().setText(aktuelleParty.getName());
+            gui.getPartydatumeintragen().setText(aktuelleParty.getDatumAlsString());
+            gui.getPartybudget().setText(Double.toString(aktuelleParty.getBudget()));
         } else if (e.getActionCommand().equals("Partyliste.PartyLöschen")) {
             int index = partyListe.getpartylist().getSelectedIndex();
             Party party = model.partyverwaltung.getPartyliste().get(index);
@@ -224,6 +229,8 @@ public class Controller implements ActionListener {
             gaestebuch.getgaesteListe().setListData(gaesteArray);
         } else if(e.getActionCommand().equals("Gast bearbeiten")) {
             indexBearbeiteterGast = gaestebuch.getgaesteListe().getSelectedIndex();
+            if(indexBearbeiteterGast < 0)
+                return;
             Gast gast = model.gaesteverwaltung.getGaesteListe().get(indexBearbeiteterGast);
             if(gast == null) {
                 return;
@@ -320,7 +327,7 @@ public class Controller implements ActionListener {
             } catch (NumberFormatException exception) {
                 return;
             }
-         model.warenverwaltung.ware_hinzufuegen(warenName,preis,volumenmenge, 
+            model.warenverwaltung.ware_hinzufuegen(warenName,preis,volumenmenge, 
             alkoholgehalt);
              warehinzufuegen.dispose();
             List<Ware> waren = model.warenverwaltung.getWarenListe();
@@ -340,8 +347,69 @@ public class Controller implements ActionListener {
                 wareArray[i] = waren.get(i).getWarenName();
             }
             warenliste.getwarenListe().setListData(wareArray);
-    
-            }
+         } else if(e.getActionCommand().equals("Gaesteliste erstellen")) {
+             if(aktuelleParty == null)
+                 return;
+             gaesteListeParty = new Gaestelisteparty(this);
+             gaesteListeParty.setVisible(true);
+             gaesteListeParty.setAlwaysOnTop(true);
+             gaesteListeParty.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+             List<Gast> liste = aktuelleParty.getGaesteListe();
+             String[] gaesteArray = new String[liste.size()];
+             for(int i = 0; i < liste.size(); i++) {
+                 gaesteArray[i] = liste.get(i).getVorname() + " " + liste.get(i).getNachname();
+             }
+             List<Gast> alleGaesteListe = model.gaesteverwaltung.getGaesteListe();
+             alleGaesteListe.removeAll(liste);
+             String[] alleGaesteArray = new String[alleGaesteListe.size()];
+             for(int i = 0; i < alleGaesteListe.size(); i++) 
+                 alleGaesteArray[i] = alleGaesteListe.get(i).getVorname() + " " + alleGaesteListe.get(i).getNachname();
+             gaesteListeParty.getGaesteListe().setListData(alleGaesteArray);
+             gaesteListeParty.getGaesteListeEingeladen().setListData(gaesteArray);
+         } else if(e.getActionCommand().equals("Gaestelisteparty.Gast hinzufuegen")) {
+             int index = gaesteListeParty.getGaesteListe().getSelectedIndex();
+             if(index < 0)
+                 return;
+             List<Gast> liste = aktuelleParty.getGaesteListe();
+             List<Gast> alleGaesteListe = model.gaesteverwaltung.getGaesteListe();
+             liste.add(alleGaesteListe.get(index));
+             String[] gaesteArray = new String[liste.size()];
+             for(int i = 0; i < liste.size(); i++) {
+                 gaesteArray[i] = liste.get(i).getVorname() + " " + liste.get(i).getNachname();
+             }
+             String[] alleGaesteArray = new String[alleGaesteListe.size() - liste.size() +1];
+             int i = 0;
+             for(Gast gast : alleGaesteListe) {
+                 if(!liste.contains(gast)) {
+                     alleGaesteArray[i] = gast.getVorname() + " " + gast.getNachname();
+                     i++;
+                 }
+             }
+             gaesteListeParty.getGaesteListe().setListData(alleGaesteArray);
+             gaesteListeParty.getGaesteListeEingeladen().setListData(gaesteArray);
+         } else if(e.getActionCommand().equals("Gaestelisteparty.Gast entfernen")) {
+             int index = gaesteListeParty.getGaesteListeEingeladen().getSelectedIndex();
+             if(index < 0)
+                 return;
+             List<Gast> liste = aktuelleParty.getGaesteListe();
+             List<Gast> alleGaesteListe = model.gaesteverwaltung.getGaesteListe();
+             liste.remove(index);
+             String[] gaesteArray = new String[liste.size()];
+             for(int i = 0; i < liste.size(); i++) {
+                 gaesteArray[i] = liste.get(i).getVorname() + " " + liste.get(i).getNachname();
+             }
+             
+             String[] alleGaesteArray = new String[alleGaesteListe.size() - liste.size()];
+             int i = 0;
+             for(Gast gast : alleGaesteListe) {
+                 if(!liste.contains(gast)) {
+                     alleGaesteArray[i] = gast.getVorname() + " " + gast.getNachname();
+                     i++;
+                 }
+             }
+             gaesteListeParty.getGaesteListe().setListData(alleGaesteArray);
+             gaesteListeParty.getGaesteListeEingeladen().setListData(gaesteArray);
+         } 
     
     }
     private void partyAnzeigen() {

@@ -144,4 +144,12 @@ public class Party {
         while(kommentarListe.contains(k))
             kommentarListe.remove(k);
     }
+
+    public List<Gast> getGaesteListe() {
+        return gaesteListe;
+    }
+
+    public List<Einkaufsposten> getWarenListe() {
+        return warenListe;
+    }
 }

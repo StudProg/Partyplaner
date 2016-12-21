@@ -313,6 +313,7 @@
         <Component class="javax.swing.JButton" name="gaestelisteerstellen">
           <Properties>
             <Property name="text" type="java.lang.String" value="G&#xe4;steliste erstellen"/>
+            <Property name="actionCommand" type="java.lang.String" value="Gaesteliste erstellen"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="einkaufslisteerstellen">

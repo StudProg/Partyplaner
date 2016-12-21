@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JDialogFormInfo">
+<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <NonVisualComponents>
     <Component class="javax.swing.JToggleButton" name="jToggleButton3">
       <Properties>
@@ -28,28 +28,28 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
+              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="jScrollPane1" min="-2" pref="294" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jScrollBar1" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="gasthinzufuegen" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                              <Component id="gastentfernen" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
+                      <Component id="jScrollPane1" min="-2" pref="298" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jScrollBar1" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="141" max="-2" attributes="0"/>
-                      <Component id="gaesteliste" min="-2" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="gasthinzufuegen" alignment="0" min="-2" pref="127" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="538" pref="290" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="gastEntfernen" min="-2" pref="135" max="-2" attributes="0"/>
+                  <Component id="jScrollPane2" min="-2" pref="289" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="861" max="32767" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="141" max="-2" attributes="0"/>
+              <Component id="gaesteliste" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="114" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -57,16 +57,20 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
-              <Component id="gaesteliste" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="gaesteliste" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jScrollPane2" pref="209" max="32767" attributes="0"/>
                   <Component id="jScrollBar1" max="32767" attributes="0"/>
-                  <Component id="jScrollPane1" pref="209" max="32767" attributes="0"/>
+                  <Component id="jScrollPane1" max="32767" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="gasthinzufuegen" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="gastentfernen" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="gastEntfernen" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="gasthinzufuegen" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
           </Group>
@@ -74,16 +78,6 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JToggleButton" name="gasthinzufuegen">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Gast hinzuf&#xfc;gen"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JToggleButton" name="gastentfernen">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Gast entfernen"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JScrollBar" name="jScrollBar1">
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">
@@ -96,13 +90,7 @@
         <Component class="javax.swing.JList" name="gaestelist">
           <Properties>
             <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
-              <StringArray count="5">
-                <StringItem index="0" value="Item 1"/>
-                <StringItem index="1" value="Item 2"/>
-                <StringItem index="2" value="Item 3"/>
-                <StringItem index="3" value="Item 4"/>
-                <StringItem index="4" value="Item 5"/>
-              </StringArray>
+              <StringArray count="0"/>
             </Property>
           </Properties>
           <AuxValues>
@@ -114,6 +102,42 @@
     <Component class="javax.swing.JLabel" name="gaesteliste">
       <Properties>
         <Property name="text" type="java.lang.String" value="G&#xe4;steliste"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="gasthinzufuegen">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Gast hinzuf&#xfc;gen"/>
+        <Property name="actionCommand" type="java.lang.String" value="Gaestelisteparty.Gast hinzufuegen"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="gastEntfernen">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Gast entfernen"/>
+        <Property name="actionCommand" type="java.lang.String" value="Gaestelisteparty.Gast entfernen"/>
+      </Properties>
+    </Component>
+    <Container class="javax.swing.JScrollPane" name="jScrollPane2">
+      <AuxValues>
+        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+      </AuxValues>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JList" name="gaesteListeEingeladen">
+          <Properties>
+            <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
+              <StringArray count="0"/>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Component class="javax.swing.JLabel" name="jLabel1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Geladene G&#xe4;ste"/>
       </Properties>
     </Component>
   </SubComponents>

@@ -69,7 +69,7 @@ public class Partyverwaltung {
     
     public void party_bearbeiten(String alterPartyName, String partyname, double partyBudget,
             GregorianCalendar datum ) throws PartyExestiertBereitsException {
-        if (partySuchenMitName(partyname))
+        if (partySuchenMitName(partyname) && !alterPartyName.equals(partyname))
             throw new PartyExestiertBereitsException(partyname);
         int i = 0;
         for(Party party : partyListe) {

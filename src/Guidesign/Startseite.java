@@ -124,6 +124,7 @@ public class Startseite extends javax.swing.JFrame {
         partyEinfuegen.setName(""); // NOI18N
 
         gaestelisteerstellen.setText("Gästeliste erstellen");
+        gaestelisteerstellen.setActionCommand("Gaesteliste erstellen");
 
         einkaufslisteerstellen.setText("Einkaufsliste erstellen");
 
@@ -394,5 +395,6 @@ public class Startseite extends javax.swing.JFrame {
         this.partyEinfuegen.addActionListener(controller);
         this.gbanzeigen.addActionListener(controller);
         this.warenanzeigen.addActionListener(controller);
+        this.gaestelisteerstellen.addActionListener(controller);
     }
 }
