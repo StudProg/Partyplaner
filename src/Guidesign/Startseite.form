@@ -54,17 +54,11 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Warenliste"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="warenlistemenueActionPerformed"/>
-          </Events>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="warenanzeigen">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Waren anzeigen"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="warenanzeigenActionPerformed"/>
-              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>

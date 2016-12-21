@@ -5,18 +5,35 @@
  */
 package Guidesign;
 
+import controller.Controller;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
 /**
  *
  * @author Miri
  */
-public class Warehinzufügen extends javax.swing.JDialog {
-
+public class Warehinzufuegen extends javax.swing.JDialog {
+    public JTextField getWarenname() {
+        return warennameeintragen;
+    }
+    public JTextField getvolumenmenge() {
+        return volumenmengeeintragen;
+    }
+    public JTextField getalkoholgehalt() {
+        return alkoholgehalteintragen;
+    }
+    public JTextField getPreis() {
+        return preiseintragen;
+    }
+   
     /**
      * Creates new form Warehinzufügen
      */
-    public Warehinzufügen() {
+    public Warehinzufuegen(Controller controller) {
         initComponents();
+        warespeichern.addActionListener(controller);
     }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -38,18 +55,6 @@ public class Warehinzufügen extends javax.swing.JDialog {
         alkoholgehalteintragen = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-
-        warennameeintragen.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                warennameeintragenActionPerformed(evt);
-            }
-        });
-
-        preiseintragen.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                preiseintragenActionPerformed(evt);
-            }
-        });
 
         warenname.setText("Warenname");
 
@@ -111,49 +116,7 @@ public class Warehinzufügen extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void warennameeintragenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_warennameeintragenActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_warennameeintragenActionPerformed
-
-    private void preiseintragenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_preiseintragenActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_preiseintragenActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Warehinzufügen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Warehinzufügen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Warehinzufügen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Warehinzufügen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Warehinzufügen().setVisible(true);
-            }
-        });
-    }
-
+  
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField alkoholgehalteintragen;
     private javax.swing.JLabel jLabel1;

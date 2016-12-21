@@ -11,11 +11,14 @@ import Guidesign.Gasthinzufuegen;
 import Guidesign.Partyerstellen;
 import Guidesign.Partyliste;
 import Guidesign.Startseite;
+import Guidesign.Warehinzufuegen;
+import Guidesign.Warenliste;
 import Model.Gast;
 import Model.Model;
 import Model.Party;
 import Model.Partytyp;
 import Model.Partyverwaltung.PartyExestiertBereitsException;
+import Model.Ware;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -36,6 +39,8 @@ public class Controller implements ActionListener {
     private Partyerstellen partyerstellen;
     private String alterPartyName;
     private Gaestebuch gaestebuch;
+    private Warenliste warenliste;
+    private Warehinzufuegen warehinzufuegen;
     private Gasthinzufuegen gasthinzufuegen;
     private GastBearbeiten gastbearbeiten;
     private int indexBearbeiteterGast;
@@ -123,6 +128,7 @@ public class Controller implements ActionListener {
             }
             double partyBudget;
             try {
+                
                 partyBudget = Double.parseDouble(budget);
                 if(partyBudget <= 0) {
                     partyerstellen.errorLabel.setText("Sie sind pleite.");
@@ -276,8 +282,68 @@ public class Controller implements ActionListener {
             }
             gaestebuch.getgaesteListe().setListData(gaesteArray);
         }
+         else if (e.getActionCommand().equals("Waren anzeigen")) {
+            warenliste = new Warenliste(this);
+            warenliste.setVisible(true);
+            warenliste.setAlwaysOnTop(true);
+            warenliste.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+            List<Ware> ware = model.warenverwaltung.getWarenListe();
+            String[] wareArray = new String[ware.size()];
+            for(int i = 0; i < ware.size(); i++) {
+                wareArray[i] = ware.get(i).getWarenName();
+            }
+            warenliste.getwarenListe().setListData(wareArray);
+            } else if (e.getActionCommand().equals("Ware hinzufügen")) {
+            warehinzufuegen = new Warehinzufuegen(this);
+            warehinzufuegen.setVisible(true);
+            warehinzufuegen.setAlwaysOnTop(true);
+            warehinzufuegen.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        } else if (e.getActionCommand().equals("Ware speichern")) {
+            String warenName = warehinzufuegen.getWarenname().getText();
+            String volumenmenge = warehinzufuegen.getvolumenmenge().getText();
+            String akgh = warehinzufuegen.getalkoholgehalt().getText();
+            String preiss = warehinzufuegen.getPreis().getText();
+            double alkoholgehalt;
+            try {
+                
+                alkoholgehalt = Double.parseDouble(akgh);
+                
+            } catch (NumberFormatException exception) {
+               
+                return;
+            }
+            double preis;
+            try {
+                
+                preis = Double.parseDouble(preiss);
+                
+            } catch (NumberFormatException exception) {
+                return;
+            }
+         model.warenverwaltung.ware_hinzufuegen(warenName,preis,volumenmenge, 
+            alkoholgehalt);
+             warehinzufuegen.dispose();
+            List<Ware> waren = model.warenverwaltung.getWarenListe();
+            String[] warenArray = new String[waren.size()];
+            for(int i = 0; i < waren.size(); i++) {
+                warenArray[i] = waren.get(i).getWarenName();
+            }
+            warenliste.getwarenListe().setListData(warenArray);
+            
+         } else if(e.getActionCommand().equals("Ware entfernen")) {
+            int index = warenliste.getwarenListe().getSelectedIndex();
+            Ware ware = model.warenverwaltung.getWarenListe().get(index);
+            model.warenverwaltung.ware_loeschen(ware);
+            List<Ware>waren = model.warenverwaltung.getWarenListe();
+            String[] wareArray = new String[waren.size()];
+            for(int i = 0; i < waren.size(); i++) {
+                wareArray[i] = waren.get(i).getWarenName();
+            }
+            warenliste.getwarenListe().setListData(wareArray);
+    
+            }
+    
     }
-
     private void partyAnzeigen() {
         System.out.println("Party Anzeigen wurde gedrückt!");
         partyListe = new Partyliste(this);

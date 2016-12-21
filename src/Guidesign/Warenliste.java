@@ -5,17 +5,27 @@
  */
 package Guidesign;
 
+import controller.Controller;
+import javax.swing.JList;
+
 /**
  *
  * @author Miri
  */
 public class Warenliste extends javax.swing.JDialog {
+ private Controller controller;
 
+    public JList<String> getwarenListe() {
+        return warenliste;
+    }
+    
     /**
      * Creates new form Gästeliste
      */
-    public Warenliste() {
+    public Warenliste(Controller controller) {
+        this.controller = controller;
         initComponents();
+        addActionListener();
     }
 
     /**
@@ -32,17 +42,12 @@ public class Warenliste extends javax.swing.JDialog {
         wareentfernen = new javax.swing.JToggleButton();
         jScrollBar1 = new javax.swing.JScrollBar();
         jScrollPane1 = new javax.swing.JScrollPane();
-        warenlist = new javax.swing.JList<>();
-        warenliste = new javax.swing.JLabel();
+        warenliste = new javax.swing.JList<>();
+        wl = new javax.swing.JLabel();
 
         jToggleButton3.setText("jToggleButton3");
 
         warehinzufuegen.setText("Ware hinzufügen");
-        warehinzufuegen.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                warehinzufuegenActionPerformed(evt);
-            }
-        });
 
         wareentfernen.setText("Ware entfernen");
         wareentfernen.addActionListener(new java.awt.event.ActionListener() {
@@ -51,9 +56,9 @@ public class Warenliste extends javax.swing.JDialog {
             }
         });
 
-        jScrollPane1.setViewportView(warenlist);
+        jScrollPane1.setViewportView(warenliste);
 
-        warenliste.setText("Warenliste");
+        wl.setText("Warenliste");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -74,14 +79,14 @@ public class Warenliste extends javax.swing.JDialog {
                                 .addComponent(wareentfernen))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(141, 141, 141)
-                        .addComponent(warenliste)))
+                        .addComponent(wl)))
                 .addGap(258, 258, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(6, 6, 6)
-                .addComponent(warenliste)
+                .addComponent(wl)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -95,54 +100,17 @@ public class Warenliste extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void warehinzufuegenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_warehinzufuegenActionPerformed
-        Warehinzufügen wh = new Warehinzufügen ();
-        wh.setVisible(true);
-    }//GEN-LAST:event_warehinzufuegenActionPerformed
-
+private void addActionListener() {
+        warehinzufuegen.addActionListener(controller);
+        wareentfernen.addActionListener(controller);
+        
+    }
     private void wareentfernenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wareentfernenActionPerformed
         // TODO add your handling code here:
         //Ware entfernen
     }//GEN-LAST:event_wareentfernenActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Warenliste.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Warenliste.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Warenliste.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Warenliste.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Warenliste().setVisible(true);
-            }
-        });
-    }
+   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollBar jScrollBar1;
@@ -150,7 +118,7 @@ public class Warenliste extends javax.swing.JDialog {
     private javax.swing.JToggleButton jToggleButton3;
     private javax.swing.JToggleButton wareentfernen;
     private javax.swing.JToggleButton warehinzufuegen;
-    private javax.swing.JList<String> warenlist;
-    private javax.swing.JLabel warenliste;
+    private javax.swing.JList<String> warenliste;
+    private javax.swing.JLabel wl;
     // End of variables declaration//GEN-END:variables
 }

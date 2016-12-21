@@ -262,18 +262,8 @@ public class Startseite extends javax.swing.JFrame {
         startmenue.add(gaestebuchmenue);
 
         warenlistemenue.setText("Warenliste");
-        warenlistemenue.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                warenlistemenueActionPerformed(evt);
-            }
-        });
 
         warenanzeigen.setText("Waren anzeigen");
-        warenanzeigen.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                warenanzeigenActionPerformed(evt);
-            }
-        });
         warenlistemenue.add(warenanzeigen);
 
         startmenue.add(warenlistemenue);
@@ -327,11 +317,6 @@ public class Startseite extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void warenlistemenueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_warenlistemenueActionPerformed
-      Warenliste wl = new Warenliste();
-      wl.setVisible(true);//Menü in Item ändern
-    }//GEN-LAST:event_warenlistemenueActionPerformed
-
     private void kinderpartyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kinderpartyActionPerformed
         Kinderparty kp = new Kinderparty();
         kp.setVisible(true);
@@ -346,12 +331,6 @@ public class Startseite extends javax.swing.JFrame {
         Couchparty cp = new Couchparty ();
         cp.setVisible(true);
     }//GEN-LAST:event_couchpartyActionPerformed
-
-    private void warenanzeigenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_warenanzeigenActionPerformed
-        Warenliste wl= new Warenliste();
-        wl.setVisible(true);
-        
-    }//GEN-LAST:event_warenanzeigenActionPerformed
 
     private void raumbedarfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_raumbedarfActionPerformed
     
@@ -414,5 +393,6 @@ public class Startseite extends javax.swing.JFrame {
         this.partyanzeigen.addActionListener(controller);
         this.partyEinfuegen.addActionListener(controller);
         this.gbanzeigen.addActionListener(controller);
+        this.warenanzeigen.addActionListener(controller);
     }
 }

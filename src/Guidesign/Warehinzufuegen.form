@@ -79,16 +79,10 @@
   </Layout>
   <SubComponents>
     <Component class="javax.swing.JTextField" name="warennameeintragen">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="warennameeintragenActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="volumenmengeeintragen">
     </Component>
     <Component class="javax.swing.JTextField" name="preiseintragen">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="preiseintragenActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="warenname">
       <Properties>
