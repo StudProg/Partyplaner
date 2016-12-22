@@ -133,30 +133,22 @@ public class PPdb {
         }
 
         try {
-            String sql = "INSERT INTO Party (partyname, budget, raumbedarf, tipps, datum, gaeste) VALUES (?, ?, ?, ?, ?, ?)";
-            PreparedStatement prep = con.prepareStatement(sql);
-            prep.setString(1, party.getName());
-            prep.setDouble(2, party.getBudget());
-            prep.setInt(3, party.getRaumbedarf());
-            prep.setString(4, party.getAnmerkung());
             GregorianCalendar datum = party.getDatum();
             int jahr = datum.get(Calendar.YEAR);
             int monat = datum.get(Calendar.MONTH) + 1;
             int tag = datum.get(Calendar.DAY_OF_MONTH);
-            prep.setString(5, jahr + "-" + monat + "-" + tag);
-            prep.setString(6, "");
-            prep.executeUpdate();
+            String sql = "INSERT INTO Party (partyname, budget, raumbedarf, tipps, datum, gaeste) values ('"
+                + party.getName() + "', '" + party.getBudget() + "', '" + party.getRaumbedarf() + "', '" 
+                    + party.getAnmerkung() + "', '" + jahr + "-" + monat + "-" + tag + "', '" + "" + "')";
+            Statement prep = con.createStatement();     
+            prep.executeUpdate(sql, Statement.RETURN_GENERATED_KEYS);
+            // Auslesen des erzeugten Primärschlüssels (id)
+            ResultSet rst = prep.getGeneratedKeys();
+            if (rst.next()) {
+                return rst.getInt(1);
+            }
         } catch (SQLException e) {
             e.printStackTrace();
-        }
-        
-        try {
-            Statement stmt = con.createStatement();
-            ResultSet r = stmt.executeQuery("SELECT TOP 1 Id FROM Party ORDER BY Id DESC"); //hol dir die ID der letzen eingefügten Party
-            if(r.next())
-                return r.getInt(1);
-        } catch (SQLException ex) {
-            ex.printStackTrace();
         }
         return -1;
     }
@@ -417,6 +409,7 @@ public class PPdb {
         String sql = "INSERT INTO gast (vorname, nachname, geburtsdatum, email, telefonnr) values ('"
                 + gast.getVorname() + "', '" + gast.getNachname() + "', '" + sqlDatum + "', '" + gast.getEmail() + "', '" + gast.getTelefon() + "')";
         System.out.println(sql);
+        //Geburtsdatum ist ein Datetime objekt, kein String!
         stmt.executeUpdate(sql, Statement.RETURN_GENERATED_KEYS);
         
         // Auslesen des erzeugten Primärschlüssels (id)

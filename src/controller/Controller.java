@@ -359,12 +359,13 @@ public class Controller implements ActionListener {
              gaesteListeParty.setAlwaysOnTop(true);
              gaesteListeParty.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
              List<Gast> listeGeladen = aktuelleParty.getGaesteListe();
+             List<Gast> alleGaesteListe = model.gaesteverwaltung.getGaesteListe();
              String[] gaesteArray = new String[listeGeladen.size()];
              for(int i = 0; i < listeGeladen.size(); i++) {
-                 gaesteArray[i] = listeGeladen.get(i).getName();
+                 if(alleGaesteListe.contains(listeGeladen.get(i)))
+                    gaesteArray[i] = listeGeladen.get(i).getName();
              }
-             List<Gast> alleGaesteListe = model.gaesteverwaltung.getGaesteListe();
-             String[] alleGaesteArray = new String[alleGaesteListe.size() - listeGeladen.size()];
+             String[] alleGaesteArray = new String[alleGaesteListe.size() - gaesteArray.length +1];
              int i = 0;
              for(Gast gast : alleGaesteListe) {
                  if(!listeGeladen.contains(gast)) {
