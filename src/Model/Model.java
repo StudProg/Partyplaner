@@ -21,8 +21,8 @@ public class Model {
     
     public Model(Controller controller, PPdb datenbank) {
         this.controller = controller;
-        partyverwaltung = new Partyverwaltung(datenbank);
         warenverwaltung = new Warenverwaltung(datenbank);
         gaesteverwaltung = new Gaesteverwaltung(datenbank);
+        partyverwaltung = new Partyverwaltung(datenbank, warenverwaltung, gaesteverwaltung);
     }
 }

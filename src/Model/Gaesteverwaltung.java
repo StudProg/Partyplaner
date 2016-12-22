@@ -76,6 +76,14 @@ public class Gaesteverwaltung {
         }
         return null;
     }
+    
+    public Gast gastSuchen(int gastnummer) {
+        for (Gast gast : gaesteListe) {
+            if (gast.getGastnummer()== gastnummer)
+                return gast;
+        }
+        return null;
+    }
 
     public void gast_bearbeiten(int gastindex, String vname, String nname, GregorianCalendar gregorianDatum, String mail, String telefon) {
         gaesteListe.get(gastindex).setVorname(vname);

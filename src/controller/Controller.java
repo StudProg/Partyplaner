@@ -23,6 +23,7 @@ import Model.Ware;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.logging.Level;
@@ -357,36 +358,42 @@ public class Controller implements ActionListener {
              gaesteListeParty.setVisible(true);
              gaesteListeParty.setAlwaysOnTop(true);
              gaesteListeParty.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-             List<Gast> liste = aktuelleParty.getGaesteListe();
-             String[] gaesteArray = new String[liste.size()];
-             for(int i = 0; i < liste.size(); i++) {
-                 gaesteArray[i] = liste.get(i).getName();
+             List<Gast> listeGeladen = aktuelleParty.getGaesteListe();
+             String[] gaesteArray = new String[listeGeladen.size()];
+             for(int i = 0; i < listeGeladen.size(); i++) {
+                 gaesteArray[i] = listeGeladen.get(i).getName();
              }
              List<Gast> alleGaesteListe = model.gaesteverwaltung.getGaesteListe();
-             alleGaesteListe.removeAll(liste);
-             String[] alleGaesteArray = new String[alleGaesteListe.size()];
-             for(int i = 0; i < alleGaesteListe.size(); i++) 
-                 alleGaesteArray[i] = alleGaesteListe.get(i).getName();
+             String[] alleGaesteArray = new String[alleGaesteListe.size() - listeGeladen.size()];
+             int i = 0;
+             for(Gast gast : alleGaesteListe) {
+                 if(!listeGeladen.contains(gast)) {
+                     alleGaesteArray[i] = gast.getName();
+                     i++;
+                 }
+             }
              gaesteListeParty.getGaesteListe().setListData(alleGaesteArray);
              gaesteListeParty.getGaesteListeEingeladen().setListData(gaesteArray);
          } else if(e.getActionCommand().equals("Gaestelisteparty.Gast hinzufuegen")) {
              int index = gaesteListeParty.getGaesteListe().getSelectedIndex();
              if(index < 0)
                  return;
-             List<Gast> liste = aktuelleParty.getGaesteListe();
+             List<Gast> listeGeladen = aktuelleParty.getGaesteListe();
              List<Gast> alleGaesteListe = model.gaesteverwaltung.getGaesteListe();
-             liste.add(alleGaesteListe.get(index));
-             String[] gaesteArray = new String[liste.size()];
-             for(int i = 0; i < liste.size(); i++) {
-                 gaesteArray[i] = liste.get(i).getName();
+             List<Gast> alleGaesteListe2 = new ArrayList<Gast>();
+             for(Gast gast : alleGaesteListe)
+                 if(!listeGeladen.contains(gast))
+                     alleGaesteListe2.add(gast);
+             
+             listeGeladen.add(alleGaesteListe2.get(index)); 
+             alleGaesteListe2.remove(index);
+             String[] gaesteArray = new String[listeGeladen.size()];
+             for(int i = 0; i < listeGeladen.size(); i++) {
+                 gaesteArray[i] = listeGeladen.get(i).getName();
              }
-             String[] alleGaesteArray = new String[alleGaesteListe.size() - liste.size() +1];
-             int i = 0;
-             for(Gast gast : alleGaesteListe) {
-                 if(!liste.contains(gast)) {
-                     alleGaesteArray[i] = gast.getName();
-                     i++;
-                 }
+             String[] alleGaesteArray = new String[alleGaesteListe2.size()];
+             for(int i = 0; i < alleGaesteListe2.size(); i++) {
+                 alleGaesteArray[i] = alleGaesteListe2.get(i).getName();
              }
              gaesteListeParty.getGaesteListe().setListData(alleGaesteArray);
              gaesteListeParty.getGaesteListeEingeladen().setListData(gaesteArray);
@@ -394,18 +401,18 @@ public class Controller implements ActionListener {
              int index = gaesteListeParty.getGaesteListeEingeladen().getSelectedIndex();
              if(index < 0)
                  return;
-             List<Gast> liste = aktuelleParty.getGaesteListe();
+             List<Gast> listeGeladen = aktuelleParty.getGaesteListe();
              List<Gast> alleGaesteListe = model.gaesteverwaltung.getGaesteListe();
-             liste.remove(index);
-             String[] gaesteArray = new String[liste.size()];
-             for(int i = 0; i < liste.size(); i++) {
-                 gaesteArray[i] = liste.get(i).getName();
+             listeGeladen.remove(index);
+             String[] gaesteArray = new String[listeGeladen.size()];
+             for(int i = 0; i < listeGeladen.size(); i++) {
+                 gaesteArray[i] = listeGeladen.get(i).getName();
              }
              
-             String[] alleGaesteArray = new String[alleGaesteListe.size() - liste.size()];
+             String[] alleGaesteArray = new String[alleGaesteListe.size() - listeGeladen.size()];
              int i = 0;
              for(Gast gast : alleGaesteListe) {
-                 if(!liste.contains(gast)) {
+                 if(!listeGeladen.contains(gast)) {
                      alleGaesteArray[i] = gast.getName();
                      i++;
                  }
@@ -480,7 +487,7 @@ public class Controller implements ActionListener {
             }
             
         try { 
-            model.partyverwaltung.party_bearbeiten(alterPartyName,name, partyBudget, gregorianDatum );
+            model.partyverwaltung.party_bearbeiten(alterPartyName, name, partyBudget, gregorianDatum );
         } catch (PartyExestiertBereitsException ex) {
             gui.getErrorLabel().setText("Dieser Partyname existiert bereits.");
                 gui.getErrorLabel().setForeground(Color.red);

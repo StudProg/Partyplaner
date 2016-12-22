@@ -12,7 +12,12 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 /*
@@ -56,7 +61,7 @@ public class PPdb {
         p.selectAll();
         List<Gast> gaeste = p.gibAlleGaeste();
         List<Ware> waren = p.gibAlleWaren();
-        List<Party> partys = p.gibAllePartys();
+        Map<Party, List<String[]>> partys = p.gibAllePartys();
         System.out.println(gaeste.size());
         System.out.println(waren.size());
         System.out.println(partys.size());
@@ -76,8 +81,8 @@ public class PPdb {
         return null;
     }
 
-    public List<Party> gibAllePartys() {
-        List<Party> partys = new ArrayList<Party>();
+    public Map<Party, List<String[]>> gibAllePartys() {
+        Map<Party, List<String[]>> partys = new LinkedHashMap<Party, List<String[]>>();
 
         try {
             Statement stmt = con.createStatement();
@@ -98,9 +103,15 @@ public class PPdb {
                 int monat = Integer.parseInt(datumsteile[1]) - 1;
                 int tag = Integer.parseInt(datumsteile[2]);
                 GregorianCalendar greg = new GregorianCalendar(jahr, monat, tag);
-                Party party = new Party(partyname, budget, greg, null); //TODO: Partytyp darf nicht null sein!
+                Party party = new Party(id, partyname, budget, greg, null); //TODO: Partytyp darf nicht null sein!
                 //party.setPartynummer(id);
-                partys.add(party);
+                List<String[]> extra = new ArrayList<String[]>();
+                if (gaeste==null) {
+                    extra.add(new String[0]);
+                } else {
+                    extra.add(gaeste.split(";"));
+                }
+                partys.put(party, extra);
             }
 
             res.close();
@@ -111,7 +122,7 @@ public class PPdb {
         return partys;
     }
 
-    public void partyEinfuegen(Party party) {
+    public int partyEinfuegen(Party party) {
 
         try {
             Statement stmt = con.createStatement();
@@ -122,7 +133,7 @@ public class PPdb {
         }
 
         try {
-            String sql = "INSERT INTO Party (partyname, budget, raumbedarf, tipps, datum, gaeste) VALUES (?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO Party (partyname, budget, raumbedarf, tipps, datum, gaeste) VALUES (?, ?, ?, ?, ?, ?)";
             PreparedStatement prep = con.prepareStatement(sql);
             prep.setString(1, party.getName());
             prep.setDouble(2, party.getBudget());
@@ -133,12 +144,21 @@ public class PPdb {
             int monat = datum.get(Calendar.MONTH) + 1;
             int tag = datum.get(Calendar.DAY_OF_MONTH);
             prep.setString(5, jahr + "-" + monat + "-" + tag);
-            prep.setString(6, party.getGaesteListeAlsDatenbank());
+            prep.setString(6, "");
             prep.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
+        
+        try {
+            Statement stmt = con.createStatement();
+            ResultSet r = stmt.executeQuery("SELECT TOP 1 Id FROM Party ORDER BY Id DESC"); //hol dir die ID der letzen eingefügten Party
+            if(r.next())
+                return r.getInt(1);
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return -1;
     }
 
     public void partyLoeschen(int partynummer) {
@@ -154,7 +174,7 @@ public class PPdb {
 
     }
 
-    public void partyBearbeiten(int partynummer, Party party) {
+    public void partyBearbeiten(int partynummer, Party party, String gaesteListe) {
 
         try {
             String sql = "UPDATE Party SET Partyname = ?, Budget = ?, Raumbedarf = ?,"
@@ -169,7 +189,7 @@ public class PPdb {
             int monat = datum.get(Calendar.MONTH) + 1;
             int tag = datum.get(Calendar.DAY_OF_MONTH);
             prep.setString(5, jahr + "-" + monat + "-" + tag);
-            prep.setString(6, party.getGaesteListeAlsDatenbank());
+            prep.setString(6, gaesteListe);
             prep.setInt(7, partynummer);
             prep.executeUpdate();
         } catch (SQLException e) {

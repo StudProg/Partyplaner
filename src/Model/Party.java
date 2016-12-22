@@ -27,7 +27,15 @@ public class Party {
     private List<Einkaufsposten> warenListe;
     private List<Gast> gaesteListe;
     private List<Kommentar> kommentarListe;
-    
+    private int id;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
     /**
      * Getter für den Namen der Party.
      * @return
@@ -121,8 +129,9 @@ public class Party {
      * @param datum Datum der Veranstaltung
      * @param partytyp Der Partytyp
      */
-    public Party(String name, double budget, GregorianCalendar datum,
+    public Party(int id, String name, double budget, GregorianCalendar datum,
             Partytyp partytyp) {
+        this.id = id;
         this.name = name;
         this.budget = budget;
         this.datum = datum;

@@ -4,6 +4,7 @@ import controller.PPdb;
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
 import java.util.List;
+import java.util.Map;
 
 /**
  *
@@ -17,9 +18,23 @@ public class Partyverwaltung {
         
         return partyListe;
     }
-    public Partyverwaltung(PPdb datenbank) {
+    public Partyverwaltung(PPdb datenbank, Warenverwaltung warenverwaltung, Gaesteverwaltung gaesteverwaltung) {
         this.datenbank = datenbank;
-        this.partyListe = datenbank.gibAllePartys();
+        Map<Party, List<String[]>> map = datenbank.gibAllePartys();
+        for (Party party : map.keySet()) { //Map ist eine Tabelle mit 2 Spalten und die erste Spalte sind die partys und die zweite Spalte teilt sich in mehrere Zeilen. Die nullte Zeile ist die Gästeliste
+            List<String[]> extras = map.get(party);
+            for(String gastnummer : extras.get(0)) {
+                try {
+                    Gast gast = gaesteverwaltung.gastSuchen(Integer.parseInt(gastnummer));
+                    if(gast != null)
+                        party.getGaesteListe().add(gast);
+                } catch (NumberFormatException e) {
+                    continue;
+                }
+                
+            }
+            this.partyListe.add(party);
+        }
     }
     /**
      * Erstellt eine neue Party mit den angegebenen Parametern.
@@ -33,9 +48,10 @@ public class Partyverwaltung {
     throws PartyExestiertBereitsException {
         if(partySuchenMitName(name))
             throw new PartyExestiertBereitsException(name);
-        Party party = new Party(name, budget, datum, partyTyp);
+        Party party = new Party(-1, name, budget, datum, partyTyp);
         partyListe.add(party);
-        datenbank.partyEinfuegen(party);
+        party.setId(datenbank.partyEinfuegen(party));
+        
     }
     
     /**
@@ -60,7 +76,7 @@ public class Partyverwaltung {
         for(Party party : partyListe) {
             if(party.getName().equals(name)) {
                 partyListe.remove(party);
-                datenbank.partyLoeschen(i);
+                datenbank.partyLoeschen(party.getId());
                 break;
             }
             i++;
@@ -69,7 +85,7 @@ public class Partyverwaltung {
     
     public void party_bearbeiten(String alterPartyName, String partyname, double partyBudget,
             GregorianCalendar datum ) throws PartyExestiertBereitsException {
-        if (partySuchenMitName(partyname) && !alterPartyName.equals(partyname))
+        if (partySuchenMitName(partyname) && !alterPartyName.equals(partyname))//frage ob dieser partyname schon exestiert und wenn ja, frage ob der partyname sich geändert hat
             throw new PartyExestiertBereitsException(partyname);
         int i = 0;
         for(Party party : partyListe) {
@@ -77,7 +93,7 @@ public class Partyverwaltung {
                 party.setBudget(partyBudget);
                 party.setDatum(datum);
                 party.setName(partyname);
-                datenbank.partyBearbeiten(i, party);
+                datenbank.partyBearbeiten(party.getId(), party, party.getGaesteListeAlsDatenbank());
                 break;
             }
             i++;
