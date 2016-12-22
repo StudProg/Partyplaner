@@ -148,6 +148,15 @@ public class Party {
     public List<Gast> getGaesteListe() {
         return gaesteListe;
     }
+    
+    public String getGaesteListeAlsDatenbank() {
+        String ret = "";
+        for(Gast gast : gaesteListe) 
+            ret += gast.getGastnummer() + ";";
+        if(ret.length() > 0)
+            ret = ret.substring(0, ret.length()-1); //löschen des letzten semikollons
+        return ret;
+    }
 
     public List<Einkaufsposten> getWarenListe() {
         return warenListe;

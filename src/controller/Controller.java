@@ -209,6 +209,11 @@ public class Controller implements ActionListener {
                 gasthinzufuegen.geterrorLabel().setForeground(Color.red);
                 return;
             }
+            if(model.gaesteverwaltung.gastSuchen(vname, nname) != null) {
+                gasthinzufuegen.geterrorLabel().setText("Gast exestiert bereits!");
+                gasthinzufuegen.geterrorLabel().setForeground(Color.red);
+                return;
+            }
             model.gaesteverwaltung.gast_erstellen(vname, nname, gregorianDatum, mail, telefon);
             gasthinzufuegen.dispose();
             List<Gast> gaeste = model.gaesteverwaltung.getGaesteListe();
@@ -276,11 +281,9 @@ public class Controller implements ActionListener {
                 gastbearbeiten.getErrorLabel().setText("Ungültiges Geburtsdatum.");
                 gastbearbeiten.getErrorLabel().setForeground(Color.red);
                 return;
-            }
-            Gast gast = model.gaesteverwaltung.getGaesteListe().get(indexBearbeiteterGast);
+            }          
+            model.gaesteverwaltung.gast_bearbeiten(indexBearbeiteterGast, vname, nname, gregorianDatum, mail, telefon);
             indexBearbeiteterGast = -1;
-            model.gaesteverwaltung.gast_loeschen(gast);
-            model.gaesteverwaltung.gast_erstellen(vname, nname, gregorianDatum, mail, telefon);
             gastbearbeiten.dispose();
             List<Gast> gaeste = model.gaesteverwaltung.getGaesteListe();
             String[] gaesteArray = new String[gaeste.size()];
@@ -357,13 +360,13 @@ public class Controller implements ActionListener {
              List<Gast> liste = aktuelleParty.getGaesteListe();
              String[] gaesteArray = new String[liste.size()];
              for(int i = 0; i < liste.size(); i++) {
-                 gaesteArray[i] = liste.get(i).getVorname() + " " + liste.get(i).getNachname();
+                 gaesteArray[i] = liste.get(i).getName();
              }
              List<Gast> alleGaesteListe = model.gaesteverwaltung.getGaesteListe();
              alleGaesteListe.removeAll(liste);
              String[] alleGaesteArray = new String[alleGaesteListe.size()];
              for(int i = 0; i < alleGaesteListe.size(); i++) 
-                 alleGaesteArray[i] = alleGaesteListe.get(i).getVorname() + " " + alleGaesteListe.get(i).getNachname();
+                 alleGaesteArray[i] = alleGaesteListe.get(i).getName();
              gaesteListeParty.getGaesteListe().setListData(alleGaesteArray);
              gaesteListeParty.getGaesteListeEingeladen().setListData(gaesteArray);
          } else if(e.getActionCommand().equals("Gaestelisteparty.Gast hinzufuegen")) {
@@ -375,13 +378,13 @@ public class Controller implements ActionListener {
              liste.add(alleGaesteListe.get(index));
              String[] gaesteArray = new String[liste.size()];
              for(int i = 0; i < liste.size(); i++) {
-                 gaesteArray[i] = liste.get(i).getVorname() + " " + liste.get(i).getNachname();
+                 gaesteArray[i] = liste.get(i).getName();
              }
              String[] alleGaesteArray = new String[alleGaesteListe.size() - liste.size() +1];
              int i = 0;
              for(Gast gast : alleGaesteListe) {
                  if(!liste.contains(gast)) {
-                     alleGaesteArray[i] = gast.getVorname() + " " + gast.getNachname();
+                     alleGaesteArray[i] = gast.getName();
                      i++;
                  }
              }
@@ -396,14 +399,14 @@ public class Controller implements ActionListener {
              liste.remove(index);
              String[] gaesteArray = new String[liste.size()];
              for(int i = 0; i < liste.size(); i++) {
-                 gaesteArray[i] = liste.get(i).getVorname() + " " + liste.get(i).getNachname();
+                 gaesteArray[i] = liste.get(i).getName();
              }
              
              String[] alleGaesteArray = new String[alleGaesteListe.size() - liste.size()];
              int i = 0;
              for(Gast gast : alleGaesteListe) {
                  if(!liste.contains(gast)) {
-                     alleGaesteArray[i] = gast.getVorname() + " " + gast.getNachname();
+                     alleGaesteArray[i] = gast.getName();
                      i++;
                  }
              }

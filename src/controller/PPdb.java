@@ -9,6 +9,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.List;
@@ -91,6 +92,7 @@ public class PPdb {
                 int raumbedarf = res.getInt(4);
                 String anmerkung = res.getString(5);
                 String datum = res.getString(6);
+                String gaeste = res.getString(7);
                 String[] datumsteile = datum.split("-");
                 int jahr = Integer.parseInt(datumsteile[0]);
                 int monat = Integer.parseInt(datumsteile[1]) - 1;
@@ -120,7 +122,7 @@ public class PPdb {
         }
 
         try {
-            String sql = "INSERT INTO Party (partyname, budget, raumbedarf, tipps, datum) VALUES (?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO Party (partyname, budget, raumbedarf, tipps, datum, gaeste) VALUES (?, ?, ?, ?, ?)";
             PreparedStatement prep = con.prepareStatement(sql);
             prep.setString(1, party.getName());
             prep.setDouble(2, party.getBudget());
@@ -131,6 +133,7 @@ public class PPdb {
             int monat = datum.get(Calendar.MONTH) + 1;
             int tag = datum.get(Calendar.DAY_OF_MONTH);
             prep.setString(5, jahr + "-" + monat + "-" + tag);
+            prep.setString(6, party.getGaesteListeAlsDatenbank());
             prep.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -155,7 +158,7 @@ public class PPdb {
 
         try {
             String sql = "UPDATE Party SET Partyname = ?, Budget = ?, Raumbedarf = ?,"
-                    + "Tipps = ?, Datum = ? WHERE id = ?";
+                    + "Tipps = ?, Datum = ?, Gaeste = ? WHERE id = ?";
             PreparedStatement prep = con.prepareStatement(sql);
             prep.setString(1, party.getName());
             prep.setDouble(2, party.getBudget());
@@ -166,7 +169,8 @@ public class PPdb {
             int monat = datum.get(Calendar.MONTH) + 1;
             int tag = datum.get(Calendar.DAY_OF_MONTH);
             prep.setString(5, jahr + "-" + monat + "-" + tag);
-            prep.setInt(6, partynummer);
+            prep.setString(6, party.getGaesteListeAlsDatenbank());
+            prep.setInt(7, partynummer);
             prep.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();

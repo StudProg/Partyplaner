@@ -38,6 +38,11 @@ public class Gast {
         return vorname;
     }
 
+    public void setVorname(String vorname) {
+        this.vorname = vorname;
+    }
+
+    
     /**
      * Gibt nur den Nachnamen zurück.
      * @return
@@ -46,6 +51,12 @@ public class Gast {
         return nachname;
     }
 
+    public void setNachname(String nachname) {
+        this.nachname = nachname;
+    }
+    
+    
+
     /**
      * Gibt das Geburtstag des Gastes zurück.
      * @return
@@ -53,6 +64,11 @@ public class Gast {
     public GregorianCalendar getGeburtstdatum() {
         return geburtstdatum;
     }
+
+    public void setGeburtstdatum(GregorianCalendar geburtstdatum) {
+        this.geburtstdatum = geburtstdatum;
+    }
+    
     
     public String getDatumAlsString () {
         int datumTag = geburtstdatum.get(Calendar.DAY_OF_MONTH);
@@ -85,6 +101,11 @@ public class Gast {
         return email;
     }
 
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    
     /**
      * Gibt die Telefonnummer des Gastes zurück.
      * @return
@@ -92,6 +113,11 @@ public class Gast {
     public String getTelefon() {
         return telefon;
     }
+
+    public void setTelefon(String telefon) {
+        this.telefon = telefon;
+    }
+    
     
     /**
      * Kreirt einen neuen Gast mit den Parametern.

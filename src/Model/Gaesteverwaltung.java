@@ -68,4 +68,21 @@ public class Gaesteverwaltung {
     public void gast_anzeigen() {
         //TODO:
     }
+    
+    public Gast gastSuchen(String vName, String nName) {
+        for(Gast gast : gaesteListe) {
+            if(gast.getVorname().equals(vName) && gast.getNachname().equals(nName))
+                return gast;
+        }
+        return null;
+    }
+
+    public void gast_bearbeiten(int gastindex, String vname, String nname, GregorianCalendar gregorianDatum, String mail, String telefon) {
+        gaesteListe.get(gastindex).setVorname(vname);
+        gaesteListe.get(gastindex).setEmail(mail);
+        gaesteListe.get(gastindex).setGeburtstdatum(gregorianDatum);
+        gaesteListe.get(gastindex).setNachname(nname);
+        gaesteListe.get(gastindex).setTelefon(telefon);
+        datenbank.gastBearbeiten(gaesteListe.get(gastindex));
+    }
 }
