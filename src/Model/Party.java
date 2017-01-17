@@ -139,19 +139,7 @@ public class Party {
         anmerkung = "";
         warenListe = new ArrayList<Einkaufsposten>();
         gaesteListe = new ArrayList<Gast>();
-        kommentarListe = new ArrayList<Kommentar>();
         raumbedarf = gaesteListe.size()*2;
-    }
-    
-    public void kommentar_hinzufuegen(String kommentar) {
-        Kommentar k = new Kommentar(kommentar);
-        kommentarListe.add(k);
-    }
-    
-    public void kommentar_loeschen(String kommentar) {
-        Kommentar k = new Kommentar(kommentar);
-        while(kommentarListe.contains(k))
-            kommentarListe.remove(k);
     }
 
     public List<Gast> getGaesteListe() {
@@ -167,7 +155,4 @@ public class Party {
         return ret;
     }
 
-    public List<Einkaufsposten> getWarenListe() {
-        return warenListe;
-    }
 }

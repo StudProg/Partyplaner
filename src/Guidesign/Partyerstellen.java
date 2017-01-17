@@ -79,9 +79,9 @@ public class Partyerstellen extends javax.swing.JFrame {
 
         jLabel2.setText("Name");
 
-        jLabel4.setText("Datum");
+        jLabel4.setText("Datum (Bsp.01.01.2011)");
 
-        jLabel5.setText("Budget");
+        jLabel5.setText("Budget in €");
 
         partydatum.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -114,7 +114,7 @@ public class Partyerstellen extends javax.swing.JFrame {
                                     .addComponent(jLabel2)
                                     .addComponent(jLabel4)
                                     .addComponent(jLabel5))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(partybudget)
                                     .addComponent(partydatum)

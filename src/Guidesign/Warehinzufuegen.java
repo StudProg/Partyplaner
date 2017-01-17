@@ -64,7 +64,7 @@ public class Warehinzufuegen extends javax.swing.JFrame {
 
         warespeichern.setText("Ware speichern");
 
-        jLabel1.setText("Alkoholgehalt");
+        jLabel1.setText("Alkoholgehalt in %");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
