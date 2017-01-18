@@ -23,12 +23,20 @@ public class Party {
     private String anmerkung;
     private int raumbedarf;
     private Partytyp partytyp;
-    
-    private List<Einkaufsposten> warenListe;
     private List<Gast> gaesteListe;
     private List<Kommentar> kommentarListe;
     private int id;
 
+    public Party(int id, String name, double budget, GregorianCalendar datum,
+            Partytyp partytyp) {
+        this.id = id;
+        this.name = name;
+        this.budget = budget;
+        this.datum = datum;
+        this.partytyp = partytyp;
+        gaesteListe = new ArrayList<Gast>();
+    }
+    
     public int getId() {
         return id;
     }
@@ -129,30 +137,7 @@ public class Party {
      * @param datum Datum der Veranstaltung
      * @param partytyp Der Partytyp
      */
-    public Party(int id, String name, double budget, GregorianCalendar datum,
-            Partytyp partytyp) {
-        this.id = id;
-        this.name = name;
-        this.budget = budget;
-        this.datum = datum;
-        this.partytyp = partytyp;
-        anmerkung = "";
-        warenListe = new ArrayList<Einkaufsposten>();
-        gaesteListe = new ArrayList<Gast>();
-        kommentarListe = new ArrayList<Kommentar>();
-        raumbedarf = gaesteListe.size()*2;
-    }
     
-    public void kommentar_hinzufuegen(String kommentar) {
-        Kommentar k = new Kommentar(kommentar);
-        kommentarListe.add(k);
-    }
-    
-    public void kommentar_loeschen(String kommentar) {
-        Kommentar k = new Kommentar(kommentar);
-        while(kommentarListe.contains(k))
-            kommentarListe.remove(k);
-    }
 
     public List<Gast> getGaesteListe() {
         return gaesteListe;
@@ -167,7 +152,4 @@ public class Party {
         return ret;
     }
 
-    public List<Einkaufsposten> getWarenListe() {
-        return warenListe;
-    }
 }

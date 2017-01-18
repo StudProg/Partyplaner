@@ -20,8 +20,6 @@ public class Startseite extends javax.swing.JFrame {
     public JLabel getErrorLabel() {
         return errorLabel;
     }
-    
-    
 
     public JTextField getPartynameeintragen() {
         return partynameeintragen;
@@ -77,7 +75,6 @@ public class Startseite extends javax.swing.JFrame {
         partyabbrechen = new javax.swing.JButton();
         partyEinfuegen = new javax.swing.JButton();
         gaestelisteerstellen = new javax.swing.JButton();
-        einkaufslisteerstellen = new javax.swing.JButton();
         raumbedarfberechnung = new javax.swing.JButton();
         startmenue = new javax.swing.JMenuBar();
         partymenue = new javax.swing.JMenu();
@@ -102,7 +99,7 @@ public class Startseite extends javax.swing.JFrame {
 
         gaesteanzahl.setText("Gästeanzahl");
 
-        budget.setText("Budget");
+        budget.setText("Budget in €");
 
         anmerkung.setText("Anmerkung");
 
@@ -123,10 +120,8 @@ public class Startseite extends javax.swing.JFrame {
         partyEinfuegen.setText("Speichern");
         partyEinfuegen.setName(""); // NOI18N
 
-        gaestelisteerstellen.setText("Gästeliste erstellen");
+        gaestelisteerstellen.setText("Gästeliste ");
         gaestelisteerstellen.setActionCommand("Gaesteliste erstellen");
-
-        einkaufslisteerstellen.setText("Einkaufsliste erstellen");
 
         raumbedarfberechnung.setText("Raumbedarf berechnen");
         raumbedarfberechnung.addActionListener(new java.awt.event.ActionListener() {
@@ -150,7 +145,6 @@ public class Startseite extends javax.swing.JFrame {
         jLayeredPane1.setLayer(partyabbrechen, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(partyEinfuegen, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(gaestelisteerstellen, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(einkaufslisteerstellen, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(raumbedarfberechnung, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
@@ -163,34 +157,30 @@ public class Startseite extends javax.swing.JFrame {
                     .addGroup(jLayeredPane1Layout.createSequentialGroup()
                         .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                                .addComponent(budget)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(partybudget))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane1Layout.createSequentialGroup()
+                                .addComponent(partydatum)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                                .addComponent(partydatumeintragen, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jLayeredPane1Layout.createSequentialGroup()
                                 .addComponent(partyname)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(partynameeintragen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                                .addComponent(partydatum)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(partydatumeintragen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                                .addComponent(gaesteanzahl)
-                                .addGap(18, 18, 18)
-                                .addComponent(gaesteanzahleintragen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                                .addComponent(budget)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(partybudget, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(partynameeintragen, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(30, 30, 30)
                         .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(gaestelisteerstellen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                                .addGap(68, 68, 68)
-                                .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                                        .addComponent(raumbedarfberechnung)
-                                        .addGap(0, 0, Short.MAX_VALUE))
-                                    .addComponent(gaestelisteerstellen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(einkaufslisteerstellen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane1Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(raumbedarf, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(31, 31, 31))))
+                                        .addComponent(gaesteanzahl)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(gaesteanzahleintragen))
+                                    .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(raumbedarf, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(raumbedarfberechnung)))
+                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addComponent(errorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jLayeredPane1Layout.createSequentialGroup()
                         .addComponent(anmerkung)
@@ -203,9 +193,6 @@ public class Startseite extends javax.swing.JFrame {
                                 .addComponent(partyEinfuegen)))))
                 .addContainerGap(171, Short.MAX_VALUE))
         );
-
-        jLayeredPane1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {gaesteanzahleintragen, partybudget, partydatumeintragen, partynameeintragen});
-
         jLayeredPane1Layout.setVerticalGroup(
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jLayeredPane1Layout.createSequentialGroup()
@@ -216,21 +203,23 @@ public class Startseite extends javax.swing.JFrame {
                     .addComponent(gaestelisteerstellen))
                 .addGap(18, 18, 18)
                 .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(partydatum)
-                        .addComponent(partydatumeintragen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(einkaufslisteerstellen))
-                .addGap(18, 18, 18)
+                    .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                        .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(partydatum)
+                            .addComponent(partydatumeintragen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(21, 21, 21))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane1Layout.createSequentialGroup()
+                        .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(gaesteanzahl)
+                            .addComponent(gaesteanzahleintragen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)))
                 .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(gaesteanzahl)
-                    .addComponent(gaesteanzahleintragen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(raumbedarfberechnung))
-                .addGap(18, 18, 18)
-                .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(raumbedarfberechnung)
                     .addComponent(budget)
-                    .addComponent(partybudget, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(raumbedarf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(partybudget, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(17, 17, 17)
+                .addComponent(raumbedarf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(25, 25, 25)
                 .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(anmerkung)
                     .addComponent(anermkungeintragen, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -359,7 +348,6 @@ public class Startseite extends javax.swing.JFrame {
     private javax.swing.JLabel anmerkung;
     private javax.swing.JLabel budget;
     private javax.swing.JMenuItem couchparty;
-    private javax.swing.JButton einkaufslisteerstellen;
     public javax.swing.JLabel errorLabel;
     private javax.swing.JLabel gaesteanzahl;
     private javax.swing.JTextField gaesteanzahleintragen;

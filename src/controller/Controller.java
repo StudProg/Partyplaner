@@ -198,7 +198,7 @@ public class Controller implements ActionListener {
                 int tag = Integer.parseInt(datumArray[0]);
                 int monat = Integer.parseInt(datumArray[1]);
                 int jahr = Integer.parseInt(datumArray[2]);
-                if(tag < 1 || tag > 31 || monat < 1 || monat > 12) { //TODO: Ist das jahr wichtig ? Und wie sieht es mit Feb.aus?
+                if(tag < 1 || tag > 31 || monat < 1 || monat > 12) { 
                     gasthinzufuegen.geterrorLabel().setText("Ungültiges Geburtsdatum.");
                     gasthinzufuegen.geterrorLabel().setForeground(Color.red);
                     return;

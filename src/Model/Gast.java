@@ -1,18 +1,10 @@
 package Model;
-
-
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /**
  * Die Klasse für einen Gast.
- * @author Sandra
+ * @author Miri
  */
 public class Gast {
     private String vorname;
@@ -21,6 +13,24 @@ public class Gast {
     private int gastnummer;
     private String email;
     private String telefon;
+    
+    //Konstruktor
+     /**
+     * Kreirt einen neuen Gast mit den Parametern.
+     * @param vorname
+     * @param nachname
+     * @param geburtstdatum
+     * @param email
+     * @param telefon
+     */
+    public Gast(String vorname, String nachname, 
+            GregorianCalendar geburtstdatum, String email, String telefon) {
+        this.vorname = vorname;
+        this.nachname = nachname;
+        this.geburtstdatum = geburtstdatum;
+        this.email = email;
+        this.telefon = telefon;
+    }
     
     /**
      * Gibt den vollen Namen (Vor- und Zuname) als String zurück.
@@ -42,7 +52,6 @@ public class Gast {
         this.vorname = vorname;
     }
 
-    
     /**
      * Gibt nur den Nachnamen zurück.
      * @return
@@ -55,8 +64,6 @@ public class Gast {
         this.nachname = nachname;
     }
     
-    
-
     /**
      * Gibt das Geburtstag des Gastes zurück.
      * @return
@@ -68,8 +75,7 @@ public class Gast {
     public void setGeburtstdatum(GregorianCalendar geburtstdatum) {
         this.geburtstdatum = geburtstdatum;
     }
-    
-    
+     
     public String getDatumAlsString () {
         int datumTag = geburtstdatum.get(Calendar.DAY_OF_MONTH);
         int datumMonat = geburtstdatum.get(Calendar.MONTH);
@@ -119,20 +125,4 @@ public class Gast {
     }
     
     
-    /**
-     * Kreirt einen neuen Gast mit den Parametern.
-     * @param vorname
-     * @param nachname
-     * @param geburtstdatum
-     * @param email
-     * @param telefon
-     */
-    public Gast(String vorname, String nachname, 
-            GregorianCalendar geburtstdatum, String email, String telefon) {
-        this.vorname = vorname;
-        this.nachname = nachname;
-        this.geburtstdatum = geburtstdatum;
-        this.email = email;
-        this.telefon = telefon;
-    }
 }
