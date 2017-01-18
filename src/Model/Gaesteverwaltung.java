@@ -64,10 +64,7 @@ public class Gaesteverwaltung {
         gaesteListe.remove(gast);
         datenbank.gastLoeschen(i);
     }
-    
-    public void gast_anzeigen() {
-        //TODO:
-    }
+   
     
     public Gast gastSuchen(String vName, String nName) {
         for(Gast gast : gaesteListe) {
@@ -85,12 +82,12 @@ public class Gaesteverwaltung {
         return null;
     }
 
-    public void gast_bearbeiten(int gastindex, String vname, String nname, GregorianCalendar gregorianDatum, String mail, String telefon) {
-        gaesteListe.get(gastindex).setVorname(vname);
-        gaesteListe.get(gastindex).setEmail(mail);
-        gaesteListe.get(gastindex).setGeburtstdatum(gregorianDatum);
-        gaesteListe.get(gastindex).setNachname(nname);
-        gaesteListe.get(gastindex).setTelefon(telefon);
-        datenbank.gastBearbeiten(gaesteListe.get(gastindex));
+    public void gast_bearbeiten(int gastnummer, String vname, String nname, GregorianCalendar gregorianDatum, String mail, String telefon) {
+        gaesteListe.get(gastnummer).setVorname(vname);
+        gaesteListe.get(gastnummer).setEmail(mail);
+        gaesteListe.get(gastnummer).setGeburtstdatum(gregorianDatum);
+        gaesteListe.get(gastnummer).setNachname(nname);
+        gaesteListe.get(gastnummer).setTelefon(telefon);
+        datenbank.gastBearbeiten(gaesteListe.get(gastnummer));
     }
 }
