@@ -55,14 +55,8 @@ public class Gaesteverwaltung {
      * @param gast
      */
     public void gast_loeschen(Gast gast) {
-        int i = 0;
-        for(Gast ref : gaesteListe) {
-            if(ref.equals(gast))
-                break;
-            i++;
-        }
         gaesteListe.remove(gast);
-        datenbank.gastLoeschen(i);
+        datenbank.gastLoeschen(gast.getGastnummer());
     }
     
     public void gast_anzeigen() {

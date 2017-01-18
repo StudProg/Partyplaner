@@ -24,10 +24,9 @@ public class Warenverwaltung {
     
     public void ware_hinzufuegen(String warenName, double preis, String volumenmenge, 
             double alkoholgehalt) {
-        Ware ware = new Ware(warenName, preis, "0.0", alkoholgehalt);
+        Ware ware = new Ware(-1, warenName, preis, volumenmenge, alkoholgehalt);
         warenListe.add(ware);
-        
-            datenbank.wareEinfuegen(ware);
+        ware.setStrichcode(datenbank.wareEinfuegen(ware));
         
         }
      public void ware_loeschen(Ware ware) {
@@ -38,7 +37,7 @@ public class Warenverwaltung {
             i++;
         }
         warenListe.remove(ware);
-        datenbank.wareLoeschen(i);
+        datenbank.wareLoeschen(ware.getStrichcode());
     }
     }
     

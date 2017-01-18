@@ -190,7 +190,7 @@ public class PPdb {
     }
 
     public List<Gast> gibAlleGaeste() {
-        List<Gast> gaeste = new ArrayList<Gast>();
+        List<Gast> gaeste = new ArrayList<>();
 
         try {
             Statement stmt = con.createStatement();
@@ -309,7 +309,7 @@ public class PPdb {
                 Double preis = res.getDouble(3);
                 String menge = res.getString(4);
                 Double alkoholgehalt = res.getDouble(5);
-                Ware ware = new Ware(warenName, preis, menge, alkoholgehalt);
+                Ware ware = new Ware(id, warenName, preis, menge, alkoholgehalt);
                 //mware.setWarennummer(id);
                 waren.add(ware);
             }
@@ -322,7 +322,7 @@ public class PPdb {
         return waren;
     }
 
-    public void wareEinfuegen(Ware ware) {
+    public int wareEinfuegen(Ware ware) {
 
         try {
             Statement stmt = con.createStatement();
@@ -333,18 +333,21 @@ public class PPdb {
         }
 
         try {
-            String sql = "INSERT INTO Ware (warenname, preis, menge, alkoholgehalt) VALUES (?, ?, ?, ?)";
-
-            PreparedStatement prep = con.prepareStatement(sql);
-            prep.setString(1, ware.getWarenName());
-            prep.setDouble(2, ware.getPreis());
-            prep.setString(3, ware.getMenge());
-            prep.setDouble(4, ware.getAlkoholgehalt());
-            prep.executeUpdate();
+            
+            String sql = "INSERT INTO Ware (warenname, preis, menge, alkoholgehalt) VALUES ('"
+                    + ware.getWarenName() +  "', '" + ware.getPreis() + "', '" + ware.getMenge() + "', '"+ ware.getAlkoholgehalt()+"')";
+            Statement prep = con.createStatement();     
+            prep.executeUpdate(sql, Statement.RETURN_GENERATED_KEYS);
+            // Auslesen des erzeugten Primärschlüssels (id)
+            ResultSet rst = prep.getGeneratedKeys();
+            if (rst.next()) {
+                return rst.getInt(1);
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
+        return -1;
     }
 
     public void wareLoeschen(int warennummer) {

@@ -52,7 +52,6 @@ public class Controller implements ActionListener {
     public Controller() {
         //initialisierung des Models
         PPdb datenbank = new PPdb();
-        //lustig
         model = new Model(this, datenbank);
         gui = new Startseite(this);
         gui.setVisible(true);
@@ -362,10 +361,10 @@ public class Controller implements ActionListener {
              List<Gast> alleGaesteListe = model.gaesteverwaltung.getGaesteListe();
              String[] gaesteArray = new String[listeGeladen.size()];
              for(int i = 0; i < listeGeladen.size(); i++) {
-                 if(alleGaesteListe.contains(listeGeladen.get(i)))
+                 if(alleGaesteListe.contains(listeGeladen.get(i))) //wenn der Gast auch wirklich exestiert und nicht zwischenzeiutlich gelöscht wurde
                     gaesteArray[i] = listeGeladen.get(i).getName();
              }
-             String[] alleGaesteArray = new String[alleGaesteListe.size() - gaesteArray.length +1];
+             String[] alleGaesteArray = new String[alleGaesteListe.size() - gaesteArray.length +1]; //list size ist anders als array.lenght
              int i = 0;
              for(Gast gast : alleGaesteListe) {
                  if(!listeGeladen.contains(gast)) {

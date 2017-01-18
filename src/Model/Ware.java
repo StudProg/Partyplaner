@@ -15,6 +15,15 @@ public class Ware {
     private double preis;
     private String menge; //BSP: 1.5 L als Angabe
     private double alkoholgehalt;
+    private int Strichcode;
+
+    public int getStrichcode() {
+        return Strichcode;
+    }
+
+    public void setStrichcode(int Strichcode) {
+        this.Strichcode = Strichcode;
+    }
 
     /**
      * Gibt den Namen der Ware zurück.
@@ -67,8 +76,9 @@ public class Ware {
     * @param menge
     * @param alkoholgehalt
     */
-    public Ware (String warenName, double preis, String menge, 
+    public Ware (int strichcode, String warenName, double preis, String menge, 
             double alkoholgehalt){
+        this.Strichcode = strichcode;
         this.warenName = warenName;
         this.preis = preis;
         this.menge = menge;
