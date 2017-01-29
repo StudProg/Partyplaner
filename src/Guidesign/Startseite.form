@@ -280,18 +280,12 @@
         <Component class="javax.swing.JTextField" name="partydatumeintragen">
         </Component>
         <Component class="javax.swing.JTextField" name="gaesteanzahleintragen">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="gaesteanzahlintragenActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="partybudget">
         </Component>
         <Component class="javax.swing.JTextField" name="anermkungeintragen">
         </Component>
         <Component class="javax.swing.JTextField" name="raumbedarf">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="raumbedarfActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="errorLabel">
           <AuxValues>

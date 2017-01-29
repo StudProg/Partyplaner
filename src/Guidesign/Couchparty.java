@@ -1,18 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Guidesign;
 
 /**
  *
- * @author Miri
+ * @author Miri Die Tipps und Ideen für eine Couchparty werden angezeigt
  */
 public class Couchparty extends javax.swing.JFrame {
 
     /**
-     * Creates new form Kinderparty
+     * Erstelt ein neues Formular: Couchparty
      */
     public Couchparty() {
         initComponents();

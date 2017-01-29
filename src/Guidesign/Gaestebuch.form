@@ -47,7 +47,7 @@
                       <Component id="gästebuch" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace min="518" pref="270" max="32767" attributes="0"/>
+              <EmptySpace min="518" pref="278" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -84,7 +84,7 @@
     </Component>
     <Component class="javax.swing.JToggleButton" name="gastbearbeiten">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Gast bearbeiten"/>
+        <Property name="text" type="java.lang.String" value="Gast anzeigen"/>
       </Properties>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">

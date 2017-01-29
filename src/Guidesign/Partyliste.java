@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Guidesign;
 
 import controller.Controller;
@@ -10,17 +5,25 @@ import javax.swing.JList;
 
 /**
  *
- * @author Miri
+ * @author Miri Zeigt einem alle bereits geplanten Partys an. Diese kann man
+ * sich detaillierter anzeigen lassen oder löschen.
  */
 public class Partyliste extends javax.swing.JDialog {
+
     private Controller controller;
 
+    /**
+     *
+     * @return partylist Gibt die Liste aller bereits erstellten Partys zurück
+     */
     public JList<String> getpartylist() {
         return partylist;
     }
 
     /**
      * Creates new form Partyliste
+     *
+     * @param controller der controller wird als Objekt übergeben
      */
     public Partyliste(Controller controller) {
         this.controller = controller;
@@ -90,14 +93,15 @@ public class Partyliste extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-
-    
+  /**
+     * Den buttons für anzeigen und löschen werden ActionListener hinzugefügt,
+     * die an den Controller übergeben werden
+     */
     private void addActionListener() {
         partyanzeigen.addActionListener(controller);
         partyloeschen.addActionListener(controller);
     }
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JToggleButton partyanzeigen;

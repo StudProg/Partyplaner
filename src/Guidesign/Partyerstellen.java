@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Guidesign;
 
 import controller.Controller;
@@ -11,29 +6,51 @@ import javax.swing.JTextField;
 
 /**
  *
- * @author Sandra
+ * @author Sandra Hier wird das Formular angezeigt, mit dem man eine neue Party
+ * erstellen kann
  */
 public class Partyerstellen extends javax.swing.JFrame {
+
     private Controller controller;
-    
+
+    /**
+     *
+     * @return partyKategoriegibt die vom Nutzer gewählte Option für die
+     * Kategorie zurück
+     */
     public JComboBox getpartyKategorien() {
         return partyKategorien;
     }
-    
+
+    /**
+     *
+     * @return partyname gibt den vom Nutzer eingegebenen Partynamen zurück
+     */
     public JTextField getpartyname() {
-       return partyname;
+        return partyname;
     }
-    
+
+    /**
+     *
+     * @return partydatum gibt das vom Nutzer eingegebenen Datum zurück
+     */
     public JTextField getpartydatum() {
         return partydatum;
     }
-    
+
+    /**
+     *
+     * @return partybudget gibt das vom Nutzer eingegebenes Budget zurück
+     */
     public JTextField getpartybudget() {
         return partybudget;
     }
-    
+
     /**
-     * Creates new form Partyerstellen
+     * Erstellt das Formular Partyerstellen
+     *
+     * @param controller übergibt den controller als Objekt ActionListener
+     * werden hinzugefügt
      */
     public Partyerstellen(Controller controller) {
         this.controller = controller;
@@ -71,23 +88,11 @@ public class Partyerstellen extends javax.swing.JFrame {
 
         jLabel1.setText("Partykategorie");
 
-        partyname.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                partynameActionPerformed(evt);
-            }
-        });
-
         jLabel2.setText("Name");
 
         jLabel4.setText("Datum (Bsp.01.01.2011)");
 
         jLabel5.setText("Budget in €");
-
-        partydatum.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                partydatumActionPerformed(evt);
-            }
-        });
 
         neuePartyAbbrechen.setText("Abbrechen");
         neuePartyAbbrechen.setActionCommand("PartyErstellen.Abbrechen");
@@ -132,8 +137,8 @@ public class Partyerstellen extends javax.swing.JFrame {
                     .addComponent(jLabel1))
                 .addGap(41, 41, 41)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(partyname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
+                    .addComponent(jLabel2)
+                    .addComponent(partyname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(partydatum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -154,15 +159,6 @@ public class Partyerstellen extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void partynameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_partynameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_partynameActionPerformed
-
-    private void partydatumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_partydatumActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_partydatumActionPerformed
-
-   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JLabel errorLabel;
@@ -179,6 +175,10 @@ public class Partyerstellen extends javax.swing.JFrame {
     private javax.swing.JTextField partyname;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     * Den Buttons "abrechen" und "speichern" werden ActionListener zugewiesen,
+     * die im Controller aufgerufen werden
+     */
     private void addActionListener() {
         neuePartyAbbrechen.addActionListener(controller);
         neuePartyErstellen.addActionListener(controller);

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Guidesign;
 
 import javax.swing.JFrame;
@@ -11,19 +6,35 @@ import javax.swing.JList;
 
 /**
  *
- * @author Miri
+ * @author Miri Hier kann der Nutzer eine Gästeliste für die ausgewählte Party
+ * erstellen. Man kann Gäste aus dem Gästeubch hinzufügen oder entfernen.
  */
 public class Gaestelisteparty extends JFrame {
 
+    /**
+     *
+     * @return gaesteListeEingeladen Gibt die Liste der Gäste wieder, die zu der
+     * jeweilgen Party hinzugefügt wurden.
+     */
     public JList<String> getGaesteListeEingeladen() {
         return gaesteListeEingeladen;
     }
-    
+
+    /**
+     *
+     * @return gaetseliste Gibt die Liste ALLER Gäste wieder, die im Gästebuch
+     * eingetragen sind
+     */
     public JList<String> getGaesteListe() {
         return gaestelist;
     }
+
     /**
-     * Creates new form Gästeliste
+     * Erstellt das formular: Gästeliste und die enthaltenen Komponenten. Die
+     * Buttons für "Gast hinzufügen" und "Gast entfernen" bekommen einem Action
+     * Listener zugewiesen, der im Controller aufgerufen wird
+     *
+     * @param controller Das Controller Objekt wird übergeben
      */
     public Gaestelisteparty(Controller controller) {
         initComponents();
