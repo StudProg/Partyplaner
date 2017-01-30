@@ -17,7 +17,6 @@ public class Gast {
     private String telefon;
     private int gastnummer;
 
-    //Konstruktor
     /**
      * Kreirt einen neuen Gast mit den Parametern.
      *
@@ -93,14 +92,14 @@ public class Gast {
     /**
      * Weist dem Gebutsdatum einen Wert zu
      *
-     * @param geburtstdatum das geburtsdatum des Gastes
+     * @param geburtstdatum das geburtsdatum des Gastes als {@link GregorianCalendar}
      */
     public void setGeburtstdatum(GregorianCalendar geburtstdatum) {
         this.geburtstdatum = geburtstdatum;
     }
 
     /**
-     * Wandelt das Geburtsdatum vom Gregorian Calender zu einen String
+     * Gibt das Geburtsdatum lesbar zurück.
      *
      * @return das Geburtsdatum als String mit Tag+Monat+Jahr
      */
@@ -112,7 +111,7 @@ public class Gast {
     }
 
     /**
-     * Gibt die Gastnummer zurück
+     * Gibt die Gastnummer zurück.
      *
      * @return gastnummer Die Nummer des Gastes
      */
@@ -159,7 +158,7 @@ public class Gast {
     /**
      * Weist der Telefonnummer einen Wert zu
      *
-     * @param telefon die Telelfonnummer des Gastes
+     * @param telefon die Telefonnummer des Gastes
      */
     public void setTelefon(String telefon) {
         this.telefon = telefon;

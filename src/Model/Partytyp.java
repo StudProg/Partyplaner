@@ -7,5 +7,18 @@ package Model;
  */
 public enum Partytyp {
 
-    Tanzparty, Couchparty, Kinderparty;
+    /**
+     * Eine normale Tanzparty.
+     */
+    Tanzparty, 
+
+    /**
+     * Eine normale Couchparty.
+     */
+    Couchparty, 
+
+    /**
+     * Eine normale Kinderparty.
+     */
+    Kinderparty;
 }

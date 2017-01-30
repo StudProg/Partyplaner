@@ -4,26 +4,26 @@ import controller.Controller;
 import javax.swing.JList;
 
 /**
- *
- * @author Miri Zeigt einem alle bereits geplanten Partys an. Diese kann man
+ * Zeigt einem alle bereits geplanten Partys an. Diese kann man
  * sich detaillierter anzeigen lassen oder löschen.
+ * @author Miri
  */
 public class Partyliste extends javax.swing.JDialog {
 
     private Controller controller;
 
     /**
-     *
-     * @return partylist Gibt die Liste aller bereits erstellten Partys zurück
+     * Getter für das JList Component 
+     * @return JList Component, dass die Informationen über die Partys hält.
      */
     public JList<String> getpartylist() {
         return partylist;
     }
 
     /**
-     * Creates new form Partyliste
+     * Konstruktor für das Partyliste Fenster.
      *
-     * @param controller der controller wird als Objekt übergeben
+     * @param controller der {@link Controller} als ActionListener
      */
     public Partyliste(Controller controller) {
         this.controller = controller;
@@ -94,8 +94,8 @@ public class Partyliste extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
   /**
-     * Den buttons für anzeigen und löschen werden ActionListener hinzugefügt,
-     * die an den Controller übergeben werden
+     * Den Buttons für anzeigen und löschen werden ActionListener hinzugefügt,
+     * die im Controller registriert werden.
      */
     private void addActionListener() {
         partyanzeigen.addActionListener(controller);

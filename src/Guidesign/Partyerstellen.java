@@ -5,51 +5,53 @@ import javax.swing.JComboBox;
 import javax.swing.JTextField;
 
 /**
- *
- * @author Sandra Hier wird das Formular angezeigt, mit dem man eine neue Party
- * erstellen kann
+ * Hier wird das Formular angezeigt, mit dem man eine neue Party
+ * erstellen kann.
+ * @author Sandra 
  */
 public class Partyerstellen extends javax.swing.JFrame {
 
     private Controller controller;
 
     /**
-     *
-     * @return partyKategoriegibt die vom Nutzer gewählte Option für die
-     * Kategorie zurück
+     * Getter für die JComboBox, die die Partykategorien anzeigt.
+     * @return Die JComboBox mit der ausgewählten Partykategorie
      */
     public JComboBox getpartyKategorien() {
         return partyKategorien;
     }
 
     /**
-     *
-     * @return partyname gibt den vom Nutzer eingegebenen Partynamen zurück
+     * Getter für das JTextField des Partynamens.
+     * @return partyname gibt das JTextField des vom Nutzer eingegebenen 
+     * Partynamen zurück
      */
     public JTextField getpartyname() {
         return partyname;
     }
 
     /**
-     *
-     * @return partydatum gibt das vom Nutzer eingegebenen Datum zurück
+     * Getter für das JTextField des Geburtsdatums zurück.
+     * @return partydatum gibt das JTextField des vom Nutzer eingegebenen 
+     * Datum zurück
      */
     public JTextField getpartydatum() {
         return partydatum;
     }
 
     /**
-     *
-     * @return partybudget gibt das vom Nutzer eingegebenes Budget zurück
+     * Getter für das JTextField des Partybudget zurück.
+     * @return partybudget gibt das JTextField des vom Nutzer eingegebenes 
+     * Budget zurück
      */
     public JTextField getpartybudget() {
         return partybudget;
     }
 
     /**
-     * Erstellt das Formular Partyerstellen
+     * Erstellt das Formular Partyerstellen.
      *
-     * @param controller übergibt den controller als Objekt ActionListener
+     * @param controller übergibt den {@link Controller} als Objekt und ActionListener
      * werden hinzugefügt
      */
     public Partyerstellen(Controller controller) {
@@ -177,7 +179,7 @@ public class Partyerstellen extends javax.swing.JFrame {
 
     /**
      * Den Buttons "abrechen" und "speichern" werden ActionListener zugewiesen,
-     * die im Controller aufgerufen werden
+     * die im Controller registriert werden.
      */
     private void addActionListener() {
         neuePartyAbbrechen.addActionListener(controller);

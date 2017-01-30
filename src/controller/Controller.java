@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package controller;
 
 import Guidesign.Gaestebuch;
@@ -26,12 +21,14 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JFrame;
 
 /**
- *
+ * Der Controller ist der Startpunkt für das Programm. Der Controller verbindet
+ * erstellt das Model und auch die GUI. Er updatet das Model laut den Eingaben, 
+ * die auf der GUI gemacht werden und zeigt die jeweiligen updates des Models
+ * auch auf der GUI an. Der Controller implementiert auch das 
+ * {@link ActionListener} Interface.
  * @author Sandra
  */
 public class Controller implements ActionListener {
@@ -49,6 +46,9 @@ public class Controller implements ActionListener {
     private Party aktuelleParty;
     private Gaestelisteparty gaesteListeParty;
     
+    /**
+     * Erstellt eine neue Instanz des Controllers.
+     */
     public Controller() {
         //initialisierung des Models
         PPdb datenbank = new PPdb();
@@ -59,10 +59,22 @@ public class Controller implements ActionListener {
        
     }
         
+    /**
+     * Einstiegpunk des Programms.
+     * @param args Startargumente
+     */
     public static void main(String[] args) {
         Controller controller = new Controller();
     }
 
+    /**
+     * Die ActionPerformed Methode händelt die Klick-Events auf der GUI,
+     * bearbeitet diese, sendet die gesammelten Daten an das Model und 
+     * basierend auf den geänderten Daten wird es die GUI die neuen
+     * Daten anzeigen lassen. Die ActionEvents werden anhand ihrer 
+     * ActionCommands ermittelt.
+     * @param e das geworfene {@link ActionEvent} 
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getActionCommand().equals("Party anzeigen")) {
@@ -422,6 +434,10 @@ public class Controller implements ActionListener {
          } 
     
     }
+    
+    /**
+     * Methode zum anzeigen einer ausgewählten Party.
+     */
     private void partyAnzeigen() {
         System.out.println("Party Anzeigen wurde gedrückt!");
         partyListe = new Partyliste(this);
@@ -435,6 +451,10 @@ public class Controller implements ActionListener {
         partyListe.getpartylist().setListData(partyArray);
     }
     
+    /**
+     * Methode zum Speichern einer Party. Die Informationen werden auf ihre
+     * Richtigkeit überprüft.
+     */
     private void partySpeichern() {
         if (alterPartyName == null)
             return;

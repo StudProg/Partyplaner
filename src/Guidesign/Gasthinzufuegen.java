@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Guidesign;
 
 import controller.Controller;
@@ -10,65 +5,70 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 /**
- *
- * @author Miri Hier kann man einen neuen Gast in sein Gästebuch eintragen
+ * Hier kann man einen neuen Gast in sein Gästebuch eintragen.
+ * @author Miri
  */
 public class Gasthinzufuegen extends javax.swing.JFrame {
 
     /**
-     *
-     * @return vnameeintragen gibt den Vornamen zurück, den der Nutzer in das
-     * Text Feld eingegeben hat
+     * Getter für das JTextField des Vornamens.
+     * @return vnameeintragen gibt das JTextField des Vornamens zurück, den 
+     * der Nutzer in das Text Feld eingegeben hat
      */
     public JTextField getVorname() {
         return vnameeintragen;
     }
 
     /**
-     *
-     * @return Gibt den Nachnamen zurück, den der Nutzer eingegeben hat.
+     * Getter für das JTextField des Nachnamens.
+     * @return Gibt das JTextField des Nachnamen zurück, den der Nutzer 
+     * eingegeben hat.
      */
     public JTextField getNachname() {
         return nnameeintragen;
     }
 
     /**
-     *
-     * @return Gibt den Geburtstag zurück, den der Nutzer eingegeben hat.
+     * Getter für das JTextField des Geburtsdatums.
+     * @return Gibt das JTextField des Geburtstag zurück, den der Nutzer 
+     * eingegeben hat.
      */
     public JTextField getGeburtsdatum() {
         return gbteintragen;
     }
 
     /**
-     *
-     * @return Gibt die Telefonnummer zurück, die der Nutzer eingegeben hat.
+     * Getter für das JTextField der Telefonnummer.
+     * @return Gibt das JTextField der Telefonnummer zurück, die der Nutzer 
+     * eingegeben hat.
      */
     public JTextField getTelefon() {
         return teleintragen;
     }
 
     /**
-     *
-     * @return Gibt die Email zurück, die der Nutzer eingegeben hat.
+     * Getter für das JTextField der Mailaddresse.
+     * @return Gibt das JTextField der Email zurück, die der Nutzer 
+     * eingegeben hat.
      */
     public JTextField getMail() {
         return maileintragen;
     }
 
     /**
-     *
-     * @return Gibt die Fehlermeldung zurück,die bei falschen Benutzereingaben
-     * gemacht werden
+     * Getter für das JLabel für den Error text.
+     * @return Gibt das JLabel für die Fehlermeldung zurück, das bei 
+     * falschen Benutzereingaben Text anzeigt.
      */
     public JLabel geterrorLabel() {
         return errorLabel;
     }
 
     /**
-     * Creates new form Gasthinzufügen
+     * Konstruktor für das Fenster, das den Benutzer erlaubt einen neuen
+     * Gast anzulegen.
      *
-     * @param controller übergibt den controller als objekt dem Button"Gast
+     * @param controller übergibt den {@link Controller} als objekt dem Button"Gast
      * hinzufügen" wird der ActionListener für gastEinfügen hinzugefügt
      */
     public Gasthinzufuegen(Controller controller) {

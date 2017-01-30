@@ -1,13 +1,11 @@
 package Model;
 
 import controller.PPdb;
-import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.GregorianCalendar;
 import java.util.List;
 
 /**
- * Die Verwaltung der Waren
+ * Die Verwaltung der Waren.
  *
  * @author Miri
  */
@@ -17,8 +15,8 @@ public class Warenverwaltung {
     private PPdb datenbank;
 
     /**
-     *
-     * @return warenListe Gibt die Liste der Waren zurück
+     * Getter für die Liste mit den Waren.
+     * @return warenListe Gibt die Liste mit Einträgen von {@link Ware} zurück
      */
     public List<Ware> getWarenListe() {
 
@@ -26,8 +24,9 @@ public class Warenverwaltung {
     }
 
     /**
-     *
-     * @param datenbank die Datenbank vom Typ PPdb
+     * Erstellt eine neue Instanz der Warenverwaltung. Diese holt sich 
+     * automatisch alle Waren aus der Datenbank.
+     * @param datenbank die Datenbank vom Typ {@link PPdb}
      */
     public Warenverwaltung(PPdb datenbank) {
         this.datenbank = datenbank;
@@ -35,7 +34,7 @@ public class Warenverwaltung {
     }
 
     /**
-     * Fügt eine Ware der Warenliste hinzu und übergibt sie an die Datenbank
+     * Fügt eine Ware der Warenliste hinzu und fügt sie auch in die Datenbank ein.
      *
      * @param warenName Der Name der Ware
      * @param preis Der Preis der Ware
@@ -51,9 +50,9 @@ public class Warenverwaltung {
     }
 
     /**
-     * Löscht die Ware aus der Warenliste und aus der Datenbank
+     * Löscht die Ware aus der Warenliste und aus der Datenbank.
      *
-     * @param ware Ein Waren Objekt
+     * @param ware Ein {@link Ware} Objekt
      */
     public void ware_loeschen(Ware ware) {
         int i = 0;

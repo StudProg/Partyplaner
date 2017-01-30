@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Die Verwaltung für die Partys
+ * Die Verwaltung für die Partys.
  *
  * @author Sandra
  */
@@ -17,22 +17,23 @@ public class Partyverwaltung {
     private PPdb datenbank;
 
     /**
-     *
-     * @return partyListe die Liste der Partys wird zurückgegeben
+     * Getter für die Liste der {@link Party}.
+     * @return partyListe die Liste der {@link Party} wird zurückgegeben
      */
     public List<Party> getPartyliste() {
         return partyListe;
     }
 
     /**
-     * Ordnet die Partys aus der Datenbank in eine Map und weisr ihnen ggf.
-     * Gästen zu
+     * Erstellt eine neue Instanz der Partyverwaltung. Ordnet die Partys aus 
+     * der Datenbank in eine Map und weist ihnen gegebenenfalls Gäste zu.
      *
-     * @param datenbank die Datenbank
-     * @param warenverwaltung die Warenverwaltung
-     * @param gaesteverwaltung die Gästeverwaltung
+     * @param datenbank die Datenbank ({@link PPdb})
+     * @param warenverwaltung die {@link Warenverwaltung}
+     * @param gaesteverwaltung die {@link Gaesteverwaltung}
      */
-    public Partyverwaltung(PPdb datenbank, Warenverwaltung warenverwaltung, Gaesteverwaltung gaesteverwaltung) {
+    public Partyverwaltung(PPdb datenbank, Warenverwaltung warenverwaltung, 
+            Gaesteverwaltung gaesteverwaltung) {
         this.datenbank = datenbank;
         Map<Party, List<String[]>> map = datenbank.gibAllePartys();
         for (Party party : map.keySet()) { //Map ist eine Tabelle mit 2 Spalten und die erste Spalte sind die partys und die zweite Spalte teilt sich in mehrere Zeilen. Die nullte Zeile ist die Gästeliste
@@ -53,12 +54,14 @@ public class Partyverwaltung {
     }
 
     /**
-     * Erstellt eine neue Party mit den angegebenen Parametern.
+     * Erstellt eine neue {@link Party} mit den angegebenen Parametern. Diese
+     * Party wird automatisch auf in der Datenbank gespeichert.
      *
      * @param name Der Name der Party
      * @param budget Das Budget für die Party
      * @param datum Das Datum der Party
      * @param partyTyp Der Partytyp
+     * @throws PartyExestiertBereitsException wenn die Party schon exestiert
      */
     public void party_erstellen(String name, double budget,
             GregorianCalendar datum, Partytyp partyTyp)
@@ -76,7 +79,7 @@ public class Partyverwaltung {
      * Geht durch alle Partys in der Liste und guckt, ob es schon eine Party mit
      * dem Namen gibt.
      *
-     * @param name
+     * @param name name der Party
      * @return true, wenn es eine Party mit dem Namen gibt, false andernfalls
      */
     public boolean partySuchenMitName(String name) {
@@ -89,7 +92,7 @@ public class Partyverwaltung {
     }
 
     /**
-     * Löscht eine Party aus dem Verzeichniss für Partys.
+     * Löscht eine Party aus dem Verzeichniss für Partys und der Datenbank.
      *
      * @param name Der Name der Party die gelöscht werden soll
      */
@@ -106,13 +109,13 @@ public class Partyverwaltung {
     }
 
     /**
-     * Eine bereits erstelle Party wird bearbeitet
+     * Eine bereits erstellte Party wird bearbeitet.
      *
      * @param alterPartyName Der ursprüngliche Name der Party
      * @param partyname der Name der Party
      * @param partyBudget das Budget der party
-     * @param datum da sDatum der Party
-     * @throws Model.Partyverwaltung.PartyExestiertBereitsException
+     * @param datum das Datum der Party
+     * @throws PartyExestiertBereitsException wenn die Party schon exestiert
      */
     public void party_bearbeiten(String alterPartyName, String partyname, double partyBudget,
             GregorianCalendar datum) throws PartyExestiertBereitsException {
@@ -140,7 +143,7 @@ public class Partyverwaltung {
      *
      * @param name Der name der Party
      * @return die Tipps für diese Party als String.
-     * @throws PartyExestiertNichtException
+     * @throws PartyExestiertNichtException wenn die Party nicht exestiert
      */
     public String tipps_aufrufen(String name)
             throws PartyExestiertNichtException {
@@ -157,12 +160,16 @@ public class Partyverwaltung {
      * Diese Exception behandelt oder meldet den Fehler, dass die Party die
      * angegeben wurde (identifiziert über den partynamen) nicht gefunden wurde
      * oder nicht in der statischen Partyliste exestiert. Wenn es also keine
-     * Party mit dem namen gibt, dann wird diese Exception geschmissen, die
+     * Party mit dem namen gibt, dann wird diese Exception geworfen, die
      * genau auf diesen Fehler hinweist und später auch der GUI mitteilen kann,
      * das ein Fehler vorliegt.
      */
     public static class PartyExestiertNichtException extends Exception {
 
+        /**
+         * Erstellt eine neue Instanz diese Exception.
+         * @param string zusätzliche Infos zum Fehler
+         */
         public PartyExestiertNichtException(String string) {
         }
 
@@ -174,6 +181,11 @@ public class Partyverwaltung {
      */
     public static class PartyExestiertBereitsException extends Exception {
 
+        /**
+         * Erstellt eine neue Instanz diese Exception.
+         * @param name zusätzliche Informationen zum Fehler sollten den Namen 
+         * der Party die bereits exestiert enthalten
+         */
         public PartyExestiertBereitsException(String name) {
         }
     }

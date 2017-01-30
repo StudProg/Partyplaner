@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
- * @author Miri Die Klasse für die "Einkaufsposten"= die Waren, die auf die
+ * Die Klasse für die "Einkaufsposten" enthält die Waren, die auf die
  * Einkaufsliste landen sollen.
+ * @author Miri 
  */
 public class Einkaufsposten {
 
@@ -15,8 +15,7 @@ public class Einkaufsposten {
     private List<Ware> warenListe;
 
     /**
-     * Konstruiert und eine neue Einkaufsliste mit positionen für Waren.
-     *
+     * Konstruiert eine neue Instanz für Einkausposten.
      * @param name der Name der Ware
      */
     public Einkaufsposten(String name) {
@@ -28,7 +27,7 @@ public class Einkaufsposten {
     /**
      * Gibt die Menge der Waren zurück.
      *
-     * @return menge an Waren.
+     * @return menge an Waren als Integer.
      */
     public int getMenge() {
         return menge;
@@ -37,7 +36,7 @@ public class Einkaufsposten {
     /**
      * Fügt eine Ware zur Einkaufsliste hinzu.
      *
-     * @param ware das Produkt
+     * @param ware das Produkt als {@link Ware}
      */
     public void ware_hinzufuegen(Ware ware) {
         warenListe.add(ware);

@@ -5,62 +5,65 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 /**
- *
- * @author Miri Das Fenster, welches beim Programmstart angezeigt wird. Hier
+ * Das Fenster, welches beim Programmstart angezeigt wird. Hier
  * werden auch die Details zur jeweils gewählten Party angezigt und der Nutzer
  * kann diese bearbeiten und speichern.
+ * @author Miri 
  */
 public class Startseite extends javax.swing.JFrame {
 
     private final Controller controller;
 
     /**
-     *
-     * @return errorLabel gibt die Fehlermeldung zurück, die bei falschen
-     * Nutzereingaben erscheint
+     * Getter für das JLabel für die Errors.
+     * @return errorLabel gibt das JLabel für die Fehlermeldung zurück, das 
+     * bei falschen Nutzereingaben Text anzeigt.
      */
     public JLabel getErrorLabel() {
         return errorLabel;
     }
 
     /**
-     *
-     * @return partynameeintragen gibt den vom Nutzer eingegebenen Partynamen
-     * zurück
+     * Getter für das JTextField, wo der Partyname eingetragen wird.
+     * @return partynameeintragen gibt das JTextField des vom Nutzer 
+     * eingegebenen Partynamen zurück
      */
     public JTextField getPartynameeintragen() {
         return partynameeintragen;
     }
 
     /**
-     *
-     * @return partydatumeintragen gibt das vom Nutzer eingegebenen Datum zurück
+     * Getter für das JTextField, in dem das Datum der Party steht.
+     * @return partydatumeintragen gibt das JTextField des vom Nutzer 
+     * eingegebenen Datum zurück
      */
     public JTextField getPartydatumeintragen() {
         return partydatumeintragen;
     }
 
     /**
-     *
-     * @return partybudget gibt das vom Nutzer eingegebenes Budget zurück
+     * Getter für das JTextField vom Partybudget.
+     * @return partybudget gibt das JTextField des vom Nutzer eingegebenes 
+     * Budget zurück
      */
     public JTextField getPartybudget() {
         return partybudget;
     }
 
     /**
-     *
-     * @return gaesteanzahleintragen gibt die Anzahl der Gäste zurück, die der
-     * Nutzer in das Feld eingetragen hat
+     * Getter für das JTextField der Gästeanzahl.
+     * @return gaesteanzahleintragen gibt das JTextField der Anzahl der Gäste 
+     * zurück, die der Nutzer in das Feld eingetragen hat
      */
     public JTextField getGaesteAnzahlEintragen() {
         return gaesteanzahleintragen;
     }
 
     /**
-     * Creates new form NewJFrame
+     * Konstruktor für die Startseite, die das Fenster aufbaut.
      *
-     * @param controller Ein Objekt controller vom Typ controller
+     * @param controller der {@link Controller}, der auf die ActionCommands hören 
+     * soll
      */
     public Startseite(Controller controller) {
         this.controller = controller;
@@ -314,38 +317,43 @@ public class Startseite extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-/**
-     *
-     * @param evt Wird vom Nutzer JMenuItem Kinderparty gewählt, wird der JFrame
-     * Kinderparty angezeigt
+    
+    /**
+     * Wenn der Benutzer auf das JMenuItem "Kinderparty" klickt, dann wird ein 
+     * neues Fenster geöffnet, dass eine neue Instanz der {@link Kinderparty} 
+     * erstellt.
+     * @param evt das vom Fenster geworfene Action Event
      */
     private void kinderpartyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kinderpartyActionPerformed
         Kinderparty kp = new Kinderparty();
         kp.setVisible(true);
     }//GEN-LAST:event_kinderpartyActionPerformed
     /**
-     *
-     * @param evtWird vom Nutzer JMenuItem Tanzparty gewählt, wird der JFrame
-     * Tanzparty angezeigt
+     * Wenn der Benutzer auf das JMenuItem "Tanzparty" klickt, dann wird ein 
+     * neues Fenster geöffnet, dass eine neue Instanz der {@link Tanzparty} 
+     * erstellt.
+     * @param evt das vom Fenster geworfene Action Event
      */
     private void tanzpartyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tanzpartyActionPerformed
         Tanzparty tp = new Tanzparty();
         tp.setVisible(true);
     }//GEN-LAST:event_tanzpartyActionPerformed
     /**
-     *
-     * @param evt Wird vom Nutzer JMenuItem Couchparty gewählt, wird der JFrame
-     * Couchparty angezeigt
+     * Wenn der Benutzer auf das JMenuItem "Couchparty" klickt, dann wird ein 
+     * neues Fenster geöffnet, dass eine neue Instanz der {@link Couchparty} 
+     * erstellt.
+     * @param evt das vom Fenster geworfene Action Event
      */
     private void couchpartyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_couchpartyActionPerformed
         Couchparty cp = new Couchparty();
         cp.setVisible(true);
     }//GEN-LAST:event_couchpartyActionPerformed
+    
     /**
-     *
-     * @param evt Wird auf den button "Raumbedarf berechnen" geklickt, wird der
+     * Wird auf den button "Raumbedarf berechnen" geklickt, wird der
      * Raumbedarf für die vom Nuzer eingegebene Gästeanzahl g errechnet und
-     * zeigt diese an
+     * im JTextField hierfür angezeigt.
+     * @param evt das vom Fenster geworfene Action Event
      */
     private void raumbedarfberechnungActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_raumbedarfberechnungActionPerformed
         double g, rb;

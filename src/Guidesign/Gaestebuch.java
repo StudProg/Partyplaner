@@ -4,18 +4,17 @@ import controller.Controller;
 import javax.swing.JList;
 
 /**
- *
- * @author Miri Das Gästebuch mit allen eingetragenen Gästen wird angezeigt. Man
- * kann Gäste hinzufügen, bearbeiten(anzeigen) oder löschen
+ * Das Gästebuch mit allen eingetragenen Gästen wird angezeigt. Man
+ * kann Gäste hinzufügen, bearbeiten(anzeigen) oder löschen.
+ * @author Miri
  */
 public class Gaestebuch extends javax.swing.JDialog {
 
     private Controller controller;
 
     /**
-     *
-     * @return gaesteliste: die Gästeliste aus der Verwaltung mit allen
-     * Kontakten wird aufgerufen
+     * Getter für die Gästeliste JList Component.
+     * @return gaesteliste: Das JList der Gästeliste.
      */
     public JList<String> getgaesteListe() {
         return gaesteListe;
@@ -24,9 +23,9 @@ public class Gaestebuch extends javax.swing.JDialog {
     /**
      * Erzeugt das Formular für die Gästeliste
      *
-     * @param controller Der Controller wird als Objekt übergeben und zugewiesen
+     * @param controller Der {@link Controller} wird als Objekt übergeben und zugewiesen
      * und die Koomponenten des Formulars geladen. Action Listener werden
-     * hinzugefügt, um die drei Aktionen an den Controller zu übergeben
+     * hinzugefügt, um die drei Aktionen an den Controller zu übergeben.
      */
     public Gaestebuch(Controller controller) {
         this.controller = controller;
@@ -104,9 +103,9 @@ public class Gaestebuch extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     /**
-     * Die Action Listener für die jeweils belegeten Buttons, auf die der
+     * Die Action Listener für die jeweils belegten Buttons, auf die der
      * Controller reagiert und den betreffenden Code ausführt("speichern,
-     * anzeigen oder löschen")
+     * anzeigen oder löschen" als Action Command)
      */
     private void addActionListener() {
         gasthinzufügengb.addActionListener(controller);

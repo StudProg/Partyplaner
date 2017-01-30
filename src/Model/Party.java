@@ -6,7 +6,7 @@ import java.util.GregorianCalendar;
 import java.util.List;
 
 /**
- *
+ * Diese Klasse repräsentiert eine Party.
  * @author Sandra
  */
 public class Party {
@@ -22,7 +22,7 @@ public class Party {
     private int id;
 
     /**
-     * Der Konstruktor für ein Partyobjekt
+     * Der Konstruktor für ein Partyobjekt.
      *
      * @param id die ID der Party
      * @param name Der Name der Party
@@ -41,7 +41,7 @@ public class Party {
     }
 
     /**
-     *
+     * Getter für die ID der Party.
      * @return id gibt die ID der Party zurück
      */
     public int getId() {
@@ -49,9 +49,9 @@ public class Party {
     }
 
     /**
-     * Weist der id einen Wert zu
+     * Weist der id einen Wert zu.
      *
-     * @param id die PartyId
+     * @param id die neue PartyId
      */
     public void setId(int id) {
         this.id = id;
@@ -60,7 +60,7 @@ public class Party {
     /**
      * Getter für den Namen der Party.
      *
-     * @return Name der Partyname
+     * @return Name der Party
      */
     public String getName() {
         return name;
@@ -78,7 +78,7 @@ public class Party {
     /**
      * Getter für das Budget der Party.
      *
-     * @return budget
+     * @return budget Das Budget
      */
     public double getBudget() {
         return budget;
@@ -87,16 +87,16 @@ public class Party {
     /**
      * Setzt das Budget der Party neu.
      *
-     * @param budget
+     * @param budget neue Budget
      */
     public void setBudget(double budget) {
         this.budget = budget;
     }
 
     /**
-     * Wandelt das Datum der Party vom Gregorian Calender in einen String
+     * Wandelt das Datum der Party vom Gregorian Calender in einen String um.
      *
-     * @return das Datum als String in dem Format Tag+ Monat* Jahr
+     * @return das Datum als String in dem Format Tag.Monat.Jahr
      */
     public String getDatumAlsString() {
         int datumTag = datum.get(Calendar.DAY_OF_MONTH);
@@ -108,7 +108,7 @@ public class Party {
     /**
      * Getter für das Datum der Party.
      *
-     * @return datum
+     * @return datum als {@link GregorianCalendar}
      */
     public GregorianCalendar getDatum() {
         return datum;
@@ -117,7 +117,7 @@ public class Party {
     /**
      * Setzt das Datum der Party neu.
      *
-     * @param datum
+     * @param datum als {@link GregorianCalendar}
      */
     public void setDatum(GregorianCalendar datum) {
         this.datum = datum;
@@ -144,7 +144,7 @@ public class Party {
     /**
      * Gibt den Typ dieser Party zurück.
      *
-     * @return partytyp
+     * @return partytyp als {@link Partytyp}
      */
     public Partytyp getPartytyp() {
         return partytyp;
@@ -153,23 +153,24 @@ public class Party {
     /**
      * Setzt die Art dieser Party neu.
      *
-     * @param partytyp
+     * @param partytyp als {@link Partytyp}
      */
     public void setPartytyp(Partytyp partytyp) {
         this.partytyp = partytyp;
     }
 
     /**
-     *
-     * @return gaesteListe die Liste der Gäste
+     * Gibt die Liste der geladenen Gäste zurück.
+     * @return gaesteListe die Liste mit {@link Gast} eintragungen.
      */
     public List<Gast> getGaesteListe() {
         return gaesteListe;
     }
 
     /**
-     *
-     * @return Gibt die Gästeliste zurück anhand der Gastnummer
+     * Gibt die Gästelist nicht als Gast zurück sondern jeweils als 
+     * in der Datenbank speicherbarer String von Gästenummern zurück.
+     * @return Gibt die Gästeliste zurück anhand der Gastnummern
      */
     public String getGaesteListeAlsDatenbank() {
         String ret = "";

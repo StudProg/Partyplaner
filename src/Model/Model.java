@@ -1,11 +1,12 @@
-
 package Model;
 
 import controller.Controller;
 import controller.PPdb;
 
 /**
- * 
+ * Das Model hält alle wichtigen Daten des Programms. Diese werden nacheinander
+ * mithilfe der Datenbank aufgebaut. Der {@link Controller} operiert auf den 
+ * Daten.
  * @author Miri
  */
 public class Model {
@@ -16,9 +17,9 @@ public class Model {
     public final Gaesteverwaltung gaesteverwaltung;
     
     /**
-     * 
-     * @param controller ein objekt vom controller
-     * @param datenbank ein objekt von PPdb
+     * Konstruiert eine neue Instanz des Models.
+     * @param controller ein objekt vom {@link Controller}
+     * @param datenbank ein objekt von {@link PPdb}
      */
     public Model(Controller controller, PPdb datenbank) {
         this.controller = controller;

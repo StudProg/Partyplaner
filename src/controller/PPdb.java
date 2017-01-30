@@ -2,37 +2,30 @@ package controller;
 
 import Model.*;
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
-
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 /**
- *
+ * Diese Klasse baut die Verbindung zur Datenbank auf und führt bestimmte 
+ * Operationen darauf auf.
  * @author Kadir Aktas
  */
 public class PPdb {
 
     Connection con = null;
 
+    /**
+     * Der Konstruktor baut die Verbindung zur Datenbank auf.
+     */
     public PPdb() {
         try {
             // Laden des JDBC-Treibers aus dem CLASSPATH:
@@ -51,6 +44,12 @@ public class PPdb {
         }
     }
 
+    /**
+     * Diese Main Methode wird eine Verbindung zur Datenbank aufbauen und 
+     * bestimmte Informationen zu Testzwecken abfragen.
+     * @param args Startargumente
+     * @throws java.sql.SQLException bei einem Zugriffsfehler
+     */
     public static void main(String[] args) throws SQLException {
 
         PPdb p = new PPdb();
@@ -66,6 +65,11 @@ public class PPdb {
 
     }
 
+    /**
+     * Diese Methode führt einen String (SQL Kommando) auf der Datenbank aus.
+     * @param sql der SQL Kommando
+     * @return das {@link ResultSet}
+     */
     public ResultSet executeSQL(String sql) {
         try {
             Statement stmt = con.createStatement();
@@ -79,6 +83,10 @@ public class PPdb {
         return null;
     }
     
+    /**
+     * Die Methode gibAlleGaeste holt aus der Daten alle gespeicherten Gäste
+     * @return gaeste gib eine Liste aller {@link Gast} zurück
+     */
     public List<Gast> gibAlleGaeste() {
         List<Gast> gaeste = new ArrayList<>();
 
@@ -113,7 +121,13 @@ public class PPdb {
         return gaeste;
     }
     
-     public boolean gastErstellen(Gast gast) throws SQLException {
+    /**
+     * Ein neuer {@link Gast} wird in die DB Relation Gast eingefügt.
+     * @param gast gast ist ein Objekt vom Typ {@link Gast}
+     * @return true, wenn das einfügen erfolgreich war, false andernfalls.
+     * @throws java.sql.SQLException bei einem Zugriffsfehler
+     */
+    public boolean gastErstellen(Gast gast) throws SQLException {
 
         boolean erfolgreich = false;
 
@@ -136,8 +150,12 @@ public class PPdb {
         stmt.close();
         return erfolgreich;
     }
-     
-     public void gastLoeschen(int gastnummer) {
+    
+    /**
+     * Der ausgewählte Gast wird aus DB gelöscht
+     * @param gastnummer ist {@link Gast#gastnummer} (Primärschlüssel)
+     */
+    public void gastLoeschen(int gastnummer) {
 
         try {
             String sql = "Delete from Gast where GastID = ?";
@@ -148,8 +166,12 @@ public class PPdb {
             e.printStackTrace();
         }
     }
-     
-     public void gastBearbeiten(Gast gast) {
+    
+    /**
+     * Der ausgewählte Gast wird durch die neuen Eingaben bearbeitet.
+     * @param gast gast ist ein Objekt vom Typ {@link Gast}
+     */
+    public void gastBearbeiten(Gast gast) {
 
         try {
             String sql = "UPDATE Gast SET vorname = ?, nachname = ?, geburtsdatum = ?,"
@@ -171,6 +193,10 @@ public class PPdb {
         }
     }
 
+    /**
+     * Die Methode gibAllePartys holt aus der Daten alle gespeicherten Partys.
+     * @return gibt eine Liste mit {@link Party} zurück
+     */
     public Map<Party, List<String[]>> gibAllePartys() {
         Map<Party, List<String[]>> partys = new LinkedHashMap<Party, List<String[]>>();
 
@@ -212,6 +238,11 @@ public class PPdb {
         return partys;
     }
 
+    /**
+     * Eine neue {@link Party} wird in die DB Relation Party eingefügt.
+     * @param party party ist ein Objekt vom Typ {@link Party}
+     * @return der Primärschlüssel der eingefügten Party
+     */
     public int partyEinfuegen(Party party) {
 
         try {
@@ -243,6 +274,10 @@ public class PPdb {
         return -1;
     }
 
+    /**
+     * Die ausgewählte Party wird aus der DB gelöscht.
+     * @param partynummer {@link Party#id} (Primärschlüssel)
+     */
     public void partyLoeschen(int partynummer) {
 
         try {
@@ -256,6 +291,12 @@ public class PPdb {
 
     }
 
+    /**
+     * Die ausgewählte Party wird durch die neuen Eingaben bearbeitet.
+     * @param partynummer ist das Primärschlüssel der gewählten Party ({@link Party#id})
+     * @param party party ist ein Objekt vom Typ {@link Party}
+     * @param gaesteListe Angaben der Gästeanzahl laut {@link Party#getGaesteListeAlsDatenbank()}
+     */
     public void partyBearbeiten(int partynummer, Party party, String gaesteListe) {
 
         try {
@@ -278,9 +319,11 @@ public class PPdb {
             e.printStackTrace();
         }
     }
-
     
-
+    /**
+     * Ein {@link Gast} wird in die Datenbank eingefügt.
+     * @param gast {@link Gast}
+     */
     public void gastEinfuegen(Gast gast) {
 
         try {
@@ -318,10 +361,10 @@ public class PPdb {
 
     }
 
-    
-
-    
-
+    /**
+     * Holt aus der Datenbank alle gespeicherten Waren.
+     * @return waren gibt eine Liste mit {@link Ware} zurück
+     */
     public List<Ware> gibAlleWaren() {
         List<Ware> waren = new ArrayList<Ware>();
 
@@ -350,6 +393,11 @@ public class PPdb {
         return waren;
     }
 
+    /**
+     * Eine neue Ware wird in die DB Relation Ware eingefügt.
+     * @param ware ware ist ein Objekt vom Typ {@link Ware}
+     * @return der Primärschlüssel der eingefügten Ware in der Datenbank
+     */
     public int wareEinfuegen(Ware ware) {
 
         try {
@@ -378,6 +426,10 @@ public class PPdb {
         return -1;
     }
 
+    /**
+     * Die ausgewählte Ware wird aus DB gelöscht.
+     * @param warennummer {@link Ware#Strichcode} (Primärschlüssel)
+     */
     public void wareLoeschen(int warennummer) {
 
         try {
@@ -390,6 +442,11 @@ public class PPdb {
         }
     }
 
+    /**
+     * Die ausgewählte Ware wird durch die neuen Eingaben bearbeitet.
+     * @param warennummer ist das Primärschlüssel {@link Ware#Strichcode}
+     * @param ware ware ist ein Objekt vom Typ {@link Ware}
+     */
     public void wareBearbeiten(int warennummer, Ware ware) {
 
         try {
@@ -407,6 +464,10 @@ public class PPdb {
         }
     }
 
+    /**
+     * Fragt in der Datenbank nach den Gästen und gibt diese auf der Konsole 
+     * aus.
+     */
     public void selectAll() {
 
         try {
@@ -429,7 +490,4 @@ public class PPdb {
             e.printStackTrace();
         }
     }
-
-   
-
 }

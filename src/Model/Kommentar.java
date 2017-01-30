@@ -1,7 +1,8 @@
 package Model;
 
 /**
- * Klasse für ein Kommentar, dass nur den text speichert.
+ * Klasse für ein Kommentar, dass nur den Kommentar zu einer {@link Party} 
+ * hält.
  *
  * @author Sandra
  */
@@ -10,8 +11,8 @@ public class Kommentar {
     private String text;
 
     /**
-     *
-     * @param kommentar ein Kommentar zur Party
+     * Konstruiert einen neuen Kommentar.
+     * @param kommentar ein Kommentar zur {@link Party}
      */
     public Kommentar(String kommentar) {
         text = kommentar;
@@ -31,8 +32,8 @@ public class Kommentar {
      * haben.
      *
      * @param obj ein anderes Kommentar
-     * @return true, wenn und nur wenn das Object eine Instanz der Klasse
-     * Kommentar ist und der Text im Kommentar genau dem dieser Klasse gleicht.
+     * @return true, wenn und nur wenn das Objekt eine Instanz der Klasse
+     * Kommentar ist und der Text in der Instanz genau dem dieser Instanz gleicht.
      */
     @Override
 

@@ -1,56 +1,56 @@
 package Guidesign;
 
 import controller.Controller;
-import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 /**
- *
- * @author Miri Hier kann man ein neues Produkt der Warenliste hinzufügen
+ * Hier kann man ein neues Produkt der Warenliste hinzufügen.
+ * @author Miri
  */
 public class Warehinzufuegen extends javax.swing.JFrame {
 
     /**
-     *
-     * @return warennameeintragen gibt den Warennamen zurück, den der Nutzer
-     * eingegeben hat
+     * Getter für das JTextField des Warennamens.
+     * @return warennameeintragen gibt das JtextFields des Warennamen zurück, 
+     * den der Nutzer eingegeben hat
      */
     public JTextField getWarenname() {
         return warennameeintragen;
     }
 
     /**
-     *
-     * @return volumenmenge gibt das Volumen zurück, das der Nutzer eingegeben
-     * hat
+     * Getter für das JTextField des Volumen.
+     * @return volumenmenge gibt das JTextField des Volumen zurück, das der 
+     * Nutzer eingegeben hat
      */
     public JTextField getvolumenmenge() {
         return volumenmengeeintragen;
     }
 
     /**
-     *
-     * @return alkoholgehalteintragen gibt den Alkoholgehalt zurück, den der
-     * Nutzer eingegeben hat
+     * Getter für das JTextField des Alkoholgehalts.
+     * @return alkoholgehalteintragen gibt das JTextField des Alkoholgehalt 
+     * zurück, den der Nutzer eingegeben hat
      */
     public JTextField getalkoholgehalt() {
         return alkoholgehalteintragen;
     }
 
     /**
-     *
-     * @return preiseintragen gibt den Preis zurück, den der Nutzer eingegeben
-     * hat
+     * Getter für das JTextField des Preises.
+     * @return preiseintragen gibt das JTextField des Preises zurück, den der 
+     * Nutzer eingegeben hat
      */
     public JTextField getPreis() {
         return preiseintragen;
     }
 
     /**
-     * Creates new form Warehinzufügen
+     * Konstruktor für ein neues Fenster, in dem Waren zur Verwaltung 
+     * hinzugefügt werden können.
      *
-     * @param Controller Ein Objekt vom Typ Controller dem Button "Ware
-     * speichern" wird ein ActionListener hinzugefügt
+     * @param controller Ein Objekt vom Typ {@link Controller} und ActionListener
+     * für den Button "Ware speichern"
      */
     public Warehinzufuegen(Controller controller) {
         initComponents();

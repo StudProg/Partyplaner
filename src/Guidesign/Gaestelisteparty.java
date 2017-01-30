@@ -5,25 +5,25 @@ import controller.Controller;
 import javax.swing.JList;
 
 /**
- *
- * @author Miri Hier kann der Nutzer eine Gästeliste für die ausgewählte Party
+ * Hier kann der Nutzer eine Gästeliste für die ausgewählte Party
  * erstellen. Man kann Gäste aus dem Gästeubch hinzufügen oder entfernen.
+ * @author Miri
  */
 public class Gaestelisteparty extends JFrame {
 
     /**
-     *
-     * @return gaesteListeEingeladen Gibt die Liste der Gäste wieder, die zu der
-     * jeweilgen Party hinzugefügt wurden.
+     * Getter für das JList Component der Gästeliste der eingeladenen Gäste.
+     * @return gaesteListeEingeladen gibt das JList der Gästeliste der geladenen
+     * Gäste zurück.
      */
     public JList<String> getGaesteListeEingeladen() {
         return gaesteListeEingeladen;
     }
 
     /**
-     *
-     * @return gaetseliste Gibt die Liste ALLER Gäste wieder, die im Gästebuch
-     * eingetragen sind
+     * Getter für die JList Component der Gästeliste der ungeladenen Gäste.
+     * @return gaetseliste gibt das JList der Gästeliste der ungeladenen 
+     * Gäste wieder.
      */
     public JList<String> getGaesteListe() {
         return gaestelist;
@@ -34,7 +34,7 @@ public class Gaestelisteparty extends JFrame {
      * Buttons für "Gast hinzufügen" und "Gast entfernen" bekommen einem Action
      * Listener zugewiesen, der im Controller aufgerufen wird
      *
-     * @param controller Das Controller Objekt wird übergeben
+     * @param controller Der {@link Controller} als ActionListener
      */
     public Gaestelisteparty(Controller controller) {
         initComponents();

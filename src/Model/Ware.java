@@ -1,7 +1,9 @@
 package Model;
 
+import controller.PPdb;
+
 /**
- *
+ * Diese Klasse repräsentiert eine Ware.
  * @author Sandra
  */
 public class Ware {
@@ -13,18 +15,19 @@ public class Ware {
     private int Strichcode;
 
     /**
-     * Gibt den Strichcode der Ware zurück
+     * Gibt den Strichcode der Ware zurück. Der Strichcode ist gleichzeitig
+     * die eindeutige Identifikation der Ware in der {@link PPdb}.
      *
-     * @return Strichcode
+     * @return int Strichcode
      */
     public int getStrichcode() {
         return Strichcode;
     }
 
     /**
-     * Weist dem strichcode einen Wert zu
+     * Weist dem Strichcode einen Wert zu.
      *
-     * @param Strichcode
+     * @param Strichcode der Primärschlüssel
      */
     public void setStrichcode(int Strichcode) {
         this.Strichcode = Strichcode;
@@ -69,7 +72,7 @@ public class Ware {
     /**
      * Die Methode gibt wieder, ob die Ware eine Altersbeschränkung hat.
      *
-     * @return 18, wenn über 2.5. 16, wenn zwischen ]0, 2.5]. Andernfalls 0.
+     * @return 18, wenn über 2.5 % Alkohol. 16, wenn zwischen ]0, 2.5]. Andernfalls 0.
      */
     public int altersbeschraenkung() {
         if (alkoholgehalt > 2.5) {
@@ -83,11 +86,11 @@ public class Ware {
 
     /**
      * Der Konstruktor erstellt eine neue Ware mit den angegebenen Parametern.
-     *
-     * @param warenName
-     * @param preis
-     * @param menge
-     * @param alkoholgehalt
+     * @param strichcode der Primärschlüssel
+     * @param warenName der Name
+     * @param preis der Preis
+     * @param menge die Menge
+     * @param alkoholgehalt der Alkoholgehalt
      */
     public Ware(int strichcode, String warenName, double preis, String menge,
             double alkoholgehalt) {

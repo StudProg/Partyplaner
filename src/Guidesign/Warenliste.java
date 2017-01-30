@@ -4,25 +4,25 @@ import controller.Controller;
 import javax.swing.JList;
 
 /**
- *
- * @author Miri Hier wird Liste aller gespeicherten Waren angezeigt
+ * Hier wird Liste aller gespeicherten Waren angezeigt.
+ * @author Miri 
  */
 public class Warenliste extends javax.swing.JFrame {
 
     private Controller controller;
 
     /**
-     *
-     * @return warenliste gibt die Liste aller Waren zurück
+     * Gibt das JList Component für die Liste aller Waren zurück.
+     * @return warenliste gibt das JList aller Waren zurück
      */
     public JList<String> getwarenListe() {
         return warenliste;
     }
 
     /**
-     * Creates new form Gästeliste
+     * Konstuktor für das Fenster der Warenliste.
      *
-     * @param controller ein Controller vom Typ controller
+     * @param controller ein {@link Controller} als ActionListener.
      */
     public Warenliste(Controller controller) {
         this.controller = controller;
@@ -91,8 +91,9 @@ public class Warenliste extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-/**
-     * Die Action Listener für "Ware hinzufügen" und "Ware entfernen"
+    /**
+     * Die Action Listener für "Ware hinzufügen" und "Ware entfernen" werden
+     * im Controller registriert.
      */
     private void addActionListener() {
         warehinzufuegen.addActionListener(controller);

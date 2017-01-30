@@ -5,59 +5,70 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 /**
- *
+ * Hier wird ein bereits eingetragener Gast und seine Attribute angezeigt und 
+ * man kann diesen gebgebenfalls bearbeiten und speichern.
  * @author Miri
- * Hier wird ein bereits eingetragener Gast und seine Attribute angezeigt und man diesen gebgebenfalls bearbeiten und speichern.
  */
 public class GastBearbeiten extends javax.swing.JFrame{
 
     /**
-     * 
-     * @return vnameeintragen gibt den Vornamen zurück, den der Nutzer in das Text Feld eingegeben hat
+     * Getter für das JTextField des Vornamen.
+     * @return Gibt das JTextField mit dem Vornamen zurück, den der Nutzer 
+     * eingegeben hat.
      */
     public JTextField getVnameeintragen() {
         return vnameeintragen;
     }
-/**
- * 
- * @return Gibt den Nachnamen zurück, den der Nutzer eingegeben hat.
- */
+    
+    /**
+     * Getter für das JTextField des Nachnamens.
+     * @return Gibt das JTextField mit dem Nachnamen zurück, den der Nutzer 
+     * eingegeben hat.
+     */
     public JTextField getNnameeintragen() {
         return nnameeintragen;
     }
-/**
- * 
- * @return Gibt die Email zurück, die der Nutzer eingegeben hat.
- */
+    
+    /**
+     * Getter für das JTextField der Email.
+     * @return Gibt das JTextField der Email zurück, die der Nutzer 
+     * eingegeben hat.
+     */
     public JTextField getMaileintragen() {
         return maileintragen;
     }
-/**
- * 
- * @return Gibt den Geburtstag zurück, den der Nutzer eingegeben hat.
- */
-   public JTextField getGbteintragen() {
+    
+    /**
+     * Getter für das JTextField des Geburtstags.
+     * @return Gibt das JTextField des Geburtstag zurück, den der Nutzer 
+     * eingegeben hat.
+     */
+    public JTextField getGbteintragen() {
         return gbteintragen;
     }
-/**
- * 
- * @return Gibt die Telefonnummer zurück, die der Nutzer eingegeben hat.
- */
+    
+    /**
+     * Getter für das JTextField der Telefonnummer.
+     * @return Gibt das JTextField der Telefonnummer zurück, die der Nutzer 
+     * eingegeben hat.
+     */
     public JTextField getTeleintragen() {
         return teleintragen;
     }
-/**
- * 
- * @return Gibt die Fehlermeldung zurück,die bei falschen Benutzeingaben gemacht werden
- */
+    
+    /**
+     * Getter für das JLabel des Errors.
+     * @return Gibt das JLabel für die Fehlermeldung zurück, das bei falschen 
+     * Benutzeingaben Text anzeigen kann.
+     */
     public JLabel getErrorLabel() {
         return errorLabel;
     }
     
     /**
-     * Erstellt das Formular GastBearbeiten
-     * und fügt dem Buttton für "Änderungen speichern" (hier:gastspeichern) einen Action Listener zu.
-     * @param controller Der controller wird als objekt übergeben
+     * Erstellt das Formular GastBearbeiten und fügt dem Button für 
+     * "Änderungen speichern" einen Action Listener zu.
+     * @param controller Der {@link Controller} als ActionListener
      */
     public GastBearbeiten(Controller controller) {
         initComponents();
