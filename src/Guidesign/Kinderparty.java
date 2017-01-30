@@ -1,13 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Guidesign;
 
 /**
  *
- * @author Miri
+ * @author Miri Hier werden die Tipps und Ideen für eine Kinderparty angezeigt
  */
 public class Kinderparty extends javax.swing.JFrame {
 

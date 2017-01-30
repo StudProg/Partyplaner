@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Guidesign;
 
 import controller.Controller;
@@ -10,17 +5,24 @@ import javax.swing.JList;
 
 /**
  *
- * @author Miri
+ * @author Miri Hier wird Liste aller gespeicherten Waren angezeigt
  */
 public class Warenliste extends javax.swing.JFrame {
- private Controller controller;
 
+    private Controller controller;
+
+    /**
+     *
+     * @return warenliste gibt die Liste aller Waren zurück
+     */
     public JList<String> getwarenListe() {
         return warenliste;
     }
-    
+
     /**
      * Creates new form Gästeliste
+     *
+     * @param controller ein Controller vom Typ controller
      */
     public Warenliste(Controller controller) {
         this.controller = controller;
@@ -49,11 +51,6 @@ public class Warenliste extends javax.swing.JFrame {
         warehinzufuegen.setText("Ware hinzufügen");
 
         wareentfernen.setText("Ware entfernen");
-        wareentfernen.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                wareentfernenActionPerformed(evt);
-            }
-        });
 
         jScrollPane1.setViewportView(warenliste);
 
@@ -94,17 +91,14 @@ public class Warenliste extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-private void addActionListener() {
+/**
+     * Die Action Listener für "Ware hinzufügen" und "Ware entfernen"
+     */
+    private void addActionListener() {
         warehinzufuegen.addActionListener(controller);
         wareentfernen.addActionListener(controller);
-        
-    }
-    private void wareentfernenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wareentfernenActionPerformed
-        // TODO add your handling code here:
-        //Ware entfernen
-    }//GEN-LAST:event_wareentfernenActionPerformed
 
-   
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane1;

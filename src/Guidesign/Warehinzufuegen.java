@@ -1,39 +1,61 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Guidesign;
 
 import controller.Controller;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+
 /**
  *
- * @author Miri
+ * @author Miri Hier kann man ein neues Produkt der Warenliste hinzufügen
  */
 public class Warehinzufuegen extends javax.swing.JFrame {
+
+    /**
+     *
+     * @return warennameeintragen gibt den Warennamen zurück, den der Nutzer
+     * eingegeben hat
+     */
     public JTextField getWarenname() {
         return warennameeintragen;
     }
+
+    /**
+     *
+     * @return volumenmenge gibt das Volumen zurück, das der Nutzer eingegeben
+     * hat
+     */
     public JTextField getvolumenmenge() {
         return volumenmengeeintragen;
     }
+
+    /**
+     *
+     * @return alkoholgehalteintragen gibt den Alkoholgehalt zurück, den der
+     * Nutzer eingegeben hat
+     */
     public JTextField getalkoholgehalt() {
         return alkoholgehalteintragen;
     }
+
+    /**
+     *
+     * @return preiseintragen gibt den Preis zurück, den der Nutzer eingegeben
+     * hat
+     */
     public JTextField getPreis() {
         return preiseintragen;
     }
-   
+
     /**
      * Creates new form Warehinzufügen
+     *
+     * @param Controller Ein Objekt vom Typ Controller dem Button "Ware
+     * speichern" wird ein ActionListener hinzugefügt
      */
     public Warehinzufuegen(Controller controller) {
         initComponents();
         warespeichern.addActionListener(controller);
     }
-
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -116,7 +138,7 @@ public class Warehinzufuegen extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-  
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField alkoholgehalteintragen;
     private javax.swing.JLabel jLabel1;

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Guidesign;
 
 import controller.Controller;
@@ -11,42 +6,67 @@ import javax.swing.JTextField;
 
 /**
  *
- * @author Miri
+ * @author Miri Das Fenster, welches beim Programmstart angezeigt wird. Hier
+ * werden auch die Details zur jeweils gewählten Party angezigt und der Nutzer
+ * kann diese bearbeiten und speichern.
  */
 public class Startseite extends javax.swing.JFrame {
 
     private final Controller controller;
 
+    /**
+     *
+     * @return errorLabel gibt die Fehlermeldung zurück, die bei falschen
+     * Nutzereingaben erscheint
+     */
     public JLabel getErrorLabel() {
         return errorLabel;
     }
 
+    /**
+     *
+     * @return partynameeintragen gibt den vom Nutzer eingegebenen Partynamen
+     * zurück
+     */
     public JTextField getPartynameeintragen() {
         return partynameeintragen;
     }
-    
+
+    /**
+     *
+     * @return partydatumeintragen gibt das vom Nutzer eingegebenen Datum zurück
+     */
     public JTextField getPartydatumeintragen() {
         return partydatumeintragen;
     }
-    
+
+    /**
+     *
+     * @return partybudget gibt das vom Nutzer eingegebenes Budget zurück
+     */
     public JTextField getPartybudget() {
         return partybudget;
     }
-    
+
+    /**
+     *
+     * @return gaesteanzahleintragen gibt die Anzahl der Gäste zurück, die der
+     * Nutzer in das Feld eingetragen hat
+     */
     public JTextField getGaesteAnzahlEintragen() {
         return gaesteanzahleintragen;
     }
 
     /**
      * Creates new form NewJFrame
+     *
+     * @param controller Ein Objekt controller vom Typ controller
      */
     public Startseite(Controller controller) {
         this.controller = controller;
         initComponents();
         addActionListeners();
     }
-
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -102,18 +122,6 @@ public class Startseite extends javax.swing.JFrame {
         budget.setText("Budget in €");
 
         anmerkung.setText("Anmerkung");
-
-        gaesteanzahleintragen.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                gaesteanzahlintragenActionPerformed(evt);
-            }
-        });
-
-        raumbedarf.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                raumbedarfActionPerformed(evt);
-            }
-        });
 
         partyabbrechen.setText("Abbrechen");
 
@@ -306,40 +314,49 @@ public class Startseite extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+/**
+     *
+     * @param evt Wird vom Nutzer JMenuItem Kinderparty gewählt, wird der JFrame
+     * Kinderparty angezeigt
+     */
     private void kinderpartyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kinderpartyActionPerformed
         Kinderparty kp = new Kinderparty();
         kp.setVisible(true);
     }//GEN-LAST:event_kinderpartyActionPerformed
-
+    /**
+     *
+     * @param evtWird vom Nutzer JMenuItem Tanzparty gewählt, wird der JFrame
+     * Tanzparty angezeigt
+     */
     private void tanzpartyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tanzpartyActionPerformed
-        Tanzparty tp = new Tanzparty ();
+        Tanzparty tp = new Tanzparty();
         tp.setVisible(true);
     }//GEN-LAST:event_tanzpartyActionPerformed
-
+    /**
+     *
+     * @param evt Wird vom Nutzer JMenuItem Couchparty gewählt, wird der JFrame
+     * Couchparty angezeigt
+     */
     private void couchpartyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_couchpartyActionPerformed
-        Couchparty cp = new Couchparty ();
+        Couchparty cp = new Couchparty();
         cp.setVisible(true);
     }//GEN-LAST:event_couchpartyActionPerformed
-
-    private void raumbedarfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_raumbedarfActionPerformed
-    
-         }//GEN-LAST:event_raumbedarfActionPerformed
-
-    private void gaesteanzahlintragenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gaesteanzahlintragenActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_gaesteanzahlintragenActionPerformed
-
+    /**
+     *
+     * @param evt Wird auf den button "Raumbedarf berechnen" geklickt, wird der
+     * Raumbedarf für die vom Nuzer eingegebene Gästeanzahl g errechnet und
+     * zeigt diese an
+     */
     private void raumbedarfberechnungActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_raumbedarfberechnungActionPerformed
         double g, rb;
         try {
-            g= Double.parseDouble(gaesteanzahleintragen.getText());
+            g = Double.parseDouble(gaesteanzahleintragen.getText());
         } catch (NumberFormatException e) {
             return;
         }
-        rb= g*1.4;
-        rb = Math.round(rb*1000)/1000.0;
-        raumbedarf.setText(rb+ " qm");
+        rb = g * 1.4;
+        rb = Math.round(rb * 1000) / 1000.0;
+        raumbedarf.setText(rb + " qm");
     }//GEN-LAST:event_raumbedarfberechnungActionPerformed
 
 
@@ -377,6 +394,15 @@ public class Startseite extends javax.swing.JFrame {
     private javax.swing.JMenu warenlistemenue;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     * Die Action Listener für die auf der Startseite verfügbaren Aktionen, die
+     * im Controller aufgerufen wird Party erstellen öffnet das Formular für
+     * eine neue Party Party anzeigen lässt den Nutzer die Lsie aller erstellten
+     * Partys sehen Partyeinfuegen speichert eine bearbeitete Party gbanzeigen
+     * zeigt das Gästebuch an wareanzeigen zeigt die Warenliste an
+     * gaestelisteerstellen zeigt das Formular an um eine Gästeliste zu
+     * erstellen
+     */
     private void addActionListeners() {
         this.partyerstellen.addActionListener(controller);
         this.partyanzeigen.addActionListener(controller);

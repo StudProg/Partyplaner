@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Guidesign;
 
 import controller.Controller;
@@ -12,36 +7,57 @@ import javax.swing.JTextField;
 /**
  *
  * @author Miri
+ * Hier wird ein bereits eingetragener Gast und seine Attribute angezeigt und man diesen gebgebenfalls bearbeiten und speichern.
  */
 public class GastBearbeiten extends javax.swing.JFrame{
 
+    /**
+     * 
+     * @return vnameeintragen gibt den Vornamen zurück, den der Nutzer in das Text Feld eingegeben hat
+     */
     public JTextField getVnameeintragen() {
         return vnameeintragen;
     }
-
+/**
+ * 
+ * @return Gibt den Nachnamen zurück, den der Nutzer eingegeben hat.
+ */
     public JTextField getNnameeintragen() {
         return nnameeintragen;
     }
-
+/**
+ * 
+ * @return Gibt die Email zurück, die der Nutzer eingegeben hat.
+ */
     public JTextField getMaileintragen() {
         return maileintragen;
     }
-
-    public JTextField getGbteintragen() {
+/**
+ * 
+ * @return Gibt den Geburtstag zurück, den der Nutzer eingegeben hat.
+ */
+   public JTextField getGbteintragen() {
         return gbteintragen;
     }
-
+/**
+ * 
+ * @return Gibt die Telefonnummer zurück, die der Nutzer eingegeben hat.
+ */
     public JTextField getTeleintragen() {
         return teleintragen;
     }
-
+/**
+ * 
+ * @return Gibt die Fehlermeldung zurück,die bei falschen Benutzeingaben gemacht werden
+ */
     public JLabel getErrorLabel() {
         return errorLabel;
     }
     
-
     /**
-     * Creates new form Gasthinzufügen
+     * Erstellt das Formular GastBearbeiten
+     * und fügt dem Buttton für "Änderungen speichern" (hier:gastspeichern) einen Action Listener zu.
+     * @param controller Der controller wird als objekt übergeben
      */
     public GastBearbeiten(Controller controller) {
         initComponents();
@@ -83,7 +99,7 @@ public class GastBearbeiten extends javax.swing.JFrame{
 
         gasttel.setText("Telefon");
 
-        gastspeichern.setText("Gast hinzufügen");
+        gastspeichern.setText("Änderungen speichern");
         gastspeichern.setActionCommand("bearbeiteter Gast");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

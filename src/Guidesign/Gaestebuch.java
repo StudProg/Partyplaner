@@ -5,18 +5,28 @@ import javax.swing.JList;
 
 /**
  *
- * @author Miri
+ * @author Miri Das Gästebuch mit allen eingetragenen Gästen wird angezeigt. Man
+ * kann Gäste hinzufügen, bearbeiten(anzeigen) oder löschen
  */
 public class Gaestebuch extends javax.swing.JDialog {
+
     private Controller controller;
 
+    /**
+     *
+     * @return gaesteliste: die Gästeliste aus der Verwaltung mit allen
+     * Kontakten wird aufgerufen
+     */
     public JList<String> getgaesteListe() {
         return gaesteListe;
     }
-    
 
     /**
-     * Creates new form Gästeliste
+     * Erzeugt das Formular für die Gästeliste
+     *
+     * @param controller Der Controller wird als Objekt übergeben und zugewiesen
+     * und die Koomponenten des Formulars geladen. Action Listener werden
+     * hinzugefügt, um die drei Aktionen an den Controller zu übergeben
      */
     public Gaestebuch(Controller controller) {
         this.controller = controller;
@@ -47,7 +57,7 @@ public class Gaestebuch extends javax.swing.JDialog {
 
         gastentfernen.setText("Gast entfernen");
 
-        gastbearbeiten.setText("Gast bearbeiten");
+        gastbearbeiten.setText("Gast anzeigen");
 
         jScrollPane1.setViewportView(gaesteListe);
 
@@ -72,7 +82,7 @@ public class Gaestebuch extends javax.swing.JDialog {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(141, 141, 141)
                         .addComponent(gästebuch)))
-                .addGap(270, 270, Short.MAX_VALUE))
+                .addGap(278, 278, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -93,14 +103,18 @@ public class Gaestebuch extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-       private void addActionListener() {
+    /**
+     * Die Action Listener für die jeweils belegeten Buttons, auf die der
+     * Controller reagiert und den betreffenden Code ausführt("speichern,
+     * anzeigen oder löschen")
+     */
+    private void addActionListener() {
         gasthinzufügengb.addActionListener(controller);
         gastentfernen.addActionListener(controller);
         gastbearbeiten.addActionListener(controller);
     }
-    
 
-        
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JList<String> gaesteListe;
     private javax.swing.JToggleButton gastbearbeiten;

@@ -1,29 +1,33 @@
 package Model;
+
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 /**
  * Die Klasse für einen Gast.
+ *
  * @author Miri
  */
 public class Gast {
+
     private String vorname;
     private String nachname;
     private GregorianCalendar geburtstdatum;
-    private int gastnummer;
     private String email;
     private String telefon;
-    
+    private int gastnummer;
+
     //Konstruktor
-     /**
+    /**
      * Kreirt einen neuen Gast mit den Parametern.
-     * @param vorname
-     * @param nachname
-     * @param geburtstdatum
-     * @param email
-     * @param telefon
+     *
+     * @param vorname Der Vorname des Gastes
+     * @param nachname der Nachname des Gastes
+     * @param geburtstdatum das Geburtsdatum des Gastes
+     * @param email Die Email des Gastes
+     * @param telefon die Telefonummer des Gastes
      */
-    public Gast(String vorname, String nachname, 
+    public Gast(String vorname, String nachname,
             GregorianCalendar geburtstdatum, String email, String telefon) {
         this.vorname = vorname;
         this.nachname = nachname;
@@ -31,10 +35,11 @@ public class Gast {
         this.email = email;
         this.telefon = telefon;
     }
-    
+
     /**
      * Gibt den vollen Namen (Vor- und Zuname) als String zurück.
-     * @return
+     *
+     * @return vorname + nachname
      */
     public String getName() {
         return vorname + " " + nachname;
@@ -42,41 +47,64 @@ public class Gast {
 
     /**
      * Gibt nur den Vornamen zurück.
-     * @return
+     *
+     * @return vorname
      */
     public String getVorname() {
         return vorname;
     }
 
+    /**
+     * Weist dem Vornamen einen Wert zu
+     *
+     * @param vorname der Vorname des Gastes
+     */
     public void setVorname(String vorname) {
         this.vorname = vorname;
     }
 
     /**
-     * Gibt nur den Nachnamen zurück.
-     * @return
+     * Gibt nur den Nachnamen des Gastes zurück.
+     *
+     * @return nachname
      */
     public String getNachname() {
         return nachname;
     }
 
+    /**
+     * Weist dem Nachnamen eine Wert zu
+     *
+     * @param nachname der nachname des Gastes
+     */
     public void setNachname(String nachname) {
         this.nachname = nachname;
     }
-    
+
     /**
      * Gibt das Geburtstag des Gastes zurück.
-     * @return
+     *
+     * @return geburtsdatum
      */
     public GregorianCalendar getGeburtstdatum() {
         return geburtstdatum;
     }
 
+    /**
+     * Weist dem Gebutsdatum einen Wert zu
+     *
+     * @param geburtstdatum das geburtsdatum des Gastes
+     */
     public void setGeburtstdatum(GregorianCalendar geburtstdatum) {
         this.geburtstdatum = geburtstdatum;
     }
-     
-    public String getDatumAlsString () {
+
+    /**
+     * Wandelt das Geburtsdatum vom Gregorian Calender zu einen String
+     *
+     * @return das Geburtsdatum als String mit Tag+Monat+Jahr
+     */
+    public String getDatumAlsString() {
         int datumTag = geburtstdatum.get(Calendar.DAY_OF_MONTH);
         int datumMonat = geburtstdatum.get(Calendar.MONTH);
         int datumJahr = geburtstdatum.get(Calendar.YEAR);
@@ -84,8 +112,9 @@ public class Gast {
     }
 
     /**
-     * Gibt die nummer dieses Gastes zurück.
-     * @return
+     * Gibt die Gastnummer zurück
+     *
+     * @return gastnummer Die Nummer des Gastes
      */
     public int getGastnummer() {
         return gastnummer;
@@ -93,7 +122,8 @@ public class Gast {
 
     /**
      * Setzt die Gastnummer auf einen bestimmten Wert.
-     * @param gastnummer
+     *
+     * @param gastnummer die Nummer des Gastes
      */
     public void setGastnummer(int gastnummer) {
         this.gastnummer = gastnummer;
@@ -101,28 +131,38 @@ public class Gast {
 
     /**
      * Gibt die Email dieses Gastes zurück.
-     * @return
+     *
+     * @return email
      */
     public String getEmail() {
         return email;
     }
 
+    /**
+     * Setzt die Email auf einen Wert
+     *
+     * @param email die EMail adresse des Gastes
+     */
     public void setEmail(String email) {
         this.email = email;
     }
 
-    
     /**
      * Gibt die Telefonnummer des Gastes zurück.
-     * @return
+     *
+     * @return telefon Die Telefonnummer des Gastes
      */
     public String getTelefon() {
         return telefon;
     }
 
+    /**
+     * Weist der Telefonnummer einen Wert zu
+     *
+     * @param telefon die Telelfonnummer des Gastes
+     */
     public void setTelefon(String telefon) {
         this.telefon = telefon;
     }
-    
-    
+
 }

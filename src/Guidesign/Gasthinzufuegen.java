@@ -11,30 +11,65 @@ import javax.swing.JTextField;
 
 /**
  *
- * @author Miri
+ * @author Miri Hier kann man einen neuen Gast in sein Gästebuch eintragen
  */
-public class Gasthinzufuegen extends javax.swing.JFrame{
+public class Gasthinzufuegen extends javax.swing.JFrame {
+
+    /**
+     *
+     * @return vnameeintragen gibt den Vornamen zurück, den der Nutzer in das
+     * Text Feld eingegeben hat
+     */
     public JTextField getVorname() {
         return vnameeintragen;
     }
+
+    /**
+     *
+     * @return Gibt den Nachnamen zurück, den der Nutzer eingegeben hat.
+     */
     public JTextField getNachname() {
         return nnameeintragen;
     }
+
+    /**
+     *
+     * @return Gibt den Geburtstag zurück, den der Nutzer eingegeben hat.
+     */
     public JTextField getGeburtsdatum() {
         return gbteintragen;
     }
+
+    /**
+     *
+     * @return Gibt die Telefonnummer zurück, die der Nutzer eingegeben hat.
+     */
     public JTextField getTelefon() {
         return teleintragen;
     }
+
+    /**
+     *
+     * @return Gibt die Email zurück, die der Nutzer eingegeben hat.
+     */
     public JTextField getMail() {
         return maileintragen;
     }
+
+    /**
+     *
+     * @return Gibt die Fehlermeldung zurück,die bei falschen Benutzereingaben
+     * gemacht werden
+     */
     public JLabel geterrorLabel() {
         return errorLabel;
     }
 
     /**
      * Creates new form Gasthinzufügen
+     *
+     * @param controller übergibt den controller als objekt dem Button"Gast
+     * hinzufügen" wird der ActionListener für gastEinfügen hinzugefügt
      */
     public Gasthinzufuegen(Controller controller) {
         initComponents();
@@ -150,7 +185,7 @@ public class Gasthinzufuegen extends javax.swing.JFrame{
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-  
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel errorLabel;
     private javax.swing.JToggleButton gastEinfuegen;

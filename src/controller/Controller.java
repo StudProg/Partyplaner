@@ -232,7 +232,7 @@ public class Controller implements ActionListener {
                 gaesteArray[i] = gaeste.get(i).getName();
             }
             gaestebuch.getgaesteListe().setListData(gaesteArray);
-        } else if(e.getActionCommand().equals("Gast bearbeiten")) {
+        } else if(e.getActionCommand().equals("Gast anzeigen")) {
             indexBearbeiteterGast = gaestebuch.getgaesteListe().getSelectedIndex();
             if(indexBearbeiteterGast < 0)
                 return;
