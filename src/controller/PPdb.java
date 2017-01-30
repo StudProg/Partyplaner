@@ -34,11 +34,12 @@ public class PPdb {
             Class.forName("org.hsqldb.jdbc.JDBCDriver");
         } catch (ClassNotFoundException e) {
             System.out.println("Fehler!!!");
+            e.printStackTrace();
             return;
         }
 
         try {
-            con = DriverManager.getConnection("jdbc:hsqldb:file:data\\partys", "SA", "");
+            con = DriverManager.getConnection("jdbc:hsqldb:file:../data/partys", "SA", "");
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -318,47 +319,6 @@ public class PPdb {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-    }
-    
-    /**
-     * Ein {@link Gast} wird in die Datenbank eingefügt.
-     * @param gast {@link Gast}
-     */
-    public void gastEinfuegen(Gast gast) {
-
-        try {
-            Statement stmt = con.createStatement();
-            ResultSet r = stmt.executeQuery("SELECT * FROM Gast");
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-            
-        }
-
-        try {
-            String sql = "INSERT INTO Gast (vorname, nachname, geburtsdatum, email, telefonnr) VALUES (?, ?, ?, ?, ?)";
-            PreparedStatement prep = con.prepareStatement(sql);
-            prep.setString(1, gast.getVorname());
-            prep.setString(2, gast.getNachname());
-           
-            /**
-             * String[] datumsteile = geburtsdatum.split("-"); int jahr =
-             * Integer.parseInt(datumsteile[0]); int monat =
-             * Integer.parseInt(datumsteile[1]) - 1; int tag =
-             * Integer.parseInt(datumsteile[2]); GregorianCalendar greg = new
-             * GregorianCalendar(jahr, monat, tag);
-             */GregorianCalendar datum = gast.getGeburtstdatum();
-            int jahr = datum.get(Calendar.YEAR);
-            int monat = datum.get(Calendar.MONTH) + 1;
-            int tag = datum.get(Calendar.DAY_OF_MONTH);
-            prep.setString(3, jahr + "-" + monat + "-" + tag);
-            prep.setString(4, gast.getEmail());
-            prep.setString(5, gast.getTelefon());
-            prep.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
     }
 
     /**
