@@ -44,8 +44,6 @@ public class PPdb {
             return;
         }
 
-        con = null;
-
         try {
             con = DriverManager.getConnection("jdbc:hsqldb:file:data\\partys", "SA", "");
         } catch (SQLException e) {
@@ -79,6 +77,98 @@ public class PPdb {
             e.printStackTrace();
         }
         return null;
+    }
+    
+    public List<Gast> gibAlleGaeste() {
+        List<Gast> gaeste = new ArrayList<>();
+
+        try {
+            Statement stmt = con.createStatement();
+            String sql = "SELECT * FROM Gast";
+
+            ResultSet res = stmt.executeQuery(sql);
+
+            while (res.next()) {
+                int id = res.getInt(1);
+                String vorname = res.getString(2);
+                String nachname = res.getString(3);
+                String email = res.getString(5);
+                String geburtsdatum = res.getString("geburtsdatum");
+                String[] datumsteile = geburtsdatum.split("-");
+                int jahr = Integer.parseInt(datumsteile[0]);
+                int monat = Integer.parseInt(datumsteile[1]) - 1;
+                int tag = Integer.parseInt(datumsteile[2]);
+                GregorianCalendar greg = new GregorianCalendar(jahr, monat, tag);
+                String telefon = res.getString("telefonnr");
+                Gast gast = new Gast(vorname, nachname, greg, email, telefon);
+                gast.setGastnummer(id);
+                gaeste.add(gast);
+            }
+
+            res.close();
+            stmt.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return gaeste;
+    }
+    
+     public boolean gastErstellen(Gast gast) throws SQLException {
+
+        boolean erfolgreich = false;
+
+        Statement stmt = con.createStatement();
+        GregorianCalendar datum = gast.getGeburtstdatum();
+        String sqlDatum = datum.get(GregorianCalendar.YEAR) + "-" + (datum.get(GregorianCalendar.MONTH) + 1) + "-" + datum.get(GregorianCalendar.DAY_OF_MONTH);
+        String sql = "INSERT INTO gast (vorname, nachname, geburtsdatum, email, telefonnr) values ('"
+                + gast.getVorname() + "', '" + gast.getNachname() + "', '" + sqlDatum + "', '" + gast.getEmail() + "', '" + gast.getTelefon() + "')";
+        System.out.println(sql);
+        //Geburtsdatum ist ein Datetime objekt, kein String!
+        stmt.executeUpdate(sql, Statement.RETURN_GENERATED_KEYS);
+        
+        // Auslesen des erzeugten Primärschlüssels (id)
+        ResultSet rst = stmt.getGeneratedKeys();
+        if (rst.next()) {
+            gast.setGastnummer(rst.getInt(1));
+            erfolgreich = true;
+        }
+
+        stmt.close();
+        return erfolgreich;
+    }
+     
+     public void gastLoeschen(int gastnummer) {
+
+        try {
+            String sql = "Delete from Gast where GastID = ?";
+            PreparedStatement prep = con.prepareStatement(sql);
+            prep.setInt(1, gastnummer);
+            prep.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+     
+     public void gastBearbeiten(Gast gast) {
+
+        try {
+            String sql = "UPDATE Gast SET vorname = ?, nachname = ?, geburtsdatum = ?,"
+                    + "email = ?, telefonnr = ? WHERE GastId = ?";
+            PreparedStatement prep = con.prepareStatement(sql);
+            prep.setString(1, gast.getVorname());
+            prep.setString(2, gast.getNachname());
+            GregorianCalendar datum = gast.getGeburtstdatum();
+            int jahr = datum.get(Calendar.YEAR);
+            int monat = datum.get(Calendar.MONTH) + 1;
+            int tag = datum.get(Calendar.DAY_OF_MONTH);
+            prep.setString(3, jahr + "-" + monat + "-" + tag);
+            prep.setString(4, gast.getEmail());
+            prep.setString(5, gast.getTelefon());
+            prep.setInt(6, gast.getGastnummer());
+            prep.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public Map<Party, List<String[]>> gibAllePartys() {
@@ -189,39 +279,7 @@ public class PPdb {
         }
     }
 
-    public List<Gast> gibAlleGaeste() {
-        List<Gast> gaeste = new ArrayList<>();
-
-        try {
-            Statement stmt = con.createStatement();
-            String sql = "SELECT * FROM Gast";
-
-            ResultSet res = stmt.executeQuery(sql);
-
-            while (res.next()) {
-                int id = res.getInt(1);
-                String vorname = res.getString(2);
-                String nachname = res.getString(3);
-                String email = res.getString(5);
-                String geburtsdatum = res.getString("geburtsdatum");
-                String[] datumsteile = geburtsdatum.split("-");
-                int jahr = Integer.parseInt(datumsteile[0]);
-                int monat = Integer.parseInt(datumsteile[1]) - 1;
-                int tag = Integer.parseInt(datumsteile[2]);
-                GregorianCalendar greg = new GregorianCalendar(jahr, monat, tag);
-                String telefon = res.getString("telefonnr");
-                Gast gast = new Gast(vorname, nachname, greg, email, telefon);
-                gast.setGastnummer(id);
-                gaeste.add(gast);
-            }
-
-            res.close();
-            stmt.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return gaeste;
-    }
+    
 
     public void gastEinfuegen(Gast gast) {
 
@@ -260,39 +318,9 @@ public class PPdb {
 
     }
 
-    public void gastLoeschen(int gastnummer) {
+    
 
-        try {
-            String sql = "Delete from Gast where GastID = ?";
-            PreparedStatement prep = con.prepareStatement(sql);
-            prep.setInt(1, gastnummer);
-            prep.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void gastBearbeiten(Gast gast) {
-
-        try {
-            String sql = "UPDATE Gast SET vorname = ?, nachname = ?, geburtsdatum = ?,"
-                    + "email = ?, telefonnr = ? WHERE GastId = ?";
-            PreparedStatement prep = con.prepareStatement(sql);
-            prep.setString(1, gast.getVorname());
-            prep.setString(2, gast.getNachname());
-            GregorianCalendar datum = gast.getGeburtstdatum();
-            int jahr = datum.get(Calendar.YEAR);
-            int monat = datum.get(Calendar.MONTH) + 1;
-            int tag = datum.get(Calendar.DAY_OF_MONTH);
-            prep.setString(3, jahr + "-" + monat + "-" + tag);
-            prep.setString(4, gast.getEmail());
-            prep.setString(5, gast.getTelefon());
-            prep.setInt(6, gast.getGastnummer());
-            prep.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
+    
 
     public List<Ware> gibAlleWaren() {
         List<Ware> waren = new ArrayList<Ware>();
@@ -402,28 +430,6 @@ public class PPdb {
         }
     }
 
-    public boolean gastErstellen(Gast gast) throws SQLException {
-
-        boolean erfolgreich = false;
-
-        Statement stmt = con.createStatement();
-        GregorianCalendar datum = gast.getGeburtstdatum();
-        String sqlDatum = datum.get(GregorianCalendar.YEAR) + "-" + (datum.get(GregorianCalendar.MONTH) + 1) + "-" + datum.get(GregorianCalendar.DAY_OF_MONTH);
-        String sql = "INSERT INTO gast (vorname, nachname, geburtsdatum, email, telefonnr) values ('"
-                + gast.getVorname() + "', '" + gast.getNachname() + "', '" + sqlDatum + "', '" + gast.getEmail() + "', '" + gast.getTelefon() + "')";
-        System.out.println(sql);
-        //Geburtsdatum ist ein Datetime objekt, kein String!
-        stmt.executeUpdate(sql, Statement.RETURN_GENERATED_KEYS);
-        
-        // Auslesen des erzeugten Primärschlüssels (id)
-        ResultSet rst = stmt.getGeneratedKeys();
-        if (rst.next()) {
-            gast.setGastnummer(rst.getInt(1));
-            erfolgreich = true;
-        }
-
-        stmt.close();
-        return erfolgreich;
-    }
+   
 
 }
